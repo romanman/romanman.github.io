@@ -1,0 +1,24 @@
+---
+layout: post
+title: "snippet-3"
+date: 2015-07-16 14:46:32 -0400
+comments: true
+categories: snippets
+---
+
+``` [Java] [snippet-3] [url] [link text]
+    @Override
+    public void close() {
+        if (!isAlive()) return;
+
+        try {
+            logger.debug("Close db: {}", name);
+            db.close();
+
+            alive = false;
+        } catch (IOException e) {
+            logger.error("Failed to find the db file on the close: {} ", name);
+        }
+    }
+
+```
