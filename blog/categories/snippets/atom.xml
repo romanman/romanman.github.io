@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Snippets | Ethereum J]]></title>
   <link href="http://romanman.github.io/blog/categories/snippets/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-16T17:07:31-04:00</updated>
+  <updated>2015-07-16T17:10:26-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -19,7 +19,7 @@
     <updated>2015-07-16T17:03:57-04:00</updated>
     <id>http://romanman.github.io/blog/2015/07/16/snippet-1</id>
     <content type="html"><![CDATA[<p>``` java
-public class Main {</p>
+public class Main2 {</p>
 
 <pre><code>public static void main(String[] args) throws UnknownHostException {
     System.out.printf("Listening on udp:%s:%d%n",
