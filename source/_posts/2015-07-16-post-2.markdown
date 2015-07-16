@@ -1,9 +1,0 @@
----
-layout: post
-title: "Post - 2"
-date: 2015-07-16 12:20:53 -0400
-comments: true
-categories: 
----
-
-Here is my test 1232....
