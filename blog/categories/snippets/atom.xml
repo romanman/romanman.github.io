@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Snippets | Ethereum J]]></title>
+  <link href="http://romanman.github.io/blog/categories/snippets/atom.xml" rel="self"/>
+  <link href="http://romanman.github.io/"/>
+  <updated>2015-07-16T14:47:48-04:00</updated>
+  <id>http://romanman.github.io/</id>
+  <author>
+    <name><![CDATA[Roman Mandeleil]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Snippet-3]]></title>
+    <link href="http://romanman.github.io/blog/2015/07/16/snippet-3/"/>
+    <updated>2015-07-16T14:46:32-04:00</updated>
+    <id>http://romanman.github.io/blog/2015/07/16/snippet-3</id>
+    <content type="html"><![CDATA[<pre><code class="[Java] [snippet-3] [url] [link text]">    @Override
+    public void close() {
+        if (!isAlive()) return;
+
+        try {
+            logger.debug("Close db: {}", name);
+            db.close();
+
+            alive = false;
+        } catch (IOException e) {
+            logger.error("Failed to find the db file on the close: {} ", name);
+        }
+    }
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>
