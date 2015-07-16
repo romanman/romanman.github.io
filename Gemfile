@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 group :development do
+  gem 'octopress-genesis-theme'
   gem 'kramdown'
   gem 'coderay'
   gem 'octopress', '~> 3.0'
