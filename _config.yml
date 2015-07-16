@@ -28,6 +28,7 @@ email:
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
 root: /
 permalink: /blog/:year/:month/:day/:title/
+auto: false
 source: source
 destination: public
 plugins: plugins
