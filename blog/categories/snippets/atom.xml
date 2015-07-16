@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Snippets | Ethereum J]]></title>
   <link href="http://romanman.github.io/blog/categories/snippets/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-16T17:16:16-04:00</updated>
+  <updated>2015-07-16T17:18:03-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -12,6 +12,18 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Snippet-2]]></title>
+    <link href="http://romanman.github.io/blog/2015/07/16/snippet-2/"/>
+    <updated>2015-07-16T17:17:35-04:00</updated>
+    <id>http://romanman.github.io/blog/2015/07/16/snippet-2</id>
+    <content type="html"><![CDATA[<pre lang="ruby"><code>def hello
+  puts "Hello!"
+end
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Snippet-1]]></title>
