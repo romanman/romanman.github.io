@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://romanman.github.io/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-16T14:20:05-04:00</updated>
+  <updated>2015-07-16T14:34:30-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Code Snippet]]></title>
+    <link href="http://romanman.github.io/blog/2015/07/16/code-snippet/"/>
+    <updated>2015-07-16T14:30:52-04:00</updated>
+    <id>http://romanman.github.io/blog/2015/07/16/code-snippet</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Post - 2]]></title>
