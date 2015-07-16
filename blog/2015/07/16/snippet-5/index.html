@@ -97,33 +97,32 @@
   </header>
 
 
-<div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>@Override
-</span><span class='line'>    public void close() {
-</span><span class='line'>        if (!isAlive()) return;
-</span><span class='line'>
-</span><span class='line'>        try {
-</span><span class='line'>            logger.debug("Close db: {}", name);
-</span><span class='line'>            db.close();
-</span><span class='line'>
-</span><span class='line'>            alive = false;
-</span><span class='line'>        } catch (IOException e) {
-</span><span class='line'>            logger.error("Failed to find the db file on the close: {} ", name);
-</span><span class='line'>        }
-</span><span class='line'>    }</span></code></pre></td></tr></table></div></figure>
-
+<div class="entry-content"><div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">@Override
+</span><span class="line">    public void close() {
+</span><span class="line">        if (!isAlive()) return;
+</span><span class="line">
+</span><span class="line">        try {
+</span><span class="line">            logger.debug("Close db: {}", name);
+</span><span class="line">            db.close();
+</span><span class="line">
+</span><span class="line">            alive = false;
+</span><span class="line">        } catch (IOException e) {
+</span><span class="line">            logger.error("Failed to find the db file on the close: {} ", name);
+</span><span class="line">        }
+</span><span class="line">    }</span></code></pre></td></tr></table></div></figure></notextile></div>
 </div>
 
 
@@ -165,6 +164,8 @@
         <a class="basic-alignment left" href="/blog/2015/07/16/snippet-3/" title="Previous Post: snippet-3">&laquo; snippet-3</a>
       
       
+        <a class="basic-alignment right" href="/blog/2015/07/16/snippet-6/" title="Next Post: snippet-6">snippet-6 &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -176,6 +177,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/07/16/snippet-6/">Snippet-6</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/07/16/snippet-5/">Snippet-5</a>
@@ -191,10 +196,6 @@
     
       <li class="post">
         <a href="/blog/2015/07/16/code-snippet/">Code Snippet</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/07/16/post-2/">Post - 2</a>
       </li>
     
   </ul>
