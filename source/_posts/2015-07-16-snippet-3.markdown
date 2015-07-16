@@ -6,6 +6,7 @@ comments: true
 categories: snippets
 ---
 
+{% codeblock lang:java Time to be Awesome %}
 public class Main {
 
     public static void main(String[] args) throws UnknownHostException {
@@ -15,4 +16,4 @@ public class Main {
 
 }
 
-{:lang="java"}
+{% endcodeblock %}
