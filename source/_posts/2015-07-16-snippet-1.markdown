@@ -8,7 +8,7 @@ categories: snippets
 
 
 ``` java
-public class Main {
+public class Main2 {
 
     public static void main(String[] args) throws UnknownHostException {
         System.out.printf("Listening on udp:%s:%d%n",
