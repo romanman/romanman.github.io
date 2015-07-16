@@ -1,0 +1,19 @@
+---
+layout: post
+title: "snippet-3"
+date: 2015-07-16 17:23:53 -0400
+comments: true
+categories: snippets
+---
+
+{ % coderay [lang:java] [linenos:true|] [title] [url] [link text] % }
+public class Main {
+
+    public static void main(String[] args) throws UnknownHostException {
+        System.out.printf("Listening on udp:%s:%d%n",
+                InetAddress.getLocalHost().getHostAddress(), 30303);
+    }
+
+}
+
+{ % endcoderay % }
