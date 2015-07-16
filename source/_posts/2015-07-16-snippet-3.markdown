@@ -6,7 +6,6 @@ comments: true
 categories: snippets
 ---
 
-{ % coderay [lang:java] [linenos:true|] [title] [url] [link text] % }
 public class Main {
 
     public static void main(String[] args) throws UnknownHostException {
@@ -16,4 +15,4 @@ public class Main {
 
 }
 
-{ % endcoderay % }
+{:lang="java"}
