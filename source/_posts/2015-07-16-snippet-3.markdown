@@ -6,14 +6,12 @@ comments: true
 categories: snippets
 ---
 
-{% codeblock lang:java Time to be Awesome %}
-public class Main {
+   public class Main {
 
-    public static void main(String[] args) throws UnknownHostException {
-        System.out.printf("Listening on udp:%s:%d%n",
-                InetAddress.getLocalHost().getHostAddress(), 30303);
-    }
-
-}
-
-{% endcodeblock %}
+       public static void main(String[] args) throws UnknownHostException {
+           System.out.printf("Listening on udp:%s:%d%n",
+                   InetAddress.getLocalHost().getHostAddress(), 30303);
+       } 
+ 
+   }
+{:lang="java"}
