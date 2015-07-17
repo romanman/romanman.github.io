@@ -4,7 +4,7 @@
   <title><![CDATA[Category: snippets | Ethereum J]]></title>
   <link href="http://romanman.github.io/blog/categories/snippets/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-17T12:15:31-04:00</updated>
+  <updated>2015-07-17T12:18:01-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -51,38 +51,6 @@
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[snippet-2]]></title>
-    <link href="http://romanman.github.io/blog/2015/07/16/snippet-2/"/>
-    <updated>2015-07-16T17:17:35-04:00</updated>
-    <id>http://romanman.github.io/blog/2015/07/16/snippet-2</id>
-    <content type="html"><![CDATA[<pre><code>def hello
-  puts "Hello!"
-end
-</code></pre>
-
-<p>{:lang=&ldquo;ruby&rdquo;}</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[snippet-1]]></title>
-    <link href="http://romanman.github.io/blog/2015/07/16/snippet-1/"/>
-    <updated>2015-07-16T17:03:57-04:00</updated>
-    <id>http://romanman.github.io/blog/2015/07/16/snippet-1</id>
-    <content type="html"><![CDATA[<pre><code class="java">public class Main2 {
-
-    public static void main(String[] args) {
-        System.out.printf("Listening on udp:%s:%d%n",
-                InetAddress.getLocalHost()
-                       .getHostAddress(), 30303);
-    }
-
-}
-</code></pre>
 ]]></content>
   </entry>
   
