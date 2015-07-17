@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 group :development do
   gem 'octopress-genesis-theme'
+  gem 'rdiscount', '~> 2.0'
   gem 'kramdown'
   gem 'coderay'
   gem 'octopress', '~> 3.0'
