@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://romanman.github.io/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-16T18:10:42-04:00</updated>
+  <updated>2015-07-17T01:57:03-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Snippet-3]]></title>
+    <title type="html"><![CDATA[snippet-3]]></title>
     <link href="http://romanman.github.io/blog/2015/07/16/snippet-3/"/>
     <updated>2015-07-16T17:23:53-04:00</updated>
     <id>http://romanman.github.io/blog/2015/07/16/snippet-3</id>
@@ -31,7 +31,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Snippet-2]]></title>
+    <title type="html"><![CDATA[snippet-2]]></title>
     <link href="http://romanman.github.io/blog/2015/07/16/snippet-2/"/>
     <updated>2015-07-16T17:17:35-04:00</updated>
     <id>http://romanman.github.io/blog/2015/07/16/snippet-2</id>
@@ -43,7 +43,7 @@ end
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Snippet-1]]></title>
+    <title type="html"><![CDATA[snippet-1]]></title>
     <link href="http://romanman.github.io/blog/2015/07/16/snippet-1/"/>
     <updated>2015-07-16T17:03:57-04:00</updated>
     <id>http://romanman.github.io/blog/2015/07/16/snippet-1</id>
