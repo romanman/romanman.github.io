@@ -6,7 +6,7 @@ comments: true
 categories: snippets
 ---
 
-{% codeblock lang:objc %}
+{% codeblock lang:objc Time to be Awesome  %}
 [rectangle setX: 10 y: 10 width: 20 height: 20];
 {% endcodeblock %}
 
