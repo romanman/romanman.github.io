@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 group :development do
+  gem 'octopress-solarized'
   gem 'octopress-genesis-theme'
   gem 'rdiscount', '~> 2.0'
   gem 'kramdown'
