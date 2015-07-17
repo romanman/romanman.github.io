@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://romanman.github.io/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-17T11:49:27-04:00</updated>
+  <updated>2015-07-17T12:19:31-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -14,45 +14,19 @@
 
   
   <entry>
-    <title type="html"><![CDATA[gist-1]]></title>
-    <link href="http://romanman.github.io/blog/2015/07/17/gist-1/"/>
-    <updated>2015-07-17T03:36:07-04:00</updated>
-    <id>http://romanman.github.io/blog/2015/07/17/gist-1</id>
-    <content type="html"><![CDATA[<div><script src='https://gist.github.com/08ad1da6baeb5c37e631.js?file=blog-gist-1.java'></script>
-<noscript><pre><code>public class Factorial
-{
-    public static void main(String[] args)
-    {   final int NUM_FACTS = 100;
-        for(int i = 0; i &lt; NUM_FACTS; i++)
-            System.out.println( i + &quot;! is &quot; + factorial(i));
-    }
-    
-    public static int factorial(int n)
-    {   int result = 1;
-        for(int i = 2; i &lt;= n; i++)
-            result *= i;
-        return result;
-    }
-}</code></pre></noscript></div>
-
-
-
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[snippet-3]]></title>
     <link href="http://romanman.github.io/blog/2015/07/16/snippet-3/"/>
     <updated>2015-07-16T17:23:53-04:00</updated>
     <id>http://romanman.github.io/blog/2015/07/16/snippet-3</id>
-    <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span>Time to be Awesome  </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="p">[</span><span class="n">rectangle</span> <span class="nl">setX</span><span class="p">:</span> <span class="mi">10</span> <span class="nl">y</span><span class="p">:</span> <span class="mi">10</span> <span class="nl">width</span><span class="p">:</span> <span class="mi">20</span> <span class="nl">height</span><span class="p">:</span> <span class="mi">20</span><span class="p">];</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Time to be awesome</span><a href='http://www.google.com'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -70,48 +44,6 @@
 </span><span class='line'>       <span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[snippet-2]]></title>
-    <link href="http://romanman.github.io/blog/2015/07/16/snippet-2/"/>
-    <updated>2015-07-16T17:17:35-04:00</updated>
-    <id>http://romanman.github.io/blog/2015/07/16/snippet-2</id>
-    <content type="html"><![CDATA[<pre><code>def hello
-  puts "Hello!"
-end
-</code></pre>
-
-<p>{:lang=&ldquo;ruby&rdquo;}</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[snippet-1]]></title>
-    <link href="http://romanman.github.io/blog/2015/07/16/snippet-1/"/>
-    <updated>2015-07-16T17:03:57-04:00</updated>
-    <id>http://romanman.github.io/blog/2015/07/16/snippet-1</id>
-    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main2</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Listening on udp:%s:%d%n&quot;</span><span class="o">,</span>
-</span><span class='line'>                <span class="n">InetAddress</span><span class="o">.</span><span class="na">getLocalHost</span><span class="o">()</span>
-</span><span class='line'>                       <span class="o">.</span><span class="na">getHostAddress</span><span class="o">(),</span> <span class="mi">30303</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 ]]></content>

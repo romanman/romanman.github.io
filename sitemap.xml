@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://romanman.github.io/blog/2015/07/17/gist-1/</loc>
-    <lastmod>2015-07-17T03:36:07-04:00</lastmod>
-  </url>
-  <url>
     <loc>http://romanman.github.io/blog/2015/07/16/snippet-3/</loc>
     <lastmod>2015-07-16T17:23:53-04:00</lastmod>
-  </url>
-  <url>
-    <loc>http://romanman.github.io/blog/2015/07/16/snippet-2/</loc>
-    <lastmod>2015-07-16T17:17:35-04:00</lastmod>
-  </url>
-  <url>
-    <loc>http://romanman.github.io/blog/2015/07/16/snippet-1/</loc>
-    <lastmod>2015-07-16T17:03:57-04:00</lastmod>
   </url>
   <url>
     <loc>http://romanman.github.io/blog/2015/07/05/Ethereum-Trie/</loc>
@@ -31,8 +19,5 @@
   </url>
   <url>
     <loc>http://romanman.github.io/blog/categories/snippets/</loc>
-  </url>
-  <url>
-    <loc>http://romanman.github.io/blog/categories/gist-1/</loc>
   </url>
 </urlset>
