@@ -4,7 +4,7 @@
   <title><![CDATA[Category: snippets | Ethereum J]]></title>
   <link href="http://romanman.github.io/blog/categories/snippets/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-17T12:08:14-04:00</updated>
+  <updated>2015-07-17T12:12:58-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -18,12 +18,11 @@
     <link href="http://romanman.github.io/blog/2015/07/16/snippet-3/"/>
     <updated>2015-07-16T17:23:53-04:00</updated>
     <id>http://romanman.github.io/blog/2015/07/16/snippet-3</id>
-    <content type="html"><![CDATA[<p><figure class='code'><figcaption><span>Time to be Awesome  </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="p">[</span><span class="n">rectangle</span> <span class="nl">setX</span><span class="p">:</span> <span class="mi">10</span> <span class="nl">y</span><span class="p">:</span> <span class="mi">10</span> <span class="nl">width</span><span class="p">:</span> <span class="mi">20</span> <span class="nl">height</span><span class="p">:</span> <span class="mi">20</span><span class="p">];</span>
-</span></code></pre></td></tr></table></div></figure></p>
+    <content type="html"><![CDATA[<p>{% codeblock lang:objc Time to be Awesome  %}
+[rectangle setX: 10 y: 10 width: 20 height: 20];
+{% endcodeblock %}</p>
 
-<pre><code class="java">
+<pre><code class="Time to be awesome lang:java http://www.google.com">
     public class Main {
 
        public static void main(String[] args) throws UnknownHostException {
