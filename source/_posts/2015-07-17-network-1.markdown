@@ -1,0 +1,8 @@
+---
+layout: post
+title: "Be aware Ehtereum web"
+date: 2015-07-17 17:03:57 -0400
+comments: true
+categories: architecture
+---
+{% img center /images/posts/be-aware-ethereum-web.jpg Network Headline %}
