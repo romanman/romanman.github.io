@@ -10,7 +10,7 @@ categories: snippets
 [rectangle setX: 10 y: 10 width: 20 height: 20];
 {% endcodeblock %}
 
-``` java
+``` Time to be awesome lang:java http://www.google.com
    
     public class Main {
 
