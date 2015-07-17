@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://romanman.github.io/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-17T03:22:20-04:00</updated>
+  <updated>2015-07-17T03:32:33-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -55,11 +55,13 @@ end
 <span class="line-number">6</span>
 <span class="line-number">7</span>
 <span class="line-number">8</span>
+<span class="line-number">9</span>
 </pre></td><td class="code"><pre><code class="java"><span class="line"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main2</span> <span class="o">{</span>
 </span><span class="line">
-</span><span class="line">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">UnknownHostException</span> <span class="o">{</span>
+</span><span class="line">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 </span><span class="line">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;Listening on udp:%s:%d%n&quot;</span><span class="o">,</span>
-</span><span class="line">                <span class="n">InetAddress</span><span class="o">.</span><span class="na">getLocalHost</span><span class="o">().</span><span class="na">getHostAddress</span><span class="o">(),</span> <span class="mi">30303</span><span class="o">);</span>
+</span><span class="line">                <span class="n">InetAddress</span><span class="o">.</span><span class="na">getLocalHost</span><span class="o">()</span>
+</span><span class="line">                       <span class="o">.</span><span class="na">getHostAddress</span><span class="o">(),</span> <span class="mi">30303</span><span class="o">);</span>
 </span><span class="line">    <span class="o">}</span>
 </span><span class="line">
 </span><span class="line"><span class="o">}</span>
