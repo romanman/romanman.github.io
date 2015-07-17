@@ -4,7 +4,7 @@
   <title><![CDATA[Category: snippets | Ethereum J]]></title>
   <link href="http://romanman.github.io/blog/categories/snippets/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-17T08:21:07-04:00</updated>
+  <updated>2015-07-17T11:18:49-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -18,15 +18,17 @@
     <link href="http://romanman.github.io/blog/2015/07/16/snippet-3/"/>
     <updated>2015-07-16T17:23:53-04:00</updated>
     <id>http://romanman.github.io/blog/2015/07/16/snippet-3</id>
-    <content type="html"><![CDATA[<pre lang="java"><code>public class Main {
+    <content type="html"><![CDATA[<pre><code>public class Main {
 
    public static void main(String[] args) throws UnknownHostException {
        System.out.printf("Listening on udp:%s:%d%n",
                InetAddress.getLocalHost().getHostAddress(), 30303);
    } 
- 
+
 }
 </code></pre>
+
+<p>{:lang=&ldquo;java&rdquo;}</p>
 ]]></content>
   </entry>
   
@@ -35,10 +37,12 @@
     <link href="http://romanman.github.io/blog/2015/07/16/snippet-2/"/>
     <updated>2015-07-16T17:17:35-04:00</updated>
     <id>http://romanman.github.io/blog/2015/07/16/snippet-2</id>
-    <content type="html"><![CDATA[<pre lang="ruby"><code>def hello
+    <content type="html"><![CDATA[<pre><code>def hello
   puts "Hello!"
 end
 </code></pre>
+
+<p>{:lang=&ldquo;ruby&rdquo;}</p>
 ]]></content>
   </entry>
   
@@ -47,19 +51,16 @@ end
     <link href="http://romanman.github.io/blog/2015/07/16/snippet-1/"/>
     <updated>2015-07-16T17:03:57-04:00</updated>
     <id>http://romanman.github.io/blog/2015/07/16/snippet-1</id>
-    <content type="html"><![CDATA[<p>``` java
-public class Main2 {</p>
+    <content type="html"><![CDATA[<pre><code class="java">public class Main2 {
 
-<pre><code>public static void main(String[] args) {
-    System.out.printf("Listening on udp:%s:%d%n",
-            InetAddress.getLocalHost()
-                   .getHostAddress(), 30303);
+    public static void main(String[] args) {
+        System.out.printf("Listening on udp:%s:%d%n",
+                InetAddress.getLocalHost()
+                       .getHostAddress(), 30303);
+    }
+
 }
 </code></pre>
-
-<p>}</p>
-
-<p>```</p>
 ]]></content>
   </entry>
   
