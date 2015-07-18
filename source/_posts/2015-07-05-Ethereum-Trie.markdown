@@ -70,9 +70,9 @@ In previous diagrams we used arrows to point out a node reference by another nod
 
 For futher investigation of the wonders of Trie , you can use our repository test cases, one I inserted especially for this post:
 
-look for `testSample_1` on  http://tinyurl.com/ljnuvnj
+That is the runnig example for our test suite and can be used as start point for further study.
 
-{% codeblock Code example lang:java http://www.google.com %}
+{% codeblock Code example lang:java https://github.com/ethereum/ethereumj/blob/develop/ethereumj-core/src/test/java/org/ethereum/trie/TrieTest.java#L917 %}
     @Test // update the trie with blog key/val
           // each time dump the entire trie
     public void testSample_1() {
