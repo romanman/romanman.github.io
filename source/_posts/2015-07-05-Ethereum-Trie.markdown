@@ -64,13 +64,40 @@ The fingerprint will be the sha3(root_node) function. One will probably ask: “
 {% img center /images/posts/diagram-3.jpg Trie Headline %}
 
 
-In previous diagrams we used arrows to point out a node reference by another node, but in the data world, no arrows exist. So how is the reference actually implemented? Simply by saving the hash of the next node, in our case using sha3() function. That way, the most important goal of reflecting a change in data of each node, is achieved. Each change to a node will be reflected in the hash of that node, hence reflecting in the parent, and also his parent, and so on up to the root_node. That’s why sha3(root_node) is the absolute fingerprint of the full structure.
+In previous diagrams we used arrows to point out a node reference by another node, but in the data world, no arrows exist. So how is the reference actually implemented? Simply by saving the hash of the next node, in our case using `sha3()` function. That way, the most important goal of reflecting a change in data of each node, is achieved. Each change to a node will be reflected in the hash of that node, hence reflecting in the parent, and also his parent, and so on up to the root_node. That’s why `sha3(root_node)` is the absolute fingerprint of the full structure.
 
 **Summary:**  Obviously the Trie structure as it is fully implemented holds more nuances and improvements. But once one understands the 3 principles that I have visualised here, it should be really easy to complete the picture by studying the actual code.
 
 For futher investigation of the wonders of Trie , you can use our repository test cases, one I inserted especially for this post:
 
 look for `testSample_1` on  http://tinyurl.com/ljnuvnj
+
+{% codeblock Code example lang:java http://www.google.com %}
+    @Test // update the trie with blog key/val
+          // each time dump the entire trie
+    public void testSample_1() {
+
+        TrieImpl trie = new TrieImpl(mockDb);
+
+        trie.update("dog", "puppy");
+        String dmp = trie.getTrieDump();
+        System.out.println(dmp);
+        System.out.println();
+        Assert.assertEquals("ed6e08740e4a267eca9d4740f71f573e9aabbcc739b16a2fa6c1baed5ec21278", Hex.toHexString(trie.getRootHash()));
+
+        trie.update("do", "verb");
+        dmp = trie.getTrieDump();
+        System.out.println(dmp);
+        System.out.println();
+        Assert.assertEquals("779db3986dd4f38416bfde49750ef7b13c6ecb3e2221620bcad9267e94604d36", Hex.toHexString(trie.getRootHash()));
+
+        trie.update("doggiestan", "aeswome_place");
+        dmp = trie.getTrieDump();
+        System.out.println(dmp);
+        System.out.println();
+        Assert.assertEquals("8bd5544747b4c44d1274aa99a6293065fe319b3230e800203317e4c75a770099", Hex.toHexString(trie.getRootHash()));
+    }
+{% endcodeblock %}
 
 Any questions or comments are welcome.
 
