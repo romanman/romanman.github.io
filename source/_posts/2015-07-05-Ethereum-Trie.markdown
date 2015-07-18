@@ -30,9 +30,51 @@ Given a key/value that should be inserted, the key will be split to it’s sub p
 
 In our case we will split the key to a nibbles of it’s ASCII code, don’t worry the example will make it clear:
 
-Let’s take a `“dog”` string as a key , in order to get it’s nibbles, will check the ASCII code which is [ 0x64 0x6f 0x67 ], now the nibbles of the key are 4 bits of each byte: `6, 4, 6, f, 6, 7`.
+Let’s take a `“dog”` string as a key , in order to get it’s nibbles, will check the ASCII code which is `[ 0x64 0x6f 0x67 ]`, now the nibbles of the key are 4 bits of each byte: `6, 4, 6, f, 6, 7`.
 
 Another example will be the key: “do” which obviously will be encoded to `6, 4, 6, f`. (“dog” with no “g”).
 
 Now let’s see how we encode the key value `[“do” : “verb”]` and `[“dog” : “puppy”]` into a data structure: (Diagram - 1)
+
+{% img center /images/posts/diagram-1.jpg Trie Headline %}
+
+As we can see each node on the digaram has 17 elements which are representing slots for `[ 0..f ]` digits of encoding, and one more slot  - the last one, for the value (if it exist).
+
+Now we see that to follow key: `“dog”` `(64 6f 67)` we simply follow the slot 6 in the first node, slot 4 in the second, slot 6 on the third, and so on until we bumped into a node that has a 17 slot  filled with value. Here we go `“dog”` leads as to `“puppy”` and the key: `“do”` stops two nibbles before `“dog”` and we found that the corresponding value is: `“verb”`.
+
+That concludes the first step of making a Radix Tree in a new, hex slot oriented style.
+
+So what do we get out of this complex structure? The answer is 2 things:
+
+the keys with similar data will be saved economizing common prefixes.
+the retrieve/insert of a value is about to be `O(log(n))` which is not bad at all.
+ So far so good, can we improve it ? 
+
+
+2. **How to improve it?** : The next question is: how we can improve the structure to be more storage effective ? to answer that we define a rule that can be explained in simple words like that: given “too long path” for a single value , we can make a single node holding the full path as long as it has this only one value. As always example is the best to see it:  
+
+Starting with the last diagram, let’s insert another key/value: [“doggiestan” : “aeswome_place”]. As we can see the key – “doggiestan” starts with “dog” (looks familiar?) and goes on with more characters. So in that case we are not going to encode the suffix “giestan” as a bunch of nodes but as a single key/value node: (Diagram - 2)
+
+{% img center /images/posts/diagram-2.jpg Trie Headline %}
+
+**3. How to encode the finger print? :  **
+
+The fingerprint will be the sha3(root_node) function. One will probably ask: “Why it is unique?” or “Why does every change in the trie affect the root node?”  To answer that let’s closely observe the next diagram:
+
+{% img center /images/posts/diagram-3.jpg Trie Headline %}
+
+
+In previous diagrams we used arrows to point out a node reference by another node, but in the data world, no arrows exist. So how is the reference actually implemented? Simply by saving the hash of the next node, in our case using sha3() function. That way, the most important goal of reflecting a change in data of each node, is achieved. Each change to a node will be reflected in the hash of that node, hence reflecting in the parent, and also his parent, and so on up to the root_node. That’s why sha3(root_node) is the absolute fingerprint of the full structure.
+
+**Summary:**  Obviously the Trie structure as it is fully implemented holds more nuances and improvements. But once one understands the 3 principles that I have visualised here, it should be really easy to complete the picture by studying the actual code.
+
+For futher investigation of the wonders of Trie , you can use our repository test cases, one I inserted especially for this post:
+
+look for `testSample_1` on  http://tinyurl.com/ljnuvnj
+
+Any questions or comments are welcome.
+
+Thanks to: **Nick Savers** for reviewing the draft and making my language to a real English.
+
+* by **Roman Mandeleil**: the founder of the mighty Ethereum java implementation also known as EthereumJ.
 
