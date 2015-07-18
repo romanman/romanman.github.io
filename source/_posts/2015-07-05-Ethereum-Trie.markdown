@@ -10,6 +10,8 @@ categories: architecture
 
 The Ethereum data structure which is used to calculate the state of all the current balances, all the contract code and even the storage which is occupied by a particular contract, is still difficult for some developers on the project. I actually found myself having a hard time trying to understand it. This is why I will try to make a clear and visual explanation of the simple concepts and ideas that stand behind this important structure. 
 
+<!--more-->
+
 **Why do we need it?**
 
 Before designing and using a new data structure, it’s always good to start by asking: “Why?” or more specifically, “What are the main requirements that we need so bad, that we are designing a new data structure?”
@@ -104,4 +106,3 @@ Any questions or comments are welcome.
 Thanks to: **Nick Savers** for reviewing the draft and making my language to a real English.
 
 * by **Roman Mandeleil**: the founder of the mighty Ethereum java implementation also known as EthereumJ.
-
