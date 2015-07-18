@@ -30,9 +30,9 @@ Given a key/value that should be inserted, the key will be split to it’s sub p
 
 In our case we will split the key to a nibbles of it’s ASCII code, don’t worry the example will make it clear:
 
-Let’s take a “dog” string as a key , in order to get it’s nibbles, will check the ASCII code which is [ 0x64 0x6f 0x67 ], now the nibbles of the key are 4 bits of each byte: 6, 4, 6, f, 6, 7.
+Let’s take a `“dog”` string as a key , in order to get it’s nibbles, will check the ASCII code which is [ 0x64 0x6f 0x67 ], now the nibbles of the key are 4 bits of each byte: `6, 4, 6, f, 6, 7`.
 
-Another example will be the key: “do” which obviously will be encoded to 6, 4, 6, f. (“dog” with no “g”).
+Another example will be the key: “do” which obviously will be encoded to `6, 4, 6, f`. (“dog” with no “g”).
 
-Now let’s see how we encode the key value [“do” : “verb”] and [“dog” : “puppy”] into a data structure: (Diagram - 1)
+Now let’s see how we encode the key value `[“do” : “verb”]` and `[“dog” : “puppy”]` into a data structure: (Diagram - 1)
 
