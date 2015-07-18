@@ -5,7 +5,7 @@ date: 2015-07-05 17:03:57 -0400
 comments: true
 categories: architecture
 ---
-{% img center /images/posts/tumblr_inline_nayhun2I9B1stehdi.jpg Trie Headline %}
+{% img center /images/posts/trie-ilustration-1.jpg Trie Headline %}
 
 
 The Ethereum data structure which is used to calculate the state of all the current balances, all the contract code and even the storage which is occupied by a particular contract, is still difficult for some developers on the project. I actually found myself having a hard time trying to understand it. This is why I will try to make a clear and visual explanation of the simple concepts and ideas that stand behind this important structure. 
@@ -36,7 +36,7 @@ Another example will be the key: “do” which obviously will be encoded to `6,
 
 Now let’s see how we encode the key value `[“do” : “verb”]` and `[“dog” : “puppy”]` into a data structure: (Diagram - 1)
 
-{% img center /images/posts/diagram-1.jpg Trie Headline %}
+{% img center /images/posts/trie-post-diagram-1.png Diagram-1 %}
 
 As we can see each node on the digaram has 17 elements which are representing slots for `[ 0..f ]` digits of encoding, and one more slot  - the last one, for the value (if it exist).
 
@@ -55,13 +55,13 @@ the retrieve/insert of a value is about to be `O(log(n))` which is not bad at al
 
 Starting with the last diagram, let’s insert another key/value: [“doggiestan” : “aeswome_place”]. As we can see the key – “doggiestan” starts with “dog” (looks familiar?) and goes on with more characters. So in that case we are not going to encode the suffix “giestan” as a bunch of nodes but as a single key/value node: (Diagram - 2)
 
-{% img center /images/posts/diagram-2.jpg Trie Headline %}
+{% img center /images/posts/trie-post-diagram-2.png Diagram-2 %}
 
 **3. How to encode the finger print? :  **
 
 The fingerprint will be the sha3(root_node) function. One will probably ask: “Why it is unique?” or “Why does every change in the trie affect the root node?”  To answer that let’s closely observe the next diagram:
 
-{% img center /images/posts/diagram-3.jpg Trie Headline %}
+{% img center /images/posts/trie-post-diagram-3.png Diagram-3 %}
 
 
 In previous diagrams we used arrows to point out a node reference by another node, but in the data world, no arrows exist. So how is the reference actually implemented? Simply by saving the hash of the next node, in our case using `sha3()` function. That way, the most important goal of reflecting a change in data of each node, is achieved. Each change to a node will be reflected in the hash of that node, hence reflecting in the parent, and also his parent, and so on up to the root_node. That’s why `sha3(root_node)` is the absolute fingerprint of the full structure.
