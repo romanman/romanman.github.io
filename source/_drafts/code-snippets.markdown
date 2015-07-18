@@ -14,9 +14,12 @@ categories: snippets
    
     public class Main {
 
-       public static void main(String[] args) throws UnknownHostException {
+       public static void main(String[] args) 
+                          throws UnknownHostException {
+           
            System.out.printf("Listening on udp:%s:%d%n",
-                   InetAddress.getLocalHost().getHostAddress(), 30303);
+                   InetAddress.getLocalHost().
+                              getHostAddress(), 30303);
        } 
  
     }
