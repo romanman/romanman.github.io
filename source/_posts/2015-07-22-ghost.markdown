@@ -1,0 +1,8 @@
+---
+layout: post
+title: "How Ghost will protect Ethereum blockchain"
+date: 2015-07-22 17:03:57 -0400
+comments: true
+categories: architecture
+---
+{% img center /images/posts/gost-ethereum-post.jpg Network Headline %}
