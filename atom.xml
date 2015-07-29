@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://romanman.github.io/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-29T08:45:28-04:00</updated>
+  <updated>2015-07-29T08:55:03-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -29,8 +29,9 @@
 
 <p> Between each connected peers on the Ethereum network
  there is a protection mechanism for encryption and decryption
- for all of the underlying traffic.
-  <code>org.ethereum.net.rlpx</code> - package is full implementation for the RLPx protocol</p>
+ for all of the underlying traffic.</p>
+
+<p>  ⋅⋅* <code>org.ethereum.net.rlpx</code> - package is full implementation for the RLPx protocol</p>
 
 <!--more-->
 
@@ -38,9 +39,17 @@
 <h5>PeerDiscovery</h5>
 
 <p> The peer discovery is ethereum way to manage network topology. Each peer
-    tries over time to find best neighbours to exchange information with.
-    That is beeing achieved by managing statistic table over the connected peers.
-     <code>org.ethereum.net.rlpx.discover</code> - is full implementation for peer disovery protocol</p>
+ tries over time to find best neighbours to exchange information with.
+ That is beeing achieved by managing statistic table over the connected peers.</p>
+
+<p> ⋅⋅* <code>org.ethereum.net.rlpx.discover</code> - is full implementation for peer disovery protocol</p>
+
+<h5>Multi Peer blockchain syncronization</h5>
+
+<p> The Ethereum protocol supports fast block chain download - using
+ bittorent way of downloading multiple blocks simultaneously from different channels</p>
+
+<p> ⋅⋅* <code>org.ethereum.net.eth</code> - us full support of Eth subprotocol and multipeer blocks download</p>
 ]]></content>
   </entry>
   
