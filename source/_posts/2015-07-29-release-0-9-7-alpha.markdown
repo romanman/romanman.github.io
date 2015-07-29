@@ -15,10 +15,10 @@ Support:
 
 ##### RLPx network layer for channel protection
   
-    Between each connected peers on the Ethereum network 
-	there is a protection mechanism for encryption and decryption
-	for all of the underlying traffic. 
-	 `org.ethereum.net.rlpx` - package is full implementation for the RLPx protocol
+Between each connected peers on the Ethereum network 
+there is a protection mechanism for encryption and decryption
+for all of the underlying traffic. 
+ `org.ethereum.net.rlpx` - package is full implementation for the RLPx protocol
     
 
 <!--more-->
