@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: release | Ethereum J]]></title>
+  <link href="http://romanman.github.io/blog/categories/release/atom.xml" rel="self"/>
+  <link href="http://romanman.github.io/"/>
+  <updated>2015-07-29T08:32:38-04:00</updated>
+  <id>http://romanman.github.io/</id>
+  <author>
+    <name><![CDATA[Roman Mandeleil]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Release: 0.9.7-alpha]]></title>
+    <link href="http://romanman.github.io/blog/2015/07/29/release-0-9-7-alpha/"/>
+    <updated>2015-07-29T17:03:57-04:00</updated>
+    <id>http://romanman.github.io/blog/2015/07/29/release-0-9-7-alpha</id>
+    <content type="html"><![CDATA[<!--more-->
+
+]]></content>
+  </entry>
+  
+</feed>
