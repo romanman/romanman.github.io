@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://romanman.github.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-29T08:41:44-04:00</updated>
+  <updated>2015-07-29T08:45:28-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -27,14 +27,20 @@
 
 <h5>RLPx network layer for channel protection</h5>
 
-<pre><code>Between each connected peers on the Ethereum network 
-there is a protection mechanism for encryption and decryption
-for all of the underlying traffic. 
- `org.ethereum.net.rlpx` - package is full implementation for the RLPx protocol
-</code></pre>
+<p> Between each connected peers on the Ethereum network
+ there is a protection mechanism for encryption and decryption
+ for all of the underlying traffic.
+  <code>org.ethereum.net.rlpx</code> - package is full implementation for the RLPx protocol</p>
 
 <!--more-->
 
+
+<h5>PeerDiscovery</h5>
+
+<p> The peer discovery is ethereum way to manage network topology. Each peer
+    tries over time to find best neighbours to exchange information with.
+    That is beeing achieved by managing statistic table over the connected peers.
+     <code>org.ethereum.net.rlpx.discover</code> - is full implementation for peer disovery protocol</p>
 ]]></content>
   </entry>
   
