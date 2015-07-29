@@ -18,7 +18,7 @@ Support:
  Between each connected peers on the Ethereum network 
  there is a protection mechanism for encryption and decryption
  for all of the underlying traffic. 
-  `org.ethereum.net.rlpx` - package is full implementation for the RLPx protocol
+  ⋅⋅* `org.ethereum.net.rlpx` - package is full implementation for the RLPx protocol
     
 
 <!--more-->
@@ -26,7 +26,14 @@ Support:
 ##### PeerDiscovery 
 
  The peer discovery is ethereum way to manage network topology. Each peer
-	tries over time to find best neighbours to exchange information with.
-	That is beeing achieved by managing statistic table over the connected peers.
-	 `org.ethereum.net.rlpx.discover` - is full implementation for peer disovery protocol
+ tries over time to find best neighbours to exchange information with.
+ That is beeing achieved by managing statistic table over the connected peers.
+ ⋅⋅* `org.ethereum.net.rlpx.discover` - is full implementation for peer disovery protocol
+ 
+##### Multi Peer blockchain syncronization
+	
+ The Ethereum protocol supports fast block chain download - using
+ bittorent way of downloading multiple blocks simultaneously from different channels
+ ⋅⋅* `org.ethereum.net.eth` - us full support of Eth subprotocol and multipeer blocks download
+
 	 
