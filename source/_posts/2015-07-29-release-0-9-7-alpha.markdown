@@ -57,7 +57,7 @@ Support:
    
  `org.ethereum.repository` - full Ethereum Virtual Machine implemented
       
-  ##### Testing notes
+##### Testing notes
 
  The EthereumJ librarey Was tested on 800k blocks of POC-9 olympic with final result of 
  full consensus reached
@@ -66,7 +66,7 @@ Support:
  Ethereum development group, the several adge cases that we formally not support we decided to exclude
  at that stage for performance optimization.
  
-  ##### How To Start
+##### How To Start
 
  
   To include the EthereumJ library: use your favorite build system:
