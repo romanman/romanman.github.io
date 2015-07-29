@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>ethereumj.io/blog/2015/07/29/release-0-9-7-alpha/</loc>
+    <loc>http://ethereumj.io/blog/2015/07/29/release-0-9-7-alpha/</loc>
     <lastmod>2015-07-29T17:03:57-04:00</lastmod>
   </url>
   <url>
-    <loc>ethereumj.io/blog/2015/07/05/Ethereum-Trie/</loc>
+    <loc>http://ethereumj.io/blog/2015/07/05/Ethereum-Trie/</loc>
     <lastmod>2015-07-05T17:03:57-04:00</lastmod>
   </url>
   <url>
-    <loc>ethereumj.io/blog/archives/</loc>
+    <loc>http://ethereumj.io/blog/archives/</loc>
   </url>
   <url>
-    <loc>ethereumj.io/</loc>
+    <loc>http://ethereumj.io/</loc>
   </url>
   <url>
-    <loc>ethereumj.io/blog/categories/architecture/</loc>
+    <loc>http://ethereumj.io/blog/categories/architecture/</loc>
   </url>
   <url>
-    <loc>ethereumj.io/blog/categories/release/</loc>
+    <loc>http://ethereumj.io/blog/categories/release/</loc>
   </url>
 </urlset>

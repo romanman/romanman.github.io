@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: ethereumj.io/sitemap.xml 
+Sitemap: http://ethereumj.io/sitemap.xml 
