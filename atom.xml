@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Ethereum J]]></title>
-  <link href="http://romanman.github.io/atom.xml" rel="self"/>
-  <link href="http://romanman.github.io/"/>
-  <updated>2015-07-29T09:29:38-04:00</updated>
-  <id>http://romanman.github.io/</id>
+  <link href="ethereumj.io/atom.xml" rel="self"/>
+  <link href="ethereumj.io/"/>
+  <updated>2015-07-29T09:34:36-04:00</updated>
+  <id>ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[Release: 0.9.7-alpha]]></title>
-    <link href="http://romanman.github.io/blog/2015/07/29/release-0-9-7-alpha/"/>
+    <link href="ethereumj.io/blog/2015/07/29/release-0-9-7-alpha/"/>
     <updated>2015-07-29T17:03:57-04:00</updated>
-    <id>http://romanman.github.io/blog/2015/07/29/release-0-9-7-alpha</id>
-    <content type="html"><![CDATA[<p><img class="right" src="http://romanman.github.io/images/posts/release-ilustration-1.gif" title="Release 0.9.7-alpha" ></p>
+    <id>ethereumj.io/blog/2015/07/29/release-0-9-7-alpha</id>
+    <content type="html"><![CDATA[<p><img class="right" src="ethereumj.io/images/posts/release-ilustration-1.gif" title="Release 0.9.7-alpha" ></p>
 
 <p>That version is first of the RC series for Frontier network.</p>
 
@@ -63,7 +63,7 @@
  algorithm, and eventually holding the full list of
  ethereum affairs is called Ethereum Repository.
  It embrace Ethereum Trie protocol, more can be
- study <a href="http://romanman.github.io/blog/2015/07/05/Ethereum-Trie/">here</a></p>
+ study <a href="ethereumj.io/blog/2015/07/05/Ethereum-Trie/">here</a></p>
 
 <p> <code>org.ethereum.repository</code> - full Ethereum Virtual Machine implemented</p>
 
@@ -155,10 +155,10 @@
   
   <entry>
     <title type="html"><![CDATA[Climbing Ethereum Trie]]></title>
-    <link href="http://romanman.github.io/blog/2015/07/05/Ethereum-Trie/"/>
+    <link href="ethereumj.io/blog/2015/07/05/Ethereum-Trie/"/>
     <updated>2015-07-05T17:03:57-04:00</updated>
-    <id>http://romanman.github.io/blog/2015/07/05/Ethereum-Trie</id>
-    <content type="html"><![CDATA[<p><img class="center" src="http://romanman.github.io/images/posts/trie-ilustration-1.jpg" title="Trie Headline" ></p>
+    <id>ethereumj.io/blog/2015/07/05/Ethereum-Trie</id>
+    <content type="html"><![CDATA[<p><img class="center" src="ethereumj.io/images/posts/trie-ilustration-1.jpg" title="Trie Headline" ></p>
 
 <p>The Ethereum data structure which is used to calculate the state of all the current balances, all the contract code and even the storage which is occupied by a particular contract, is still difficult for some developers on the project. I actually found myself having a hard time trying to understand it. This is why I will try to make a clear and visual explanation of the simple concepts and ideas that stand behind this important structure.</p>
 
@@ -194,7 +194,7 @@
 
 <p>Now let’s see how we encode the key value <code>[“do” : “verb”]</code> and <code>[“dog” : “puppy”]</code> into a data structure: (Diagram - 1)</p>
 
-<p><img class="center" src="http://romanman.github.io/images/posts/trie-post-diagram-1.png" title="Diagram-1" ></p>
+<p><img class="center" src="ethereumj.io/images/posts/trie-post-diagram-1.png" title="Diagram-1" ></p>
 
 <p>As we can see each node on the digaram has 17 elements which are representing slots for <code>[ 0..f ]</code> digits of encoding, and one more slot  - the last one, for the value (if it exist).</p>
 
@@ -215,13 +215,13 @@ the retrieve/insert of a value is about to be <code>O(log(n))</code> which is no
 
 <p>Starting with the last diagram, let’s insert another key/value: [“doggiestan” : “aeswome_place”]. As we can see the key – “doggiestan” starts with “dog” (looks familiar?) and goes on with more characters. So in that case we are not going to encode the suffix “giestan” as a bunch of nodes but as a single key/value node: (Diagram - 2)</p>
 
-<p><img class="center" src="http://romanman.github.io/images/posts/trie-post-diagram-2.png" title="Diagram-2" ></p>
+<p><img class="center" src="ethereumj.io/images/posts/trie-post-diagram-2.png" title="Diagram-2" ></p>
 
 <p><strong>3. How to encode the finger print? :  </strong></p>
 
 <p>The fingerprint will be the sha3(root_node) function. One will probably ask: “Why it is unique?” or “Why does every change in the trie affect the root node?”  To answer that let’s closely observe the next diagram:</p>
 
-<p><img class="center" src="http://romanman.github.io/images/posts/trie-post-diagram-3.png" title="Diagram-3" ></p>
+<p><img class="center" src="ethereumj.io/images/posts/trie-post-diagram-3.png" title="Diagram-3" ></p>
 
 <p>In previous diagrams we used arrows to point out a node reference by another node, but in the data world, no arrows exist. So how is the reference actually implemented? Simply by saving the hash of the next node, in our case using <code>sha3()</code> function. That way, the most important goal of reflecting a change in data of each node, is achieved. Each change to a node will be reflected in the hash of that node, hence reflecting in the parent, and also his parent, and so on up to the root_node. That’s why <code>sha3(root_node)</code> is the absolute fingerprint of the full structure.</p>
 
