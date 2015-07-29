@@ -6,14 +6,14 @@ comments: true
 categories: release
 ---
 
-{% img center /images/posts/release-ilustration-1.gif Release 0.9.7-alpha %}
+{% img right /images/posts/release-ilustration-1.gif Release 0.9.7-alpha %}
 
 That version is first of the RC series for Frontier network.
 
  Ethereum(J) is the library that can be embedded in any Java/Scalla project
  and to provide full support for Ethereum protocol and sub services.
 
-Support: 
+<!--more-->
 
 ##### RLPx network layer for channel protection
   
@@ -23,9 +23,6 @@ Support:
   
  `org.ethereum.net.rlpx` - package is full implementation for the RLPx protocol
  
-
-<!--more-->
-
 ##### PeerDiscovery 
 
  The peer discovery is ethereum way to manage network topology. Each peer
