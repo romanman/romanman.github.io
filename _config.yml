@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: ethereumj.io
+url: http://ethereumj.io
 title: Ethereum J
 subtitle: Java library for ethereum spaces
 author: Roman Mandeleil
