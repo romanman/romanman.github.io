@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://romanman.github.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-29T09:23:04-04:00</updated>
+  <updated>2015-07-29T09:26:47-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -18,14 +18,15 @@
     <link href="http://romanman.github.io/blog/2015/07/29/release-0-9-7-alpha/"/>
     <updated>2015-07-29T17:03:57-04:00</updated>
     <id>http://romanman.github.io/blog/2015/07/29/release-0-9-7-alpha</id>
-    <content type="html"><![CDATA[<p><img class="center" src="/images/posts/release-ilustration-1.gif" title="Release 0.9.7-alpha" ></p>
+    <content type="html"><![CDATA[<p><img class="right" src="/images/posts/release-ilustration-1.gif" title="Release 0.9.7-alpha" ></p>
 
 <p>That version is first of the RC series for Frontier network.</p>
 
 <p> Ethereum(J) is the library that can be embedded in any Java/Scalla project
  and to provide full support for Ethereum protocol and sub services.</p>
 
-<p>Support:</p>
+<!--more-->
+
 
 <h5>RLPx network layer for channel protection</h5>
 
@@ -34,9 +35,6 @@
  for all of the underlying traffic.</p>
 
 <p> <code>org.ethereum.net.rlpx</code> - package is full implementation for the RLPx protocol</p>
-
-<!--more-->
-
 
 <h5>PeerDiscovery</h5>
 
