@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://romanman.github.io/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-29T09:26:47-04:00</updated>
+  <updated>2015-07-29T09:29:38-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -25,13 +25,11 @@
 <p> Ethereum(J) is the library that can be embedded in any Java/Scalla project
  and to provide full support for Ethereum protocol and sub services.</p>
 
-<!--more-->
-
-
 <h5>RLPx network layer for channel protection</h5>
 
 <p> Between each connected peers on the Ethereum network
  there is a protection mechanism for encryption and decryption
+ <!--more-->
  for all of the underlying traffic.</p>
 
 <p> <code>org.ethereum.net.rlpx</code> - package is full implementation for the RLPx protocol</p>
