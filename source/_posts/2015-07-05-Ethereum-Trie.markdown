@@ -85,19 +85,25 @@ That is the runnig example for our test suite and can be used as start point for
         String dmp = trie.getTrieDump();
         System.out.println(dmp);
         System.out.println();
-        Assert.assertEquals("ed6e08740e4a267eca9d4740f71f573e9aabbcc739b16a2fa6c1baed5ec21278", Hex.toHexString(trie.getRootHash()));
+        Assert.assertEquals(
+          "ed6e08740e4a267eca9d4740f71f573e9aabbcc739b16a2fa6c1baed5ec21278", 
+          Hex.toHexString(trie.getRootHash()));
 
         trie.update("do", "verb");
         dmp = trie.getTrieDump();
         System.out.println(dmp);
         System.out.println();
-        Assert.assertEquals("779db3986dd4f38416bfde49750ef7b13c6ecb3e2221620bcad9267e94604d36", Hex.toHexString(trie.getRootHash()));
+        Assert.assertEquals(
+          "779db3986dd4f38416bfde49750ef7b13c6ecb3e2221620bcad9267e94604d36", 
+          Hex.toHexString(trie.getRootHash()));
 
         trie.update("doggiestan", "aeswome_place");
         dmp = trie.getTrieDump();
         System.out.println(dmp);
         System.out.println();
-        Assert.assertEquals("8bd5544747b4c44d1274aa99a6293065fe319b3230e800203317e4c75a770099", Hex.toHexString(trie.getRootHash()));
+        Assert.assertEquals(
+          "8bd5544747b4c44d1274aa99a6293065fe319b3230e800203317e4c75a770099", 
+          Hex.toHexString(trie.getRootHash()));
     }
 {% endcodeblock %}
 
