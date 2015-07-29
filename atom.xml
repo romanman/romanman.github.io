@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://romanman.github.io/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-29T08:55:03-04:00</updated>
+  <updated>2015-07-29T09:01:40-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -31,7 +31,8 @@
  there is a protection mechanism for encryption and decryption
  for all of the underlying traffic.</p>
 
-<p>  ⋅⋅* <code>org.ethereum.net.rlpx</code> - package is full implementation for the RLPx protocol</p>
+<pre><code>  `org.ethereum.net.rlpx` - package is full implementation for the RLPx protocol
+</code></pre>
 
 <!--more-->
 
@@ -42,14 +43,36 @@
  tries over time to find best neighbours to exchange information with.
  That is beeing achieved by managing statistic table over the connected peers.</p>
 
-<p> ⋅⋅* <code>org.ethereum.net.rlpx.discover</code> - is full implementation for peer disovery protocol</p>
+<pre><code>  `org.ethereum.net.rlpx.discover` - is full implementation for peer disovery protocol
+</code></pre>
 
 <h5>Multi Peer blockchain syncronization</h5>
 
 <p> The Ethereum protocol supports fast block chain download - using
  bittorent way of downloading multiple blocks simultaneously from different channels</p>
 
-<p> ⋅⋅* <code>org.ethereum.net.eth</code> - us full support of Eth subprotocol and multipeer blocks download</p>
+<pre><code>  `org.ethereum.net.eth` - us full support of Eth subprotocol and multipeer blocks download
+</code></pre>
+
+<h5>Full Ethereum VM support</h5>
+
+<p> The heart of the Ethereum consensus protocol is the virtual machine.
+ The virtual machines is running the contracts algorithms exactly the
+ same way on all the peers, tested and compatible with all implementations.</p>
+
+<pre><code>  `org.ethereum.vm` - full Ethereum Virtual Machine implemented]
+</code></pre>
+
+<h5>Ethereum Repository updates and manipulations</h5>
+
+<p> The data structure that supports consensys validation
+ algorithm, and eventually holding the full list of
+ ethereum affairs is called Ethereum Repository.
+ It embrace Ethereum Trie protocol, more can be
+ study <a href="http://romanman.github.io/blog/2015/07/05/Ethereum-Trie/">here</a></p>
+
+<pre><code>  `org.ethereum.repository` - full Ethereum Virtual Machine implemented
+</code></pre>
 ]]></content>
   </entry>
   
