@@ -94,11 +94,11 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name: romanman
+disqus_short_name: ethereumj
 disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-65728482-1
 
 # Facebook Like
 facebook_like: false
