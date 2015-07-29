@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://romanman.github.io/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-29T09:08:48-04:00</updated>
+  <updated>2015-07-29T09:13:01-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -100,28 +100,58 @@
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
-<span class='line-number'>17</span>
 </pre></td><td class='code'><pre><code class='xml'><span class='line'>
-</span><span class='line'>
 </span><span class='line'>   <span class="nt">&lt;repositories&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;repository&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;repository&gt;</span>
 </span><span class='line'>       <span class="nt">&lt;id&gt;</span>oss.jfrog.org<span class="nt">&lt;/id&gt;</span>
 </span><span class='line'>       <span class="nt">&lt;name&gt;</span>Repository from JFrog<span class="nt">&lt;/name&gt;</span>
 </span><span class='line'>       <span class="nt">&lt;url&gt;</span>http://oss.jfrog.org/simple/oss-snapshot-local/<span class="nt">&lt;/url&gt;</span>
 </span><span class='line'>     <span class="nt">&lt;/repository&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/repositories&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;/repositories&gt;</span>
 </span><span class='line'>
 </span><span class='line'>
 </span><span class='line'>   <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.ethereum<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>ethereumj-core<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;version&gt;</span> (~!~) 0.9.6-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;type&gt;</span>zip<span class="nt">&lt;/type&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;groupId&gt;</span>org.ethereum<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;artifactId&gt;</span>ethereumj-core<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;version&gt;</span> (~!~) 0.9.6-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;type&gt;</span>zip<span class="nt">&lt;/type&gt;</span>
 </span><span class='line'>   <span class="nt">&lt;/dependency&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p></p>
+
+<p>[Gradle] (~!~)</p>
+
+<p> <figure class='code'><figcaption><span>Gradle Snippet</span><a href='http://www.google.com'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">repositories</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">maven</span> <span class="o">{</span>
+</span><span class='line'>     <span class="n">url</span> <span class="s2">&quot;<a href="https://oss.jfrog.org/libs-snapshot&amp;quot;">https://oss.jfrog.org/libs-snapshot&amp;quot;</a></span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>   <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="c1">// Exclude log4j if you providing you own logging system  </span>
+</span><span class='line'>   <span class="n">compile</span> <span class="o">(</span><span class="s2">&quot;org.ethereum:ethereumj-core:0.9.6-SNAPSHOT&quot;</span><span class="o">){</span>
+</span><span class='line'>       <span class="n">exclude</span> <span class="nl">group:</span> <span class="s2">&quot;log4j&quot;</span>
+</span><span class='line'>       <span class="n">exclude</span> <span class="nl">group:</span> <span class="s2">&quot;org.slf4j&quot;</span><span class="o">,</span> <span class="nl">module:</span> <span class="s2">&quot;log4j-over-slf4j&quot;</span>
+</span><span class='line'>       <span class="n">exclude</span> <span class="nl">group:</span> <span class="s2">&quot;org.slf4j&quot;</span><span class="o">,</span> <span class="nl">module:</span> <span class="s2">&quot;slf4j-log4j12&quot;</span>
+</span><span class='line'>    <span class="o">}</span><br/>
+</span></code></pre></td></tr></table></div></figure></p>
 ]]></content>
   </entry>
   
