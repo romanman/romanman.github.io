@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://romanman.github.io/atom.xml" rel="self"/>
   <link href="http://romanman.github.io/"/>
-  <updated>2015-07-29T08:08:56-04:00</updated>
+  <updated>2015-07-29T08:15:09-04:00</updated>
   <id>http://romanman.github.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -115,6 +115,12 @@ the retrieve/insert of a value is about to be <code>O(log(n))</code> which is no
 <span class='line-number'>22</span>
 <span class='line-number'>23</span>
 <span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="nd">@Test</span> <span class="c1">// update the trie with blog key/val</span>
 </span><span class='line'>          <span class="c1">// each time dump the entire trie</span>
 </span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSample_1</span><span class="o">()</span> <span class="o">{</span>
@@ -125,19 +131,25 @@ the retrieve/insert of a value is about to be <code>O(log(n))</code> which is no
 </span><span class='line'>        <span class="n">String</span> <span class="n">dmp</span> <span class="o">=</span> <span class="n">trie</span><span class="o">.</span><span class="na">getTrieDump</span><span class="o">();</span>
 </span><span class='line'>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dmp</span><span class="o">);</span>
 </span><span class='line'>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-</span><span class='line'>        <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="s">&quot;ed6e08740e4a267eca9d4740f71f573e9aabbcc739b16a2fa6c1baed5ec21278&quot;</span><span class="o">,</span> <span class="n">Hex</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">trie</span><span class="o">.</span><span class="na">getRootHash</span><span class="o">()));</span>
+</span><span class='line'>        <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span>
+</span><span class='line'>          <span class="s">&quot;ed6e08740e4a267eca9d4740f71f573e9aabbcc739b16a2fa6c1baed5ec21278&quot;</span><span class="o">,</span>
+</span><span class='line'>          <span class="n">Hex</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">trie</span><span class="o">.</span><span class="na">getRootHash</span><span class="o">()));</span>
 </span><span class='line'>
 </span><span class='line'>        <span class="n">trie</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="s">&quot;do&quot;</span><span class="o">,</span> <span class="s">&quot;verb&quot;</span><span class="o">);</span>
 </span><span class='line'>        <span class="n">dmp</span> <span class="o">=</span> <span class="n">trie</span><span class="o">.</span><span class="na">getTrieDump</span><span class="o">();</span>
 </span><span class='line'>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dmp</span><span class="o">);</span>
 </span><span class='line'>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-</span><span class='line'>        <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="s">&quot;779db3986dd4f38416bfde49750ef7b13c6ecb3e2221620bcad9267e94604d36&quot;</span><span class="o">,</span> <span class="n">Hex</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">trie</span><span class="o">.</span><span class="na">getRootHash</span><span class="o">()));</span>
+</span><span class='line'>        <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span>
+</span><span class='line'>          <span class="s">&quot;779db3986dd4f38416bfde49750ef7b13c6ecb3e2221620bcad9267e94604d36&quot;</span><span class="o">,</span>
+</span><span class='line'>          <span class="n">Hex</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">trie</span><span class="o">.</span><span class="na">getRootHash</span><span class="o">()));</span>
 </span><span class='line'>
 </span><span class='line'>        <span class="n">trie</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="s">&quot;doggiestan&quot;</span><span class="o">,</span> <span class="s">&quot;aeswome_place&quot;</span><span class="o">);</span>
 </span><span class='line'>        <span class="n">dmp</span> <span class="o">=</span> <span class="n">trie</span><span class="o">.</span><span class="na">getTrieDump</span><span class="o">();</span>
 </span><span class='line'>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dmp</span><span class="o">);</span>
 </span><span class='line'>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-</span><span class='line'>        <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="s">&quot;8bd5544747b4c44d1274aa99a6293065fe319b3230e800203317e4c75a770099&quot;</span><span class="o">,</span> <span class="n">Hex</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">trie</span><span class="o">.</span><span class="na">getRootHash</span><span class="o">()));</span>
+</span><span class='line'>        <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span>
+</span><span class='line'>          <span class="s">&quot;8bd5544747b4c44d1274aa99a6293065fe319b3230e800203317e4c75a770099&quot;</span><span class="o">,</span>
+</span><span class='line'>          <span class="n">Hex</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">trie</span><span class="o">.</span><span class="na">getRootHash</span><span class="o">()));</span>
 </span><span class='line'>    <span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
