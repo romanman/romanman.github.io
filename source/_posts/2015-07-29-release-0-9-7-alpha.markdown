@@ -6,6 +6,8 @@ comments: true
 categories: release
 ---
 
+{% img center /images/posts/release-ilustration-1.gif Release 0.9.7-alpha %}
+
 That version is first of the RC series for Frontier network.
 
  Ethereum(J) is the library that can be embedded in any Java/Scalla project
