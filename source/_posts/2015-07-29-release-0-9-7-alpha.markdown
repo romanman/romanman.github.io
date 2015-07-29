@@ -39,4 +39,23 @@ Support:
  
       `org.ethereum.net.eth` - us full support of Eth subprotocol and multipeer blocks download
 
+##### Full Ethereum VM support 
+
+ The heart of the Ethereum consensus protocol is the virtual machine.
+ The virtual machines is running the contracts algorithms exactly the 
+ same way on all the peers, tested and compatible with all implementations.
+ 
+      `org.ethereum.vm` - full Ethereum Virtual Machine implemented]
+	
+##### Ethereum Repository updates and manipulations
+ 
+ The data structure that supports consensys validation 
+ algorithm, and eventually holding the full list of 
+ ethereum affairs is called Ethereum Repository. 
+ It embrace Ethereum Trie protocol, more can be 
+ study [here](/blog/2015/07/05/Ethereum-Trie/)
+   
+      `org.ethereum.repository` - full Ethereum Virtual Machine implemented
+      
+      
 	 
