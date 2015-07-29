@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Architecture | Ethereum J]]></title>
+  <link href="http://romanman.github.io/blog/categories/architecture/atom.xml" rel="self"/>
+  <link href="http://romanman.github.io/"/>
+  <updated>2015-07-29T06:53:41-04:00</updated>
+  <id>http://romanman.github.io/</id>
+  <author>
+    <name><![CDATA[Roman Mandeleil]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How Ghost Will Protect Ethereum Blockchain]]></title>
+    <link href="http://romanman.github.io/blog/2015/07/22/ghost/"/>
+    <updated>2015-07-22T17:03:57-04:00</updated>
+    <id>http://romanman.github.io/blog/2015/07/22/ghost</id>
+    <content type="html"><![CDATA[<p><img class="center" src="/images/posts/gost-ethereum-post.jpg" title="Network Headline" ></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Be Aware Ehtereum Web]]></title>
+    <link href="http://romanman.github.io/blog/2015/07/17/network-1/"/>
+    <updated>2015-07-17T17:03:57-04:00</updated>
+    <id>http://romanman.github.io/blog/2015/07/17/network-1</id>
+    <content type="html"><![CDATA[<p><img class="center" src="/images/posts/be-aware-ethereum-web.jpg" title="Network Headline" ></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Climbing Ethereum Trie]]></title>
+    <link href="http://romanman.github.io/blog/2015/07/05/Ethereum-Trie/"/>
+    <updated>2015-07-05T17:03:57-04:00</updated>
+    <id>http://romanman.github.io/blog/2015/07/05/Ethereum-Trie</id>
+    <content type="html"><![CDATA[<p><img class="center" src="/images/posts/trie-ilustration-1.jpg" title="Trie Headline" ></p>
+
+<p>The Ethereum data structure which is used to calculate the state of all the current balances, all the contract code and even the storage which is occupied by a particular contract, is still difficult for some developers on the project. I actually found myself having a hard time trying to understand it. This is why I will try to make a clear and visual explanation of the simple concepts and ideas that stand behind this important structure.</p>
+
+<!--more-->
+
+
+<p><strong>Why do we need it?</strong></p>
+
+<p>Before designing and using a new data structure, it’s always good to start by asking: “Why?” or more specifically, “What are the main requirements that we need so bad, that we are designing a new data structure?”</p>
+
+<p>In our case we have three:</p>
+
+<ol>
+<li>We need a storage efficient hash map.</li>
+<li>We need a very time efficient insert/delete hash map.</li>
+<li>Most important: We need a fingerprint to identify the state of the whole structure. The fingerprint should be calculated very fast on the fly, obviously depended on all the changes the hash map going to have.</li>
+</ol>
+
+
+<p>So with the requirements defined, let’s see how the structure is built and why it is appropriate for our goals.</p>
+
+<p><strong>1. How is the structure built?</strong></p>
+
+<p>The structure will be a tree, which will be built on a principle of what is known as a Radix Tree, the Radix Tree principle can be explained simply as:</p>
+
+<p>Given a key/value that should be inserted, the key will be split to it’s sub parts e.g. characters and each value will be a node in a tree, so if we want to retrieve the reference value we should jump from node to node each representing part of the key until we find the end and there we will have the value.</p>
+
+<p>In our case we will split the key to a nibbles of it’s ASCII code, don’t worry the example will make it clear:</p>
+
+<p>Let’s take a <code>“dog”</code> string as a key , in order to get it’s nibbles, will check the ASCII code which is <code>[ 0x64 0x6f 0x67 ]</code>, now the nibbles of the key are 4 bits of each byte: <code>6, 4, 6, f, 6, 7</code>.</p>
+
+<p>Another example will be the key: “do” which obviously will be encoded to <code>6, 4, 6, f</code>. (“dog” with no “g”).</p>
+
+<p>Now let’s see how we encode the key value <code>[“do” : “verb”]</code> and <code>[“dog” : “puppy”]</code> into a data structure: (Diagram - 1)</p>
+
+<p><img class="center" src="/images/posts/trie-post-diagram-1.png" title="Diagram-1" ></p>
+
+<p>As we can see each node on the digaram has 17 elements which are representing slots for <code>[ 0..f ]</code> digits of encoding, and one more slot  - the last one, for the value (if it exist).</p>
+
+<p>Now we see that to follow key: <code>“dog”</code> <code>(64 6f 67)</code> we simply follow the slot 6 in the first node, slot 4 in the second, slot 6 on the third, and so on until we bumped into a node that has a 17 slot  filled with value. Here we go <code>“dog”</code> leads as to <code>“puppy”</code> and the key: <code>“do”</code> stops two nibbles before <code>“dog”</code> and we found that the corresponding value is: <code>“verb”</code>.</p>
+
+<p>That concludes the first step of making a Radix Tree in a new, hex slot oriented style.</p>
+
+<p>So what do we get out of this complex structure? The answer is 2 things:</p>
+
+<p>the keys with similar data will be saved economizing common prefixes.
+the retrieve/insert of a value is about to be <code>O(log(n))</code> which is not bad at all.
+ So far so good, can we improve it ?</p>
+
+<ol>
+<li><strong>How to improve it?</strong> : The next question is: how we can improve the structure to be more storage effective ? to answer that we define a rule that can be explained in simple words like that: given “too long path” for a single value , we can make a single node holding the full path as long as it has this only one value. As always example is the best to see it:</li>
+</ol>
+
+
+<p>Starting with the last diagram, let’s insert another key/value: [“doggiestan” : “aeswome_place”]. As we can see the key – “doggiestan” starts with “dog” (looks familiar?) and goes on with more characters. So in that case we are not going to encode the suffix “giestan” as a bunch of nodes but as a single key/value node: (Diagram - 2)</p>
+
+<p><img class="center" src="/images/posts/trie-post-diagram-2.png" title="Diagram-2" ></p>
+
+<p><strong>3. How to encode the finger print? :  </strong></p>
+
+<p>The fingerprint will be the sha3(root_node) function. One will probably ask: “Why it is unique?” or “Why does every change in the trie affect the root node?”  To answer that let’s closely observe the next diagram:</p>
+
+<p><img class="center" src="/images/posts/trie-post-diagram-3.png" title="Diagram-3" ></p>
+
+<p>In previous diagrams we used arrows to point out a node reference by another node, but in the data world, no arrows exist. So how is the reference actually implemented? Simply by saving the hash of the next node, in our case using <code>sha3()</code> function. That way, the most important goal of reflecting a change in data of each node, is achieved. Each change to a node will be reflected in the hash of that node, hence reflecting in the parent, and also his parent, and so on up to the root_node. That’s why <code>sha3(root_node)</code> is the absolute fingerprint of the full structure.</p>
+
+<p><strong>Summary:</strong>  Obviously the Trie structure as it is fully implemented holds more nuances and improvements. But once one understands the 3 principles that I have visualised here, it should be really easy to complete the picture by studying the actual code.</p>
+
+<p>For futher investigation of the wonders of Trie , you can use our repository test cases, one I inserted especially for this post:</p>
+
+<p>That is the runnig example for our test suite and can be used as start point for further study.</p>
+
+<p><figure class='code'><figcaption><span>Code example <a href="https://github.com/ethereum/ethereumj/blob/develop/ethereumj-core/src/test/java/org/ethereum/trie/TrieTest.java#L917">https://github.com/ethereum/ethereumj/blob/develop/ethereumj-core/src/test/java/org/ethereum/trie/TrieTest.java#L917</a> </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="nd">@Test</span> <span class="c1">// update the trie with blog key/val</span>
+</span><span class='line'>          <span class="c1">// each time dump the entire trie</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSample_1</span><span class="o">()</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="n">TrieImpl</span> <span class="n">trie</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">TrieImpl</span><span class="o">(</span><span class="n">mockDb</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">trie</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="s">&quot;dog&quot;</span><span class="o">,</span> <span class="s">&quot;puppy&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">String</span> <span class="n">dmp</span> <span class="o">=</span> <span class="n">trie</span><span class="o">.</span><span class="na">getTrieDump</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dmp</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="s">&quot;ed6e08740e4a267eca9d4740f71f573e9aabbcc739b16a2fa6c1baed5ec21278&quot;</span><span class="o">,</span> <span class="n">Hex</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">trie</span><span class="o">.</span><span class="na">getRootHash</span><span class="o">()));</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">trie</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="s">&quot;do&quot;</span><span class="o">,</span> <span class="s">&quot;verb&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">dmp</span> <span class="o">=</span> <span class="n">trie</span><span class="o">.</span><span class="na">getTrieDump</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dmp</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="s">&quot;779db3986dd4f38416bfde49750ef7b13c6ecb3e2221620bcad9267e94604d36&quot;</span><span class="o">,</span> <span class="n">Hex</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">trie</span><span class="o">.</span><span class="na">getRootHash</span><span class="o">()));</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">trie</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="s">&quot;doggiestan&quot;</span><span class="o">,</span> <span class="s">&quot;aeswome_place&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">dmp</span> <span class="o">=</span> <span class="n">trie</span><span class="o">.</span><span class="na">getTrieDump</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dmp</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span><span class="s">&quot;8bd5544747b4c44d1274aa99a6293065fe319b3230e800203317e4c75a770099&quot;</span><span class="o">,</span> <span class="n">Hex</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">trie</span><span class="o">.</span><span class="na">getRootHash</span><span class="o">()));</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Any questions or comments are welcome.</p>
+
+<p>Thanks to: <strong>Nick Savers</strong> for reviewing the draft and making my language to a real English.</p>
+
+<ul>
+<li>by <strong>Roman Mandeleil</strong>: the founder of the mighty Ethereum java implementation also known as EthereumJ.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
