@@ -15,9 +15,7 @@ That version is first of the RC series for Frontier network.
  
 ##### Getting Started
 To get started and include a java library into your project all you need is 
-to 
-<!--more-->
-use your favorite build system, here is Maven and Gradlle snippet: 
+to <!--more--> use your favorite build system, here is Maven and Gradlle snippet: 
 
 {% codeblock Maven Snippet lang:xml  %}  
    <repositories>
@@ -37,7 +35,7 @@ use your favorite build system, here is Maven and Gradlle snippet:
    </dependency>
 {% endcodeblock %}     
 	 
-	 
+or	 
  
  {% codeblock Gradle Snippet lang:groovy  %}   
   
