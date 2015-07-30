@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-07-30T02:32:06-04:00</updated>
+  <updated>2015-07-30T02:35:38-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -79,7 +79,6 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-<span class='line-number'>9</span>
 </pre></td><td class='code'><pre><code class='groovy'><span class='line'>   <span class="n">repositories</span> <span class="o">{</span>
 </span><span class='line'>     <span class="n">maven</span> <span class="o">{</span>
 </span><span class='line'>      <span class="n">url</span> <span class="s2">&quot;https://oss.jfrog.org/libs-snapshot&quot;</span>
@@ -88,11 +87,12 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 </span><span class='line'>
 </span><span class='line'>   <span class="c1">// Exclude log4j if you providing you own logging system  </span>
 </span><span class='line'>   <span class="n">compile</span> <span class="o">(</span><span class="s2">&quot;org.ethereum:ethereumj-core:0.9.6-SNAPSHOT&quot;</span><span class="o">)</span>
-</span><span class='line'>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p></p>
+
+<h5>So, what is in:</h5>
 
 <h5>RLPx network layer for channel protection</h5>
 
