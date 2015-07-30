@@ -94,17 +94,10 @@ or
       
 ##### Testing notes
 
- The EthereumJ librarey Was tested on 800k blocks of POC-9 olympic with final result of 
- full consensus reached
+ The EthereumJ librarey Was tested on more than 800k blocks of POC-9 Olympics network, almost 7 million transactions with final result of  full consensus reached.
 
  The library supports 99% of compatabiltiy kit test case. We support almost all test cases defined by 
  Ethereum development group, the several adge cases that we formally not support we decided to exclude
  at that stage for performance optimization.
  
-##### How To Start
 
- 
-  To include the EthereumJ library: use your favorite build system:
- 
- [Maven] (~!~) (to check for real)
- 
