@@ -17,7 +17,7 @@ That version is first of the RC series for Frontier network.
 To get started and include a java library into your project all you need is 
 to <!--more--> use your favorite build system, here is Maven and Gradlle snippet: 
 
-{% codeblock Maven Snippet lang:xml  %}  
+{% codeblock Maven Snippet lang:xml %}  
    <repositories>
      <repository>
        <id>oss.jfrog.org</id>
@@ -37,16 +37,16 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 	 
 or	 
  
- {% codeblock Gradle Snippet lang:groovy  %}   
-  repositories {
-    maven {
-     url "https://oss.jfrog.org/libs-snapshot"
+{% codeblock Gradle Snippet lang:groovy %}
+   repositories {
+     maven {
+      url "https://oss.jfrog.org/libs-snapshot"
+     }
     }
-   }
 
    // Exclude log4j if you providing you own logging system	
    compile ("org.ethereum:ethereumj-core:0.9.6-SNAPSHOT")
-    
+ 
 {% endcodeblock %}     
 
 
