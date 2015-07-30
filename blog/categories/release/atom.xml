@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-07-30T02:28:19-04:00</updated>
+  <updated>2015-07-30T02:30:04-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -77,10 +77,8 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="o">&lt;</span><span class="s">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="s">&lt;p&gt;  repositories {</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'> <span class="o">&lt;</span><span class="n">br</span><span class="s">/&gt;</span>
+</span><span class='line'><span class="s">  repositories {</span>
 </span><span class='line'><span class="s">    maven {</span>
 </span><span class='line'><span class="s">     url &amp;ldquo;&lt;a href=&quot;https://oss.jfrog.org/</span><span class="n">libs</span><span class="o">-</span><span class="n">snapshot</span><span class="err">&quot;</span><span class="o">&gt;</span><span class="nl">https:</span><span class="c1">//oss.jfrog.org/libs-snapshot&lt;/a&gt;&amp;rdquo;</span>
 </span><span class='line'>    <span class="o">}</span>

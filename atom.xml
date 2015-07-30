@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-07-30T02:28:19-04:00</updated>
+  <updated>2015-07-30T02:30:04-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -82,9 +82,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-<span class='line-number'>11</span>
 </pre></td><td class='code'><pre><code class='groovy'><span class='line'>
-</span><span class='line'>
 </span><span class='line'>  <span class="n">repositories</span> <span class="o">{</span>
 </span><span class='line'>    <span class="n">maven</span> <span class="o">{</span>
 </span><span class='line'>     <span class="n">url</span> <span class="s2">&quot;https://oss.jfrog.org/libs-snapshot&quot;</span>
