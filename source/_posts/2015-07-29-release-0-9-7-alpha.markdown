@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Release: 0.9.7-alpha"
+title: "Release: 1.0.0-RC1"
 date: 2015-07-29 17:03:57 -0400
 comments: true
 categories: release
