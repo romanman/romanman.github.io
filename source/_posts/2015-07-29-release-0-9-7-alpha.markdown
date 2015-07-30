@@ -102,7 +102,5 @@ or
  
 ##### More Code Samples
  
- Another good place getting started is to go and
- try code samples from our smples repository  [repository](https://github.com/ethereum/ethereumj/tree/develop/ethereumj-core/src/main/java/org/ethereum/samples)
- you can run them right away after fetching the 
- git source code
+ Another good place get started is to go and try code samples from our smples repository  [repository](https://github.com/ethereum/ethereumj/tree/develop/ethereumj-core/src/main/java/org/ethereum/samples)
+ you can run them right away after fetching them from the git
