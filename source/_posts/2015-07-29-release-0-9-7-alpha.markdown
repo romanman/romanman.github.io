@@ -38,7 +38,6 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 or	 
  
  {% codeblock Gradle Snippet lang:groovy  %}   
-  
   repositories {
     maven {
      url "https://oss.jfrog.org/libs-snapshot"
