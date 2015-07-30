@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-07-30T02:30:04-04:00</updated>
+  <updated>2015-07-30T02:32:06-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -30,7 +30,7 @@
 <p>To get started and include a java library into your project all you need is
 to <!--more--> use your favorite build system, here is Maven and Gradlle snippet:</p>
 
-<p><figure class='code'><figcaption><span>Maven Snippet  </span></figcaption>
+<p><figure class='code'><figcaption><span>Maven Snippet </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -65,7 +65,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 
 <p>or</p>
 
-<p> <figure class='code'><figcaption><span>Gradle Snippet  </span></figcaption>
+<p><figure class='code'><figcaption><span>Gradle Snippet </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -76,13 +76,11 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='groovy'><span class='line'> <span class="o">&lt;</span><span class="n">br</span><span class="s">/&gt;</span>
-</span><span class='line'><span class="s">  repositories {</span>
-</span><span class='line'><span class="s">    maven {</span>
-</span><span class='line'><span class="s">     url &amp;ldquo;&lt;a href=&quot;https://oss.jfrog.org/</span><span class="n">libs</span><span class="o">-</span><span class="n">snapshot</span><span class="err">&quot;</span><span class="o">&gt;</span><span class="nl">https:</span><span class="c1">//oss.jfrog.org/libs-snapshot&lt;/a&gt;&amp;rdquo;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>   <span class="o">}&lt;</span><span class="s">/p&gt;</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'>   <span class="n">repositories</span> <span class="o">{</span>
+</span><span class='line'>     <span class="n">maven</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">url</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;https://oss.jfrog.org/libs-snapshot&quot;</span><span class="o">&gt;</span><span class="nl">https:</span><span class="c1">//oss.jfrog.org/libs-snapshot&lt;/a&gt;&amp;rdquo;</span>
+</span><span class='line'>     <span class="o">}</span>
+</span><span class='line'>    <span class="o">}&lt;</span><span class="s">/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="s">&lt;p&gt;   // Exclude log4j if you providing you own logging system</span>
 </span><span class='line'><span class="s">   compile (&amp;ldquo;org.ethereum:ethereumj-core:0.9.6-SNAPSHOT&amp;rdquo;)&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
