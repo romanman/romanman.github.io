@@ -38,7 +38,6 @@ use your favorite build system, here is Maven and Gradlle snippet:
 {% endcodeblock %}     
 	 
 	 
-[Gradle] (~!~)
  
  {% codeblock Gradle Snippet lang:groovy  %}   
   
