@@ -17,7 +17,7 @@ That version is first of the RC series for Frontier network.
 To get started and include a java library into your project all you need is 
 to <!--more--> use your favorite build system, here is Maven and Gradlle snippet: 
 
-{% codeblock Maven Snippet lang:xml %}  
+{% codeblock Maven Snippet lang:xml https://gist.github.com/romanman/659e9e5b6b44b73b5755%}  
    <repositories>
      <repository>
        <id>oss.jfrog.org</id>
@@ -30,14 +30,14 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
    <dependency>
      <groupId>org.ethereum</groupId>
      <artifactId>ethereumj-core</artifactId>
-     <version> (~!~) 0.9.6-SNAPSHOT</version>
+     <version> 1.0.0-RC1 </version>
      <type>zip</type>
    </dependency>
 {% endcodeblock %}     
 	 
 or	 
  
-{% codeblock Gradle Snippet lang:groovy %}
+{% codeblock Gradle Snippet lang:groovy https://gist.github.com/romanman/cc82a7a698f800040e10 %}
 
    repositories {
      maven {
@@ -45,8 +45,7 @@ or
      }
     }
 
-   // Exclude log4j if you providing you own logging system	
-   compile ("org.ethereum:ethereumj-core:0.9.6-SNAPSHOT")
+   compile ("org.ethereum:ethereumj-core:1.0.0-RC1")
 {% endcodeblock %}     
 
  So, what is in: 
