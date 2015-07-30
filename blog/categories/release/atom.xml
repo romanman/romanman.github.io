@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-07-30T09:16:56-04:00</updated>
+  <updated>2015-07-30T09:20:43-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -18,7 +18,7 @@
     <link href="http://ethereumj.io/blog/2015/07/29/release-1-0-0-RC1/"/>
     <updated>2015-07-29T17:03:57-04:00</updated>
     <id>http://ethereumj.io/blog/2015/07/29/release-1-0-0-RC1</id>
-    <content type="html"><![CDATA[<p>{% img right /images/posts/release-ilustration-1.gif Release 0.9.7-alpha %}</p>
+    <content type="html"><![CDATA[<p>{% img right /images/posts/release-ilustration-1.gif Release 1.0.0-RC1 %}</p>
 
 <p>That version is first of the RC series for Frontier network.</p>
 
