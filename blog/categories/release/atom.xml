@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-07-30T02:24:52-04:00</updated>
+  <updated>2015-07-30T02:28:19-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -28,12 +28,7 @@
 <h5>Getting Started</h5>
 
 <p>To get started and include a java library into your project all you need is
-to</p>
-
-<!--more-->
-
-
-<p>use your favorite build system, here is Maven and Gradlle snippet:</p>
+to <!--more--> use your favorite build system, here is Maven and Gradlle snippet:</p>
 
 <p><figure class='code'><figcaption><span>Maven Snippet  </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -67,6 +62,8 @@ to</p>
 </span><span class='line'>     <span class="nt">&lt;type&gt;</span>zip<span class="nt">&lt;/type&gt;</span>
 </span><span class='line'>   <span class="nt">&lt;/dependency&gt;</span>
 </span></code></pre></td></tr></table></div></figure></p>
+
+<p>or</p>
 
 <p> <figure class='code'><figcaption><span>Gradle Snippet  </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
