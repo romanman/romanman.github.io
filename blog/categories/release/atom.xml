@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-07-30T08:53:37-04:00</updated>
+  <updated>2015-07-30T08:57:33-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Release: 1.0.0-RC1]]></title>
-    <link href="http://ethereumj.io/blog/2015/07/29/release-0-9-7-alpha/"/>
+    <link href="http://ethereumj.io/blog/2015/07/29/release-1-0-0-RC1/"/>
     <updated>2015-07-29T17:03:57-04:00</updated>
-    <id>http://ethereumj.io/blog/2015/07/29/release-0-9-7-alpha</id>
+    <id>http://ethereumj.io/blog/2015/07/29/release-1-0-0-RC1</id>
     <content type="html"><![CDATA[<p><img class="right" src="/images/posts/release-ilustration-1.gif" title="Release 0.9.7-alpha" ></p>
 
 <p>That version is first of the RC series for Frontier network.</p>
@@ -133,7 +133,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 
 <h5>Testing Notes</h5>
 
-<p> The EthereumJ librarey Was tested on more than 800k blocks of POC-9 Olympics network, almost 7 million transactions with final result of  full consensus reached.</p>
+<p> The EthereumJ librarey Was tested on more than 800k blocks from POC-9 Olympics network and more than 7 million transactions, with final result of full consensus achieved.</p>
 
 <p> The library supports 99% of compatabiltiy kit test case. We support almost all test cases defined by
  Ethereum development group, the several adge cases that we formally not support we decided to exclude
@@ -142,7 +142,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 <h5>More Code Samples</h5>
 
 <p> Another good place get started is to go and try code samples from our smples repository  <a href="https://github.com/ethereum/ethereumj/tree/develop/ethereumj-core/src/main/java/org/ethereum/samples">repository</a>
- you can run them right away after fetching them from the git</p>
+ you can run them right away after fetching them from the git.</p>
 ]]></content>
   </entry>
   
