@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-07-30T09:01:39-04:00</updated>
+  <updated>2015-07-30T09:21:30-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -18,7 +18,7 @@
     <link href="http://ethereumj.io/blog/2015/07/29/release-1-0-0-RC1/"/>
     <updated>2015-07-29T17:03:57-04:00</updated>
     <id>http://ethereumj.io/blog/2015/07/29/release-1-0-0-RC1</id>
-    <content type="html"><![CDATA[<p><img class="right" src="http://ethereumj.io/images/posts/release-ilustration-1.gif" title="Release 0.9.7-alpha" ></p>
+    <content type="html"><![CDATA[<p><img class="right" src="http://ethereumj.io/images/posts/release-ilustration-1.gif" title="Release 1.0.0-RC1" ></p>
 
 <p>That version is first of the RC series for Frontier network.</p>
 
@@ -30,8 +30,7 @@
 <p>To get started and include a java library into your project all you need is
 to <!--more--> use your favorite build system, here is Maven and Gradlle snippet:</p>
 
-<figure class='code'><figcaption><span>Maven Snippet </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Maven Snippet</span><a href='https://gist.github.com/romanman/659e9e5b6b44b73b5755'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -60,7 +59,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 </span><span class='line'>   <span class="nt">&lt;dependency&gt;</span>
 </span><span class='line'>     <span class="nt">&lt;groupId&gt;</span>org.ethereum<span class="nt">&lt;/groupId&gt;</span>
 </span><span class='line'>     <span class="nt">&lt;artifactId&gt;</span>ethereumj-core<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>     <span class="nt">&lt;version&gt;</span> (~!~) 0.9.6-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;version&gt;</span> 1.0.0-RC1 <span class="nt">&lt;/version&gt;</span>
 </span><span class='line'>     <span class="nt">&lt;type&gt;</span>zip<span class="nt">&lt;/type&gt;</span>
 </span><span class='line'>   <span class="nt">&lt;/dependency&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -70,23 +69,20 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 
 <p>or</p>
 
-<figure class='code'><figcaption><span>Gradle Snippet </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Gradle Snippet</span><a href='https://gist.github.com/romanman/cc82a7a698f800040e10'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-<span class='line-number'>8</span>
 </pre></td><td class='code'><pre><code class='groovy'><span class='line'>   <span class="n">repositories</span> <span class="o">{</span>
 </span><span class='line'>     <span class="n">maven</span> <span class="o">{</span>
 </span><span class='line'>      <span class="n">url</span> <span class="s2">&quot;https://oss.jfrog.org/libs-snapshot&quot;</span>
 </span><span class='line'>     <span class="o">}</span>
 </span><span class='line'>    <span class="o">}</span>
 </span><span class='line'>
-</span><span class='line'>   <span class="c1">// Exclude log4j if you providing you own logging system  </span>
-</span><span class='line'>   <span class="n">compile</span> <span class="o">(</span><span class="s2">&quot;org.ethereum:ethereumj-core:0.9.6-SNAPSHOT&quot;</span><span class="o">)</span>
+</span><span class='line'>   <span class="n">compile</span> <span class="o">(</span><span class="s2">&quot;org.ethereum:ethereumj-core:1.0.0-RC1&quot;</span><span class="o">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
