@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-07-30T08:51:38-04:00</updated>
+  <updated>2015-07-30T08:53:37-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -145,10 +145,8 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 
 <h5>More Code Samples</h5>
 
-<p> Another good place getting started is to go and
- try code samples from our smples repository  <a href="https://github.com/ethereum/ethereumj/tree/develop/ethereumj-core/src/main/java/org/ethereum/samples">repository</a>
- you can run them right away after fetching the
- git source code</p>
+<p> Another good place get started is to go and try code samples from our smples repository  <a href="https://github.com/ethereum/ethereumj/tree/develop/ethereumj-core/src/main/java/org/ethereum/samples">repository</a>
+ you can run them right away after fetching them from the git</p>
 ]]></content>
   </entry>
   
