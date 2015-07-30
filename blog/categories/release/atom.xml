@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-07-30T01:54:34-04:00</updated>
+  <updated>2015-07-30T02:24:52-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Release: 0.9.7-alpha]]></title>
+    <title type="html"><![CDATA[Release: 1.0.0-RC1]]></title>
     <link href="http://ethereumj.io/blog/2015/07/29/release-0-9-7-alpha/"/>
     <updated>2015-07-29T17:03:57-04:00</updated>
     <id>http://ethereumj.io/blog/2015/07/29/release-0-9-7-alpha</id>
@@ -22,14 +22,83 @@
 
 <p>That version is first of the RC series for Frontier network.</p>
 
-<p> Ethereum(J) is the library that can be embedded in any Java/Scalla project
+<p> Ethereum(J) is the library that can be embedded in any Java/Scala project
  and to provide full support for Ethereum protocol and sub services.</p>
+
+<h5>Getting Started</h5>
+
+<p>To get started and include a java library into your project all you need is
+to</p>
+
+<!--more-->
+
+
+<p>use your favorite build system, here is Maven and Gradlle snippet:</p>
+
+<p><figure class='code'><figcaption><span>Maven Snippet  </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;br/&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;repositories&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;repository&gt;</span>
+</span><span class='line'>       <span class="nt">&lt;id&gt;</span>oss.jfrog.org<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>       <span class="nt">&lt;name&gt;</span>Repository from JFrog<span class="nt">&lt;/name&gt;</span>
+</span><span class='line'>       <span class="nt">&lt;url&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://oss.jfrog.org/simple/oss-snapshot-local/&quot;</span><span class="nt">&gt;</span>http://oss.jfrog.org/simple/oss-snapshot-local/<span class="nt">&lt;/a&gt;&lt;/url&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;/repository&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;/repositories&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>   <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;groupId&gt;</span>org.ethereum<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;artifactId&gt;</span>ethereumj-core<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;version&gt;</span> (~!~) 0.9.6-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;type&gt;</span>zip<span class="nt">&lt;/type&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;/dependency&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p> <figure class='code'><figcaption><span>Gradle Snippet  </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="o">&lt;</span><span class="s">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="s">&lt;p&gt;  repositories {</span>
+</span><span class='line'><span class="s">    maven {</span>
+</span><span class='line'><span class="s">     url &amp;ldquo;&lt;a href=&quot;https://oss.jfrog.org/</span><span class="n">libs</span><span class="o">-</span><span class="n">snapshot</span><span class="err">&quot;</span><span class="o">&gt;</span><span class="nl">https:</span><span class="c1">//oss.jfrog.org/libs-snapshot&lt;/a&gt;&amp;rdquo;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>   <span class="o">}&lt;</span><span class="s">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="s">&lt;p&gt;   // Exclude log4j if you providing you own logging system</span>
+</span><span class='line'><span class="s">   compile (&amp;ldquo;org.ethereum:ethereumj-core:0.9.6-SNAPSHOT&amp;rdquo;)&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <h5>RLPx network layer for channel protection</h5>
 
 <p> Between each connected peers on the Ethereum network
  there is a protection mechanism for encryption and decryption
- <!--more-->
  for all of the underlying traffic.</p>
 
 <p> <code>org.ethereum.net.rlpx</code> - package is full implementation for the RLPx protocol</p>
@@ -81,72 +150,6 @@
 <p>  To include the EthereumJ library: use your favorite build system:</p>
 
 <p> [Maven] (~!~) (to check for real)</p>
-
-<p><figure class='code'><figcaption><span>Maven Snippet <a href="http://www.google.com">http://www.google.com</a> </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;br/&gt;</span>
-</span><span class='line'>   <span class="nt">&lt;repositories&gt;</span>
-</span><span class='line'>     <span class="nt">&lt;repository&gt;</span>
-</span><span class='line'>       <span class="nt">&lt;id&gt;</span>oss.jfrog.org<span class="nt">&lt;/id&gt;</span>
-</span><span class='line'>       <span class="nt">&lt;name&gt;</span>Repository from JFrog<span class="nt">&lt;/name&gt;</span>
-</span><span class='line'>       <span class="nt">&lt;url&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://oss.jfrog.org/simple/oss-snapshot-local/&quot;</span><span class="nt">&gt;</span>http://oss.jfrog.org/simple/oss-snapshot-local/<span class="nt">&lt;/a&gt;&lt;/url&gt;</span>
-</span><span class='line'>     <span class="nt">&lt;/repository&gt;</span>
-</span><span class='line'>   <span class="nt">&lt;/repositories&gt;&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>   <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>     <span class="nt">&lt;groupId&gt;</span>org.ethereum<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>     <span class="nt">&lt;artifactId&gt;</span>ethereumj-core<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>     <span class="nt">&lt;version&gt;</span> (~!~) 0.9.6-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>     <span class="nt">&lt;type&gt;</span>zip<span class="nt">&lt;/type&gt;</span>
-</span><span class='line'>   <span class="nt">&lt;/dependency&gt;</span>
-</span></code></pre></td></tr></table></div></figure></p>
-
-<p>[Gradle] (~!~)</p>
-
-<p> <figure class='code'><figcaption><span>Gradle Snippet <a href="http://www.google.com">http://www.google.com</a> </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="o">&lt;</span><span class="s">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="s">&lt;p&gt;  repositories {</span>
-</span><span class='line'><span class="s">    maven {</span>
-</span><span class='line'><span class="s">     url &amp;ldquo;&lt;a href=&quot;https://oss.jfrog.org/</span><span class="n">libs</span><span class="o">-</span><span class="n">snapshot</span><span class="err">&quot;</span><span class="o">&gt;</span><span class="nl">https:</span><span class="c1">//oss.jfrog.org/libs-snapshot&lt;/a&gt;&amp;rdquo;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>   <span class="o">}&lt;</span><span class="s">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="s">&lt;p&gt;   // Exclude log4j if you providing you own logging system</span>
-</span><span class='line'><span class="s">   compile (&amp;ldquo;org.ethereum:ethereumj-core:0.9.6-SNAPSHOT&amp;rdquo;){</span>
-</span><span class='line'><span class="s">       exclude group: &amp;ldquo;log4j&amp;rdquo;</span>
-</span><span class='line'><span class="s">       exclude group: &amp;ldquo;org.slf4j&amp;rdquo;, module: &amp;ldquo;log4j-over-slf4j&amp;rdquo;</span>
-</span><span class='line'><span class="s">       exclude group: &amp;ldquo;org.slf4j&amp;rdquo;, module: &amp;ldquo;slf4j-log4j12&amp;rdquo;</span>
-</span><span class='line'><span class="s">    }  &lt;br/</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></p>
 ]]></content>
   </entry>
   
