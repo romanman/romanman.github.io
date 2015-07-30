@@ -10,15 +10,55 @@ categories: release
 
 That version is first of the RC series for Frontier network.
 
- Ethereum(J) is the library that can be embedded in any Java/Scalla project
+ Ethereum(J) is the library that can be embedded in any Java/Scala project
  and to provide full support for Ethereum protocol and sub services.
+ 
+##### Getting Started
+To get started and include a java library into your project all you need is 
+to 
+<!--more-->
+use your favorite build system, here is Maven and Gradlle snippet: 
+
+{% codeblock Maven Snippet lang:xml  %}  
+   <repositories>
+     <repository>
+       <id>oss.jfrog.org</id>
+       <name>Repository from JFrog</name>
+       <url>http://oss.jfrog.org/simple/oss-snapshot-local/</url>
+     </repository>
+   </repositories>
+ 
+ 
+   <dependency>
+     <groupId>org.ethereum</groupId>
+     <artifactId>ethereumj-core</artifactId>
+     <version> (~!~) 0.9.6-SNAPSHOT</version>
+     <type>zip</type>
+   </dependency>
+{% endcodeblock %}     
+	 
+	 
+[Gradle] (~!~)
+ 
+ {% codeblock Gradle Snippet lang:groovy  %}   
+  
+  repositories {
+    maven {
+     url "https://oss.jfrog.org/libs-snapshot"
+    }
+   }
+
+   // Exclude log4j if you providing you own logging system	
+   compile ("org.ethereum:ethereumj-core:0.9.6-SNAPSHOT")
+    
+{% endcodeblock %}     
+
 
 
 ##### RLPx network layer for channel protection
   
  Between each connected peers on the Ethereum network 
  there is a protection mechanism for encryption and decryption
- <!--more-->
  for all of the underlying traffic. 
   
  `org.ethereum.net.rlpx` - package is full implementation for the RLPx protocol
@@ -72,39 +112,3 @@ That version is first of the RC series for Frontier network.
  
  [Maven] (~!~) (to check for real)
  
-{% codeblock Maven Snippet lang:xml http://www.google.com %}  
-   <repositories>
-     <repository>
-       <id>oss.jfrog.org</id>
-       <name>Repository from JFrog</name>
-       <url>http://oss.jfrog.org/simple/oss-snapshot-local/</url>
-     </repository>
-   </repositories>
- 
- 
-   <dependency>
-     <groupId>org.ethereum</groupId>
-     <artifactId>ethereumj-core</artifactId>
-     <version> (~!~) 0.9.6-SNAPSHOT</version>
-     <type>zip</type>
-   </dependency>
-{% endcodeblock %}     
-	 
-	 
-[Gradle] (~!~)
- 
- {% codeblock Gradle Snippet lang:groovy http://www.google.com %}   
-  
-  repositories {
-    maven {
-     url "https://oss.jfrog.org/libs-snapshot"
-    }
-   }
-
-   // Exclude log4j if you providing you own logging system	
-   compile ("org.ethereum:ethereumj-core:0.9.6-SNAPSHOT"){
-       exclude group: "log4j"
-       exclude group: "org.slf4j", module: "log4j-over-slf4j"
-       exclude group: "org.slf4j", module: "slf4j-log4j12"
-    } 	 
-{% endcodeblock %}     
