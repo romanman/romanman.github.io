@@ -49,7 +49,7 @@ or
    compile ("org.ethereum:ethereumj-core:0.9.6-SNAPSHOT")
 {% endcodeblock %}     
 
-##### So, what is in: 
+ So, what is in: 
 
 ##### RLPx network layer for channel protection
   
@@ -59,7 +59,7 @@ or
   
  `org.ethereum.net.rlpx` - package is full implementation for the RLPx protocol
  
-##### PeerDiscovery 
+##### Peer Discovery 
 
  The peer discovery is ethereum way to manage network topology. Each peer
  tries over time to find best neighbours to exchange information with.
@@ -67,14 +67,14 @@ or
  
  `org.ethereum.net.rlpx.discover` - is full implementation for peer disovery protocol
  
-##### Multi Peer blockchain syncronization
+##### Multi Peer Blockchain Syncronization
 	
  The Ethereum protocol supports fast block chain download - using
  bittorent way of downloading multiple blocks simultaneously from different channels
  
  `org.ethereum.net.eth` - us full support of Eth subprotocol and multipeer blocks download
 
-##### Full Ethereum VM support 
+##### Full Ethereum VM Support 
 
  The heart of the Ethereum consensus protocol is the virtual machine.
  The virtual machines is running the contracts algorithms exactly the 
@@ -82,7 +82,7 @@ or
  
  `org.ethereum.vm` - full Ethereum Virtual Machine implemented]
 	
-##### Ethereum Repository updates and manipulations
+##### Ethereum Repository Updates and Manipulations
  
  The data structure that supports consensys validation 
  algorithm, and eventually holding the full list of 
@@ -92,7 +92,7 @@ or
    
  `org.ethereum.repository` - full Ethereum Virtual Machine implemented
       
-##### Testing notes
+##### Testing Notes
 
  The EthereumJ librarey Was tested on more than 800k blocks of POC-9 Olympics network, almost 7 million transactions with final result of  full consensus reached.
 
@@ -100,4 +100,9 @@ or
  Ethereum development group, the several adge cases that we formally not support we decided to exclude
  at that stage for performance optimization.
  
-
+##### More Code Samples
+ 
+ Another good place getting started is to go and
+ try code samples from our smples repository  [repository](https://github.com/ethereum/ethereumj/tree/develop/ethereumj-core/src/main/java/org/ethereum/samples)
+ you can run them right away after fetching the 
+ git source code
