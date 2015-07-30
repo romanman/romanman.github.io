@@ -17,7 +17,7 @@ That version is first of the RC series for Frontier network.
 To get started and include a java library into your project all you need is 
 to <!--more--> use your favorite build system, here is Maven and Gradlle snippet: 
 
-{% codeblock Maven Snippet lang:xml https://gist.github.com/romanman/659e9e5b6b44b73b5755%}  
+{% codeblock Maven Snippet lang:xml https://gist.github.com/romanman/659e9e5b6b44b73b5755 %}  
    <repositories>
      <repository>
        <id>oss.jfrog.org</id>
