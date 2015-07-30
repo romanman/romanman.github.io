@@ -38,6 +38,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 or	 
  
 {% codeblock Gradle Snippet lang:groovy %}
+
    repositories {
      maven {
       url "https://oss.jfrog.org/libs-snapshot"
@@ -46,10 +47,9 @@ or
 
    // Exclude log4j if you providing you own logging system	
    compile ("org.ethereum:ethereumj-core:0.9.6-SNAPSHOT")
- 
 {% endcodeblock %}     
 
-
+##### So, what is in: 
 
 ##### RLPx network layer for channel protection
   
