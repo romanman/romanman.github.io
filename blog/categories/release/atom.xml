@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-07-30T04:58:53-04:00</updated>
+  <updated>2015-07-30T08:51:38-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -88,7 +88,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 </span><span class='line'>   <span class="n">compile</span> <span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">org</span><span class="o">.</span><span class="na">ethereum</span><span class="o">:</span><span class="n">ethereumj</span><span class="o">-</span><span class="nl">core:</span><span class="mf">0.9</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="n">SNAPSHOT</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;)</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<h5>So, what is in:</h5>
+<p> So, what is in:</p>
 
 <h5>RLPx network layer for channel protection</h5>
 
@@ -98,7 +98,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 
 <p> <code>org.ethereum.net.rlpx</code> - package is full implementation for the RLPx protocol</p>
 
-<h5>PeerDiscovery</h5>
+<h5>Peer Discovery</h5>
 
 <p> The peer discovery is ethereum way to manage network topology. Each peer
  tries over time to find best neighbours to exchange information with.
@@ -106,14 +106,14 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 
 <p> <code>org.ethereum.net.rlpx.discover</code> - is full implementation for peer disovery protocol</p>
 
-<h5>Multi Peer blockchain syncronization</h5>
+<h5>Multi Peer Blockchain Syncronization</h5>
 
 <p> The Ethereum protocol supports fast block chain download - using
  bittorent way of downloading multiple blocks simultaneously from different channels</p>
 
 <p> <code>org.ethereum.net.eth</code> - us full support of Eth subprotocol and multipeer blocks download</p>
 
-<h5>Full Ethereum VM support</h5>
+<h5>Full Ethereum VM Support</h5>
 
 <p> The heart of the Ethereum consensus protocol is the virtual machine.
  The virtual machines is running the contracts algorithms exactly the
@@ -121,7 +121,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 
 <p> <code>org.ethereum.vm</code> - full Ethereum Virtual Machine implemented]</p>
 
-<h5>Ethereum Repository updates and manipulations</h5>
+<h5>Ethereum Repository Updates and Manipulations</h5>
 
 <p> The data structure that supports consensys validation
  algorithm, and eventually holding the full list of
@@ -131,13 +131,20 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 
 <p> <code>org.ethereum.repository</code> - full Ethereum Virtual Machine implemented</p>
 
-<h5>Testing notes</h5>
+<h5>Testing Notes</h5>
 
 <p> The EthereumJ librarey Was tested on more than 800k blocks of POC-9 Olympics network, almost 7 million transactions with final result of  full consensus reached.</p>
 
 <p> The library supports 99% of compatabiltiy kit test case. We support almost all test cases defined by
  Ethereum development group, the several adge cases that we formally not support we decided to exclude
  at that stage for performance optimization.</p>
+
+<h5>More Code Samples</h5>
+
+<p> Another good place getting started is to go and
+ try code samples from our smples repository  <a href="https://github.com/ethereum/ethereumj/tree/develop/ethereumj-core/src/main/java/org/ethereum/samples">repository</a>
+ you can run them right away after fetching the
+ git source code</p>
 ]]></content>
   </entry>
   
