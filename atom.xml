@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-08-03T14:54:40-04:00</updated>
+  <updated>2015-08-03T14:55:47-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -88,10 +88,10 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 
 <p></p>
 
-<p>Also we have very simple starter example
-just do:
-<code>git clone https://github.com/ether-camp/ethereumj.starter</code>
-and you can develop any Ethereum application.</p>
+<p> Also we have very simple starter example
+ just do:
+ <code>git clone https://github.com/ether-camp/ethereumj.starter</code>
+ and you can develop any Ethereum application.</p>
 
 <p> <em>So, what is in:</em></p>
 

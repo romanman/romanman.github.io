@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-08-03T14:54:40-04:00</updated>
+  <updated>2015-08-03T14:55:47-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -86,10 +86,10 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="n">compile</span> <span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">org</span><span class="o">.</span><span class="na">ethereum</span><span class="o">:</span><span class="n">ethereumj</span><span class="o">-</span><span class="nl">core:</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">RC1</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;)</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<p>Also we have very simple starter example
-just do:
-<code>git clone https://github.com/ether-camp/ethereumj.starter</code>
-and you can develop any Ethereum application.</p>
+<p> Also we have very simple starter example
+ just do:
+ <code>git clone https://github.com/ether-camp/ethereumj.starter</code>
+ and you can develop any Ethereum application.</p>
 
 <p> <em>So, what is in:</em></p>
 
