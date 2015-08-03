@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-08-03T14:59:46-04:00</updated>
+  <updated>2015-08-03T15:05:23-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -92,6 +92,11 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
  just do:
  <code>git clone https://github.com/ether-camp/ethereumj.starter</code>
    and you are ready to develop your first Ethereum application.</p>
+
+<p>  Also it can be usefull to browse the code and study how ethereumj
+  library is weaved into the application:</p>
+
+<p>  <a href="https://github.com/ether-camp/ethereumj.starter">https://github.com/ether-camp/ethereumj.starter</a></p>
 
 <p> <em>So, what is in:</em></p>
 
