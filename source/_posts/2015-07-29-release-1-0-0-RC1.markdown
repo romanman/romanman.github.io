@@ -64,50 +64,56 @@ or
   an extremly protected channel by sophisticated encryption and decryption
   algorithm for all of the underlying traffic. 
   
- `org.ethereum.net.rlpx` - package is full implementation for the RLPx protocol
+ `org.ethereum.net.rlpx` - package is full implementation for the RLPx protocol.
  
 ##### Peer Discovery 
 
- The peer discovery is ethereum way to manage network topology. Each peer
- tries over time to find best neighbours to exchange information with.
- That is beeing achieved by managing statistic table over the connected peers.
+  The peer discovery is Ethereum way to manage network topology and to provide the 
+  peer with best view of the network. Each peer tries over time to find best neighbours 
+  and to exchange information about sub protocols with them. That is beeing achieved 
+  by managing statistic table over the found peers by constant ongoing process.
  
- `org.ethereum.net.rlpx.discover` - is full implementation for peer disovery protocol
+ `org.ethereum.net.rlpx.discover` - is full implementation for peer disovery protocol.
  
 ##### Multi Peer Blockchain Syncronization
 	
- The Ethereum protocol supports fast block chain download - using
- bittorent way of downloading multiple blocks simultaneously from different channels
+  The Ethereum protocol supports fast block chain download - using
+  bittorent way of downloading multiple blocks simultaneously from different channels.
  
- `org.ethereum.net.eth` - us full support of Eth subprotocol and multipeer blocks download
+ `org.ethereum.net.eth` - us full support of Eth subprotocol and multipeer blockschain synchronization
 
 ##### Full Ethereum VM Support 
 
- The heart of the Ethereum consensus protocol is the virtual machine.
- The virtual machines is running the contracts algorithms exactly the 
- same way on all the peers, tested and compatible with all implementations.
+  The heart of the Ethereum consensus protocol is the virtual machine.
+  The virtual machines is running the contracts algorithms exactly the 
+  same way on all the peers, tested and compatible with all implementations.
  
- `org.ethereum.vm` - full Ethereum Virtual Machine implemented]
+ `org.ethereum.vm` 
+ `org.ethereum.core` - full Ethereum virtual machine and consensys mechanism implementation
 	
 ##### Ethereum Repository Updates and Manipulations
  
  The data structure that supports consensys validation 
  algorithm, and eventually holding the full list of 
  ethereum affairs is called Ethereum Repository. 
- It embrace Ethereum Trie protocol, more can be 
- study [here](/blog/2015/07/05/Ethereum-Trie/)
+ It makes masive use for Ethereum Trie data structure. 
+ More info about that magic Trie can be study [here](/blog/2015/07/05/Ethereum-Trie/)
    
- `org.ethereum.repository` - full Ethereum Virtual Machine implemented
+ `org.ethereum.repository` - full Ethereum repository implementation
       
 ##### Testing Notes
 
- The EthereumJ librarey Was tested on more than 800k blocks from POC-9 Olympics network and more than 7 million transactions, with final result of full consensus achieved.
+ The EthereumJ librarey Was tested on more than 830k blocks from POC-9 Olympics network and more than 7 million transactions, with final result of full consensus achieved.
 
  The library supports 99% of compatabiltiy kit test case. We support almost all test cases defined by 
- Ethereum development group, the several adge cases that we formally not support we decided to exclude
+ Ethereum development group, the several adge cases that we formally do not support, which we decided to exclude
  at that stage for performance optimization.
  
 ##### More Code Samples
  
- Another good place get started is to go and try code samples from our smples repository  [repository](https://github.com/ethereum/ethereumj/tree/develop/ethereumj-core/src/main/java/org/ethereum/samples)
+ Another good place get started is to go and try code samples from our samples repository  [repository](https://github.com/ethereum/ethereumj/tree/develop/ethereumj-core/src/main/java/org/ethereum/samples)
  you can run them right away after fetching them from the git.
+ 
+ 
+ 
+ 
