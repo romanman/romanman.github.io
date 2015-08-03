@@ -11,7 +11,7 @@ categories: release
 That version is first of the RC series for Frontier network.
 
  Ethereum(J) is the library that can be embedded in any Java/Scala project
- and to provide full support for Ethereum protocol and sub services.
+ and to provide full support for Ethereum protocol and sub services.a
  
 ##### Getting Started
 To get started and include a java library into your project all you need is 
@@ -86,7 +86,7 @@ or
 
   The heart of the Ethereum consensus protocol is the virtual machine.
   The virtual machines is running the contracts algorithms exactly the 
-  same way on all the peers, tested and compatible with all implementations.
+  same way on all the peers, tested and compatible with all the implementations.
  
   - `org.ethereum.vm`
   - `org.ethereum.core` - full Ethereum virtual machine and consensys mechanism implementation
