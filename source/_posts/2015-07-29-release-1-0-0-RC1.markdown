@@ -48,7 +48,12 @@ or
    compile ("org.ethereum:ethereumj-core:1.0.0-RC1")
 {% endcodeblock %}     
 
- So, what is in: 
+Also we have very simple starter example
+just to `git clone https://github.com/ether-camp/ethereumj.starter`
+and you can develop any Ethereum application.
+
+
+ *So, what is in:*
 
 ##### RLPx network layer for channel protection
   
