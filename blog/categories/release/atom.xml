@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-08-03T15:39:11-04:00</updated>
+  <updated>2015-08-03T15:42:51-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -23,7 +23,7 @@
 <p>That version is first of the RC series for Frontier network.</p>
 
 <p> Ethereum(J) is the library that can be embedded in any Java/Scala project
- and to provide full support for Ethereum protocol and sub services.</p>
+ and to provide full support for Ethereum protocol and sub services.a</p>
 
 <h5>Getting Started</h5>
 
@@ -103,7 +103,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
   algorithm for all of the underlying traffic.</p>
 
 <ul>
-<li><code>org.ethereum.net.rlpx</code> - package is full implementation for the RLPx protocol.</li>
+<li><code>org.ethereum.net.rlpx</code> - package providing full implementation for the RLPx protocol.</li>
 </ul>
 
 
@@ -115,7 +115,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
   by managing statistic table over the found peers by constant ongoing process.</p>
 
 <ul>
-<li><code>org.ethereum.net.rlpx.discover</code> - is full implementation for peer disovery protocol.</li>
+<li><code>org.ethereum.net.rlpx.discover</code> - package providing full implementation for peer disovery protocol.</li>
 </ul>
 
 
@@ -125,7 +125,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
   bittorent way of downloading multiple blocks simultaneously from different channels.</p>
 
 <ul>
-<li><code>org.ethereum.net.eth</code> - us full support of Eth subprotocol and multipeer blockschain synchronization</li>
+<li><code>org.ethereum.net.eth</code> - package providing full support of Eth subprotocol and multipeer blockschain synchronization</li>
 </ul>
 
 
@@ -133,11 +133,11 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 
 <p>  The heart of the Ethereum consensus protocol is the virtual machine.
   The virtual machines is running the contracts algorithms exactly the
-  same way on all the peers, tested and compatible with all implementations.</p>
+  same way on all the peers, tested and compatible with all the implementations.</p>
 
 <ul>
 <li><code>org.ethereum.vm</code></li>
-<li><code>org.ethereum.core</code> - full Ethereum virtual machine and consensys mechanism implementation</li>
+<li><code>org.ethereum.core</code> - packages providing full Ethereum virtual machine and consensys mechanism implementation</li>
 </ul>
 
 
@@ -156,7 +156,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 
 <h5>Testing Notes</h5>
 
-<p> The EthereumJ librarey Was tested on more than 830k blocks from POC-9 Olympics network and more than 7 million transactions, with final result of full consensus achieved.</p>
+<p> The EthereumJ librarey was tested on more than 830k blocks from POC-9 Olympics network and more than 7 million transactions, with final result of full consensus achieved.</p>
 
 <p> The library supports 99% of compatabiltiy kit test case. We support almost all test cases defined by
  Ethereum development group, the several adge cases that we formally do not support, which we decided to exclude
