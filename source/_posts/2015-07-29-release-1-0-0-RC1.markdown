@@ -99,7 +99,7 @@ or
  It makes masive use for Ethereum Trie data structure. 
  More info about that magic Trie can be study [here](/blog/2015/07/05/Ethereum-Trie/)
    
-  - `org.ethereum.repository` - full Ethereum repository implementation
+  - `org.ethereum.repository` - packages providing full Ethereum repository implementation
       
 ##### Testing Notes
 
