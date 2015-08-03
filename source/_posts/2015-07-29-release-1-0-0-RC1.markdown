@@ -64,7 +64,7 @@ or
   an extremly protected channel by sophisticated encryption and decryption
   algorithm for all of the underlying traffic. 
   
-  `org.ethereum.net.rlpx` - package is full implementation for the RLPx protocol.
+  - `org.ethereum.net.rlpx` - package is full implementation for the RLPx protocol.
  
 ##### Peer Discovery 
 
@@ -73,14 +73,14 @@ or
   and to exchange information about sub protocols with them. That is beeing achieved 
   by managing statistic table over the found peers by constant ongoing process.
  
-  `org.ethereum.net.rlpx.discover` - is full implementation for peer disovery protocol.
+  - `org.ethereum.net.rlpx.discover` - is full implementation for peer disovery protocol.
  
 ##### Multi Peer Blockchain Syncronization
 	
   The Ethereum protocol supports fast block chain download - using
   bittorent way of downloading multiple blocks simultaneously from different channels.
  
-  `org.ethereum.net.eth` - us full support of Eth subprotocol and multipeer blockschain synchronization
+  - `org.ethereum.net.eth` - us full support of Eth subprotocol and multipeer blockschain synchronization
 
 ##### Full Ethereum VM Support 
 
@@ -88,8 +88,8 @@ or
   The virtual machines is running the contracts algorithms exactly the 
   same way on all the peers, tested and compatible with all implementations.
  
-  `org.ethereum.vm` 
-  `org.ethereum.core` - full Ethereum virtual machine and consensys mechanism implementation
+  - `org.ethereum.vm`
+  - `org.ethereum.core` - full Ethereum virtual machine and consensys mechanism implementation
 	
 ##### Ethereum Repository Updates and Manipulations
  
@@ -99,7 +99,7 @@ or
  It makes masive use for Ethereum Trie data structure. 
  More info about that magic Trie can be study [here](/blog/2015/07/05/Ethereum-Trie/)
    
-  `org.ethereum.repository` - full Ethereum repository implementation
+  - `org.ethereum.repository` - full Ethereum repository implementation
       
 ##### Testing Notes
 
