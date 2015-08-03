@@ -48,15 +48,12 @@ or
    compile ("org.ethereum:ethereumj-core:1.0.0-RC1")
 {% endcodeblock %}     
 
- Also we have very simple starter example
- just do: 
+ Also we have very simple starter example - just do: 
  `git clone https://github.com/ether-camp/ethereumj.starter`
    and you are ready to develop your first Ethereum application.
-  
-  Also it can be usefull to browse the code and study how ethereumj
-  library is weaved into the application: 
-  
-  https://github.com/ether-camp/ethereumj.starter
+   Also it can be usefull to browse the code and study how ethereumj
+   library is weaved into the application: 
+   https://github.com/ether-camp/ethereumj.starter
 
  *So, what is in:*
 
