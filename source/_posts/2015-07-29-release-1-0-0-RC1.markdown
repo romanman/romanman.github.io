@@ -49,7 +49,8 @@ or
 {% endcodeblock %}     
 
 Also we have very simple starter example
-just to `git clone https://github.com/ether-camp/ethereumj.starter`
+just do: 
+`git clone https://github.com/ether-camp/ethereumj.starter`
 and you can develop any Ethereum application.
 
 
