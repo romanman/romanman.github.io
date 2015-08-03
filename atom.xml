@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-08-03T15:17:11-04:00</updated>
+  <updated>2015-08-03T15:21:08-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -99,9 +99,10 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 
 <h5>RLPx network layer for channel protection</h5>
 
-<p> Between each connected peers on the Ethereum network
- there is a protection mechanism for encryption and decryption
- for all of the underlying traffic.</p>
+<p>  Between each connected peers on the Ethereum network
+  there is a security mechanism called RLPx - designed to provide
+  an extremly protected channel by sophisticated encryption and decryption
+  algorithm for all of the underlying traffic.</p>
 
 <p> <code>org.ethereum.net.rlpx</code> - package is full implementation for the RLPx protocol</p>
 
