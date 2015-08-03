@@ -103,7 +103,7 @@ or
       
 ##### Testing Notes
 
- The EthereumJ librarey Was tested on more than 830k blocks from POC-9 Olympics network and more than 7 million transactions, with final result of full consensus achieved.
+ The EthereumJ librarey was tested on more than 830k blocks from POC-9 Olympics network and more than 7 million transactions, with final result of full consensus achieved.
 
  The library supports 99% of compatabiltiy kit test case. We support almost all test cases defined by 
  Ethereum development group, the several adge cases that we formally do not support, which we decided to exclude
