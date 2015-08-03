@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-08-03T15:42:51-04:00</updated>
+  <updated>2015-08-03T15:44:26-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -158,7 +158,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 
 <p> The EthereumJ librarey was tested on more than 830k blocks from POC-9 Olympics network and more than 7 million transactions, with final result of full consensus achieved.</p>
 
-<p> The library supports 99% of compatabiltiy kit test case. We support almost all test cases defined by
+<p> The library supports 99% of compatabiltiy kit test cases. We support almost all test cases defined by
  Ethereum development group, the several adge cases that we formally do not support, which we decided to exclude
  at that stage for performance optimization.</p>
 
