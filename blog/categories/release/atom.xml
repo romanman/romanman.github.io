@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-08-03T15:31:06-04:00</updated>
+  <updated>2015-08-03T15:32:41-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -102,7 +102,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
   an extremly protected channel by sophisticated encryption and decryption
   algorithm for all of the underlying traffic.</p>
 
-<p> <code>org.ethereum.net.rlpx</code> - package is full implementation for the RLPx protocol.</p>
+<p>  <code>org.ethereum.net.rlpx</code> - package is full implementation for the RLPx protocol.</p>
 
 <h5>Peer Discovery</h5>
 
@@ -111,14 +111,14 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
   and to exchange information about sub protocols with them. That is beeing achieved
   by managing statistic table over the found peers by constant ongoing process.</p>
 
-<p> <code>org.ethereum.net.rlpx.discover</code> - is full implementation for peer disovery protocol.</p>
+<p>  <code>org.ethereum.net.rlpx.discover</code> - is full implementation for peer disovery protocol.</p>
 
 <h5>Multi Peer Blockchain Syncronization</h5>
 
 <p>  The Ethereum protocol supports fast block chain download - using
   bittorent way of downloading multiple blocks simultaneously from different channels.</p>
 
-<p> <code>org.ethereum.net.eth</code> - us full support of Eth subprotocol and multipeer blockschain synchronization</p>
+<p>  <code>org.ethereum.net.eth</code> - us full support of Eth subprotocol and multipeer blockschain synchronization</p>
 
 <h5>Full Ethereum VM Support</h5>
 
@@ -126,8 +126,8 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
   The virtual machines is running the contracts algorithms exactly the
   same way on all the peers, tested and compatible with all implementations.</p>
 
-<p> <code>org.ethereum.vm</code>
- <code>org.ethereum.core</code> - full Ethereum virtual machine and consensys mechanism implementation</p>
+<p>  <code>org.ethereum.vm</code>
+  <code>org.ethereum.core</code> - full Ethereum virtual machine and consensys mechanism implementation</p>
 
 <h5>Ethereum Repository Updates and Manipulations</h5>
 
@@ -137,7 +137,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
  It makes masive use for Ethereum Trie data structure.
  More info about that magic Trie can be study <a href="/blog/2015/07/05/Ethereum-Trie/">here</a></p>
 
-<p> <code>org.ethereum.repository</code> - full Ethereum repository implementation</p>
+<p>  <code>org.ethereum.repository</code> - full Ethereum repository implementation</p>
 
 <h5>Testing Notes</h5>
 
