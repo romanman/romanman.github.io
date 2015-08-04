@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-08-03T15:47:35-04:00</updated>
+  <updated>2015-08-04T11:40:58-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -50,8 +50,8 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 </span><span class='line'>   <span class="nt">&lt;repositories&gt;</span>
 </span><span class='line'>     <span class="nt">&lt;repository&gt;</span>
 </span><span class='line'>       <span class="nt">&lt;id&gt;</span>oss.jfrog.org<span class="nt">&lt;/id&gt;</span>
-</span><span class='line'>       <span class="nt">&lt;name&gt;</span>Repository from JFrog<span class="nt">&lt;/name&gt;</span>
-</span><span class='line'>       <span class="nt">&lt;url&gt;</span>http://oss.jfrog.org/simple/oss-snapshot-local/<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>       <span class="nt">&lt;name&gt;</span>Repository from Bintray<span class="nt">&lt;/name&gt;</span>
+</span><span class='line'>       <span class="nt">&lt;url&gt;</span>http://dl.bintray.com/ethereum/maven<span class="nt">&lt;/url&gt;</span>
 </span><span class='line'>     <span class="nt">&lt;/repository&gt;</span>
 </span><span class='line'>   <span class="nt">&lt;/repositories&gt;</span>
 </span><span class='line'>
@@ -59,7 +59,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 </span><span class='line'>   <span class="nt">&lt;dependency&gt;</span>
 </span><span class='line'>     <span class="nt">&lt;groupId&gt;</span>org.ethereum<span class="nt">&lt;/groupId&gt;</span>
 </span><span class='line'>     <span class="nt">&lt;artifactId&gt;</span>ethereumj-core<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>     <span class="nt">&lt;version&gt;</span> 1.0.0-RC1 <span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;version&gt;</span>1.0.0-RC1<span class="nt">&lt;/version&gt;</span>
 </span><span class='line'>     <span class="nt">&lt;type&gt;</span>zip<span class="nt">&lt;/type&gt;</span>
 </span><span class='line'>   <span class="nt">&lt;/dependency&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -78,7 +78,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
 <span class='line-number'>7</span>
 </pre></td><td class='code'><pre><code class='groovy'><span class='line'>   <span class="n">repositories</span> <span class="o">{</span>
 </span><span class='line'>     <span class="n">maven</span> <span class="o">{</span>
-</span><span class='line'>      <span class="n">url</span> <span class="s2">&quot;https://oss.jfrog.org/libs-snapshot&quot;</span>
+</span><span class='line'>      <span class="n">url</span> <span class="s2">&quot;http://dl.bintray.com/ethereum/maven&quot;</span>
 </span><span class='line'>     <span class="o">}</span>
 </span><span class='line'>    <span class="o">}</span>
 </span><span class='line'>
