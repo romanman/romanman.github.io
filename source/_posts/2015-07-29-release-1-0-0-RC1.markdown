@@ -21,8 +21,8 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
    <repositories>
      <repository>
        <id>oss.jfrog.org</id>
-       <name>Repository from JFrog</name>
-       <url>http://oss.jfrog.org/simple/oss-snapshot-local/</url>
+       <name>Repository from Bintray</name>
+       <url>http://dl.bintray.com/ethereum/maven</url>
      </repository>
    </repositories>
  
@@ -30,7 +30,7 @@ to <!--more--> use your favorite build system, here is Maven and Gradlle snippet
    <dependency>
      <groupId>org.ethereum</groupId>
      <artifactId>ethereumj-core</artifactId>
-     <version> 1.0.0-RC1 </version>
+     <version>1.0.0-RC1</version>
      <type>zip</type>
    </dependency>
 {% endcodeblock %}     
@@ -41,7 +41,7 @@ or
 
    repositories {
      maven {
-      url "https://oss.jfrog.org/libs-snapshot"
+      url "http://dl.bintray.com/ethereum/maven"
      }
     }
 
