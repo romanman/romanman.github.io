@@ -15,7 +15,7 @@ Ethereum is a great system to achieve consensus between an independent peers, bu
 Let's write a simple example of server bot to pump real price spot data into a special contract: 
 [PriceFeed.sol](https://github.com/ether-camp/contracts/blob/master/PriceFeed.sol)
 
-The full example for the feed reporter can be seen here (todo: link), we will just go over central code points : 
+The full example for the feed reporter can be clone from [feed.reporter.ether.camp](https://github.com/ether-camp/feed.reporter.ether.camp), we will just go over central code points : 
 
 1.	How to get info from the exchanges, we will use Poloniex exchange to get ETH price spots: 
 
@@ -103,18 +103,19 @@ That is actually all you need to make your own bot to transfer data from the rea
 After the contract is updated with data any other contract can access it and be built on top of market real prices. As we discussed in this forum post: [forum link](http://forum.ethereum.org/discussion/3417/ask-%CE%9E-community-what-do-you-think-of-our-new-smart-contract-pricefeed)
 
 
-The last point we need to take care if is the actuall private key 
-for the account which will fund the ongoing transactions, 
+The last point we need to take care - is the actuall private key 
+for the account which will fund the ongoing update transactions, 
 here is how you should put it down in  [pricefeed.conf](https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/resources/pricefeed.conf)
 
 {% codeblock Code example lang:java https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/resources/pricefeed.conf %}
 
-user.account.privateKey = "..."
+// if the private key is a seed sha3(value) will be calculated
+user.account.privateKey = "my private key"
 
 {% endcodeblock %}
 
  
-Now it's good time to try and clone/run the full repository: 
+Now it's good time to try and clone/run the repository: 
 
 {% codeblock Code example lang:bash %}
 git clone https://github.com/ether-camp/feed.reporter.ether.camp
@@ -123,7 +124,7 @@ cd feed.reporter.ether.camp
 {% endcodeblock %}
 
 To really enjoy this example I am chalenging you to add info 
-from more stock exchanges about price list that you care about
+from more stock exchanges for assets that you care about
 and we will merge your code into the git repo.
 
 For any question or comment regarding that example you can ask us here [chat room](https://gitter.im/ethereum/ethereumj), or by leaving a comment directly.
