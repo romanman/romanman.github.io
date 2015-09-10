@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-08-04T11:45:52-04:00</updated>
+  <updated>2015-09-10T05:30:13-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -12,6 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Friendly Ether Bot]]></title>
+    <link href="http://ethereumj.io/blog/2015/09/09/friendly-ether-bot/"/>
+    <updated>2015-09-09T17:03:57-04:00</updated>
+    <id>http://ethereumj.io/blog/2015/09/09/friendly-ether-bot</id>
+    <content type="html"><![CDATA[<p><img class="center" src="http://ethereumj.io/images/posts/friendly-bot-1.png" title="Friendly Ether Bot" ></p>
+
+<p>&hellip;. texting &hellip;</p>
+
+<!--more-->
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Release: 1.0.0-RC1]]></title>

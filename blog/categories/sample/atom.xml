@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: sample | Ethereum J]]></title>
+  <link href="http://ethereumj.io/blog/categories/sample/atom.xml" rel="self"/>
+  <link href="http://ethereumj.io/"/>
+  <updated>2015-09-10T05:30:13-04:00</updated>
+  <id>http://ethereumj.io/</id>
+  <author>
+    <name><![CDATA[Roman Mandeleil]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Friendly Ether Bot]]></title>
+    <link href="http://ethereumj.io/blog/2015/09/09/friendly-ether-bot/"/>
+    <updated>2015-09-09T17:03:57-04:00</updated>
+    <id>http://ethereumj.io/blog/2015/09/09/friendly-ether-bot</id>
+    <content type="html"><![CDATA[<p><img class="center" src="/images/posts/friendly-bot-1.png" title="Friendly Ether Bot" ></p>
+
+<p>&hellip;. texting &hellip;</p>
+
+<!--more-->
+
+]]></content>
+  </entry>
+  
+</feed>
