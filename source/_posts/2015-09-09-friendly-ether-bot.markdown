@@ -13,7 +13,8 @@ Ethereum is a great system to achieve consensus between an independent peers, bu
 <!--more-->
 
 Let's write a simple example of server bot to pump real price spot data into a special contract: 
-https://github.com/ether-camp/contracts/blob/master/PriceFeed.sol
+[PriceFeed.sol]
+(https://github.com/ether-camp/contracts/blob/master/PriceFeed.sol)
 
 The full example for the feed reporter can be seen here (todo: link), we will just go over central code points : 
 
