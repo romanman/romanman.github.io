@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sample | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/sample/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-09-10T06:14:01-04:00</updated>
+  <updated>2015-09-10T06:18:15-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -123,7 +123,7 @@ here is how you should put it down in  <a href="https://github.com/ether-camp/fe
 
 <p>Now it&rsquo;s good time to try and clone/run the full repository:</p>
 
-<p>{% codeblock Code example lang:shell %}
+<p>{% codeblock Code example lang:zsh %}
 git clone <a href="https://github.com/ether-camp/feed.reporter.ether.camp">https://github.com/ether-camp/feed.reporter.ether.camp</a>
 cd feed.reporter.ether.camp
 ./gradlew bootRun
