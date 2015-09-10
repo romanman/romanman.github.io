@@ -102,6 +102,28 @@ That is actually all you need to make your own bot to transfer data from the rea
 
 After the contract is updated with data any other contract can access it and be built on top of market real prices. As we discussed in this forum post: [forum link](http://forum.ethereum.org/discussion/3417/ask-%CE%9E-community-what-do-you-think-of-our-new-smart-contract-pricefeed)
 
+
+The last point we need to take care if is the actuall private key 
+for the account which will fund the ongoing transactions, 
+here is how you should put it in: 
+
+{% codeblock Code example lang:java https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/resources/pricefeed.conf %}
+
+user.account.privateKey = "..."
+
+{% endcodeblock %}
+
+ link to the file: [pricefeed.conf](https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/resources/pricefeed.conf)
+
+
+Now it's good time to try and clone/run the full repository: 
+
+`git clone https://github.com/ether-camp/feed.reporter.ether.camp`
+`gradlew bootRun`
+
+To really enjoy this example I am chalenging you to add info 
+from more stock exchanges.
+
 For any question or comment regarding that example you can ask us here [chat room](https://gitter.im/ethereum/ethereumj), or by leaving a comment directly.
 
 
