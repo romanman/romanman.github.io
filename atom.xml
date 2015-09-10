@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-09-10T05:38:24-04:00</updated>
+  <updated>2015-09-10T05:51:50-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -53,26 +53,119 @@
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="c1">// Accessing the rest point</span>
-</span><span class='line'><span class="n">RestTemplate</span> <span class="n">restTemplate</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">RestTemplate</span><span class="o">();</span>
-</span><span class='line'><span class="n">String</span> <span class="n">rpcEnd</span> <span class="o">=</span> <span class="s">&quot;https://poloniex.com/public?command=returnTicker&quot;</span><span class="o">;</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="c1">// Accessing the rest point</span>
+</span><span class='line'>    <span class="n">RestTemplate</span> <span class="n">restTemplate</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">RestTemplate</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">String</span> <span class="n">rpcEnd</span> <span class="o">=</span> <span class="s">&quot;https://poloniex.com/public?command=returnTicker&quot;</span><span class="o">;</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">HttpHeaders</span> <span class="n">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">HttpHeaders</span><span class="o">();</span>
-</span><span class='line'><span class="n">HttpEntity</span> <span class="n">entity</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">HttpEntity</span><span class="o">(</span><span class="n">headers</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">HttpHeaders</span> <span class="n">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">HttpHeaders</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">HttpEntity</span> <span class="n">entity</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">HttpEntity</span><span class="o">(</span><span class="n">headers</span><span class="o">);</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">PoloniexInstrument</span><span class="o">&gt;&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-</span><span class='line'><span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">PoloniexInstrument</span><span class="o">&gt;&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>
 </span><span class='line'>    <span class="n">response</span> <span class="o">=</span> <span class="n">restTemplate</span><span class="o">.</span><span class="na">exchange</span><span class="o">(</span><span class="n">rpcEnd</span><span class="o">,</span> <span class="n">GET</span><span class="o">,</span> <span class="n">entity</span><span class="o">,</span>
 </span><span class='line'>            <span class="k">new</span> <span class="n">ParameterizedTypeReference</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">PoloniexInstrument</span><span class="o">&gt;&gt;(){});</span>
 </span><span class='line'>
-</span><span class='line'><span class="c1">// parsing retrieved data </span>
-</span><span class='line'><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">PoloniexInstrument</span><span class="o">&gt;</span> <span class="n">output</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getBody</span><span class="o">();</span>
+</span><span class='line'>    <span class="c1">// parsing retrieved data </span>
+</span><span class='line'>    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">PoloniexInstrument</span><span class="o">&gt;</span> <span class="n">output</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getBody</span><span class="o">();</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">MarketAsset</span> <span class="n">asset</span> <span class="o">:</span> <span class="n">assets</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">PoloniexInstrument</span> <span class="n">pi</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">asset</span><span class="o">.</span><span class="na">getSymbol</span><span class="o">());</span>
-</span><span class='line'>    <span class="n">ret</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nf">MarketData</span><span class="o">(</span><span class="n">asset</span><span class="o">,</span> <span class="k">new</span> <span class="nf">Date</span><span class="o">(),</span> <span class="n">Double</span><span class="o">.</span><span class="na">parseDouble</span><span class="o">(</span><span class="n">pi</span><span class="o">.</span><span class="na">getLast</span><span class="o">())));</span>
+</span><span class='line'>    <span class="k">for</span> <span class="o">(</span><span class="n">MarketAsset</span> <span class="n">asset</span> <span class="o">:</span> <span class="n">assets</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">PoloniexInstrument</span> <span class="n">pi</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">asset</span><span class="o">.</span><span class="na">getSymbol</span><span class="o">());</span>
+</span><span class='line'>        <span class="n">ret</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nf">MarketData</span><span class="o">(</span><span class="n">asset</span><span class="o">,</span> <span class="k">new</span> <span class="nf">Date</span><span class="o">(),</span> <span class="n">Double</span><span class="o">.</span><span class="na">parseDouble</span><span class="o">(</span><span class="n">pi</span><span class="o">.</span><span class="na">getLast</span><span class="o">())));</span>
+</span><span class='line'>    <span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>The full example can be seen here: <a href="https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/service/PoloniexService.java">PoloniexService.java</a></p>
+
+<p>Now after we got the updated info from the real world exchange let&rsquo;s push it into the Ethereum contract:</p>
+
+<figure class='code'><figcaption><span>Code example</span><a href='https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/scheduler/Scheduler.java'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="c1">// Accessing Ethereum managed been </span>
+</span><span class='line'><span class="n">Ethereum</span> <span class="n">ethereum</span> <span class="o">=</span> <span class="n">ethereumBean</span><span class="o">.</span><span class="na">getEthereum</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">CallTransaction</span><span class="o">.</span><span class="na">Function</span> <span class="n">function</span> <span class="o">=</span> <span class="n">CallTransaction</span><span class="o">.</span><span class="na">Function</span><span class="o">.</span><span class="na">fromSignature</span><span class="o">(</span><span class="s">&quot;update&quot;</span><span class="o">,</span>
+</span><span class='line'>        <span class="s">&quot;bytes32[]&quot;</span><span class="o">,</span> <span class="s">&quot;uint[]&quot;</span><span class="o">,</span> <span class="s">&quot;uint[]&quot;</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">byte</span><span class="o">[]</span> <span class="n">accountAddr</span> <span class="o">=</span> <span class="n">userKey</span><span class="o">.</span><span class="na">getAddress</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="n">BigInteger</span> <span class="n">nonce</span> <span class="o">=</span> <span class="n">ethereum</span><span class="o">.</span><span class="na">getRepository</span><span class="o">().</span><span class="na">getNonce</span><span class="o">(</span><span class="n">accountAddr</span><span class="o">);</span>
+</span><span class='line'><span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;======= Nonce: &quot;</span> <span class="o">+</span> <span class="n">nonce</span><span class="o">);</span>
+</span><span class='line'><span class="kt">long</span> <span class="n">t</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span><span class='line'><span class="n">String</span><span class="o">[]</span> <span class="n">symbols</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">lastData</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+</span><span class='line'><span class="kt">int</span><span class="o">[]</span> <span class="n">prices</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">lastData</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+</span><span class='line'><span class="kt">long</span><span class="o">[]</span> <span class="n">timestamps</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">long</span><span class="o">[</span><span class="n">lastData</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lastData</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">symbols</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">lastData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">getAsset</span><span class="o">().</span><span class="na">getSymbol</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="n">lastData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">getLastPrice</span><span class="o">()</span> <span class="o">*</span> <span class="mi">1_000_000</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">timestamps</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">Utils</span><span class="o">.</span><span class="na">toUnixTime</span><span class="o">(</span><span class="n">lastData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">getTime</span><span class="o">().</span><span class="na">getTime</span><span class="o">());</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="n">Transaction</span> <span class="n">tx</span> <span class="o">=</span> <span class="n">CallTransaction</span><span class="o">.</span><span class="na">createCallTransaction</span><span class="o">(</span>
+</span><span class='line'>        <span class="n">nonce</span><span class="o">.</span><span class="na">longValue</span><span class="o">(),</span>
+</span><span class='line'>        <span class="mi">70_000_000_000L</span><span class="o">,</span> <span class="c1">// =&gt; gas price</span>
+</span><span class='line'>        <span class="mi">1_000_000</span><span class="o">,</span>       <span class="c1">// =&gt; gas limit</span>
+</span><span class='line'>        <span class="n">feedAccount</span><span class="o">,</span>     <span class="c1">// =&gt; the contract address we actually updating</span>
+</span><span class='line'>        <span class="mi">1</span><span class="o">,</span>               <span class="c1">// =&gt; value,  can be zero</span>
+</span><span class='line'>        <span class="n">function</span><span class="o">,</span>        <span class="c1">// =&gt; abi definition of the call</span>
+</span><span class='line'>        <span class="n">symbols</span><span class="o">,</span> <span class="n">prices</span><span class="o">,</span> <span class="n">timestamps</span> <span class="c1">// =&gt; params to update: for each: symbol~(price, timestamp)</span>
+</span><span class='line'><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">tx</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">userKey</span><span class="o">.</span><span class="na">getPrivKeyBytes</span><span class="o">());</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;=&gt; Sending: &quot;</span> <span class="o">+</span> <span class="n">tx</span><span class="o">);</span>
+</span><span class='line'><span class="n">ethereum</span><span class="o">.</span><span class="na">submitTransaction</span><span class="o">(</span><span class="n">tx</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The full example can be seen here: <a href="https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/scheduler/Scheduler.java">Scheduler.java</a></p>
+
+<p>That is actually all you need to make your own bot to transfer data from the real world to an ethereum network.</p>
+
+<p>After the contract is updated with data any other contract can access it and be built on top of market real prices. As we discussed in this forum post: <a href="http://forum.ethereum.org/discussion/3417/ask-%CE%9E-community-what-do-you-think-of-our-new-smart-contract-pricefeed">forum link</a></p>
+
+<p>For any question or comment regarding that example you can ask us here <a href="https://gitter.im/ethereum/ethereumj">chat room</a>, or by leaving a comment directly.</p>
 ]]></content>
   </entry>
   
