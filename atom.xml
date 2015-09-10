@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-09-10T05:57:06-04:00</updated>
+  <updated>2015-09-10T06:08:27-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -164,6 +164,25 @@
 <p>That is actually all you need to make your own bot to transfer data from the real world to an ethereum network.</p>
 
 <p>After the contract is updated with data any other contract can access it and be built on top of market real prices. As we discussed in this forum post: <a href="http://forum.ethereum.org/discussion/3417/ask-%CE%9E-community-what-do-you-think-of-our-new-smart-contract-pricefeed">forum link</a></p>
+
+<p>The last point we need to take care if is the actuall private key
+for the account which will fund the ongoing transactions,
+here is how you should put it in:</p>
+
+<figure class='code'><figcaption><span>Code example</span><a href='https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/resources/pricefeed.conf'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">user</span><span class="o">.</span><span class="na">account</span><span class="o">.</span><span class="na">privateKey</span> <span class="o">=</span> <span class="s">&quot;...&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> link to the file: <a href="https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/resources/pricefeed.conf">pricefeed.conf</a></p>
+
+<p>Now it&rsquo;s good time to try and clone/run the full repository:</p>
+
+<p><code>git clone https://github.com/ether-camp/feed.reporter.ether.camp</code>
+<code>gradlew bootRun</code></p>
+
+<p>To really enjoy this example I am chalenging you to add info
+from more stock exchanges.</p>
 
 <p>For any question or comment regarding that example you can ask us here <a href="https://gitter.im/ethereum/ethereumj">chat room</a>, or by leaving a comment directly.</p>
 ]]></content>
