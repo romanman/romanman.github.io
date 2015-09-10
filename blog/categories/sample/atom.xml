@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sample | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/sample/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-09-10T05:30:13-04:00</updated>
+  <updated>2015-09-10T05:38:24-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -20,10 +20,67 @@
     <id>http://ethereumj.io/blog/2015/09/09/friendly-ether-bot</id>
     <content type="html"><![CDATA[<p><img class="center" src="/images/posts/friendly-bot-1.png" title="Friendly Ether Bot" ></p>
 
-<p>&hellip;. texting &hellip;</p>
+<p>Ethereum is a great system to achieve consensus between an independent peers, but if we want to pump data from the real world into the system , how exactly we do it ?</p>
 
 <!--more-->
 
+
+<p>Let&rsquo;s write a simple example of server bot to pump real price spot data into a special contract:
+<a href="https://github.com/ether-camp/contracts/blob/master/PriceFeed.sol">https://github.com/ether-camp/contracts/blob/master/PriceFeed.sol</a></p>
+
+<p>The full example for the feed reporter can be seen here (todo: link), we will just go over central code points :</p>
+
+<ol>
+<li>How to get info from the exchanges, we will use Poloniex exchange to get ETH price spots:</li>
+</ol>
+
+
+<p><figure class='code'><figcaption><span>Code example <a href="https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/service/PoloniexService.java">https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/service/PoloniexService.java</a> </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// Accessing the rest point</span>
+</span><span class='line'><span class="n">RestTemplate</span> <span class="n">restTemplate</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">RestTemplate</span><span class="o">();</span>
+</span><span class='line'><span class="n">String</span> <span class="n">rpcEnd</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">&quot;https://poloniex.com/public?command=returnTicker&quot;</span><span class="o">&gt;</span><span class="nl">https:</span><span class="c1">//poloniex.com/public?command=returnTicker&lt;/a&gt;&amp;rdquo;;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">HttpHeaders</span> <span class="n">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">HttpHeaders</span><span class="o">();</span>
+</span><span class='line'><span class="n">HttpEntity</span> <span class="n">entity</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">HttpEntity</span><span class="o">(</span><span class="n">headers</span><span class="o">);&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">ResponseEntity</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Map</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">String</span><span class="o">,</span> <span class="n">PoloniexInstrument</span><span class="o">&gt;&gt;</span> <span class="n">response</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class='line'><span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">response</span> <span class="o">=</span> <span class="n">restTemplate</span><span class="o">.</span><span class="na">exchange</span><span class="o">(</span><span class="n">rpcEnd</span><span class="o">,</span> <span class="n">GET</span><span class="o">,</span> <span class="n">entity</span><span class="o">,</span>
+</span><span class='line'>            <span class="k">new</span> <span class="n">ParameterizedTypeReference</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Map</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">String</span><span class="o">,</span> <span class="n">PoloniexInstrument</span><span class="o">&gt;&gt;(){});&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// parsing retrieved data</span>
+</span><span class='line'><span class="n">Map</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">String</span><span class="o">,</span> <span class="n">PoloniexInstrument</span><span class="o">&gt;</span> <span class="n">output</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getBody</span><span class="o">();&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">for</span> <span class="o">(</span><span class="n">MarketAsset</span> <span class="n">asset</span> <span class="o">:</span> <span class="n">assets</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">PoloniexInstrument</span> <span class="n">pi</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">asset</span><span class="o">.</span><span class="na">getSymbol</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">ret</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nf">MarketData</span><span class="o">(</span><span class="n">asset</span><span class="o">,</span> <span class="k">new</span> <span class="nf">Date</span><span class="o">(),</span> <span class="n">Double</span><span class="o">.</span><span class="na">parseDouble</span><span class="o">(</span><span class="n">pi</span><span class="o">.</span><span class="na">getLast</span><span class="o">())));&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
 ]]></content>
   </entry>
   
