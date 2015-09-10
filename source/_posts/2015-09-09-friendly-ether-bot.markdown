@@ -105,7 +105,7 @@ After the contract is updated with data any other contract can access it and be 
 
 The last point we need to take care if is the actuall private key 
 for the account which will fund the ongoing transactions, 
-here is how you should put it in: 
+here is how you should put it down in  [pricefeed.conf](https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/resources/pricefeed.conf)
 
 {% codeblock Code example lang:java https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/resources/pricefeed.conf %}
 
@@ -113,16 +113,18 @@ user.account.privateKey = "..."
 
 {% endcodeblock %}
 
- link to the file: [pricefeed.conf](https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/resources/pricefeed.conf)
-
-
+ 
 Now it's good time to try and clone/run the full repository: 
 
-`git clone https://github.com/ether-camp/feed.reporter.ether.camp`
-`gradlew bootRun`
+{% codeblock Code example lang:shell %}
+git clone https://github.com/ether-camp/feed.reporter.ether.camp
+cd feed.reporter.ether.camp
+./gradlew bootRun
+{% endcodeblock %}
 
 To really enjoy this example I am chalenging you to add info 
-from more stock exchanges.
+from more stock exchanges about price list that you care about
+and we will merge your code into the git repo.
 
 For any question or comment regarding that example you can ask us here [chat room](https://gitter.im/ethereum/ethereumj), or by leaving a comment directly.
 
