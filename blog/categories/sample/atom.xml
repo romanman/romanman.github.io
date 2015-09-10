@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sample | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/sample/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-09-10T06:18:15-04:00</updated>
+  <updated>2015-09-10T06:18:50-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -18,7 +18,7 @@
     <link href="http://ethereumj.io/blog/2015/09/09/friendly-ether-bot/"/>
     <updated>2015-09-09T17:03:57-04:00</updated>
     <id>http://ethereumj.io/blog/2015/09/09/friendly-ether-bot</id>
-    <content type="html"><![CDATA[<p>{% img center /images/posts/friendly-bot-1.png Friendly Ether Bot %}</p>
+    <content type="html"><![CDATA[<p><img class="center" src="/images/posts/friendly-bot-1.png" title="Friendly Ether Bot" ></p>
 
 <p>Ethereum is a great system to achieve consensus between an independent peers, but if we want to pump data from the real world into the system , how exactly we do it ?</p>
 
@@ -35,75 +35,143 @@
 </ol>
 
 
-<p>{% codeblock Code example lang:java <a href="https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/service/PoloniexService.java">https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/service/PoloniexService.java</a> %}</p>
-
-<pre><code>// Accessing the rest point
-RestTemplate restTemplate = new RestTemplate();
-String rpcEnd = "https://poloniex.com/public?command=returnTicker";
-
-HttpHeaders headers = new HttpHeaders();
-HttpEntity entity = new HttpEntity(headers);
-
-ResponseEntity&lt;Map&lt;String, PoloniexInstrument&gt;&gt; response = null;
-
-
-response = restTemplate.exchange(rpcEnd, GET, entity,
-        new ParameterizedTypeReference&lt;Map&lt;String, PoloniexInstrument&gt;&gt;(){});
-
-// parsing retrieved data 
-Map&lt;String, PoloniexInstrument&gt; output = response.getBody();
-
-for (MarketAsset asset : assets) {
-    PoloniexInstrument pi = output.get(asset.getSymbol());
-    ret.add(new MarketData(asset, new Date(), Double.parseDouble(pi.getLast())));
-}
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><figure class='code'><figcaption><span>Code example <a href="https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/service/PoloniexService.java">https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/service/PoloniexService.java</a> </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="c1">// Accessing the rest point</span>
+</span><span class='line'><span class="n">RestTemplate</span> <span class="n">restTemplate</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">RestTemplate</span><span class="o">();</span>
+</span><span class='line'><span class="n">String</span> <span class="n">rpcEnd</span> <span class="o">=</span> <span class="s">&quot;https://poloniex.com/public?command=returnTicker&quot;</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">HttpHeaders</span> <span class="n">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">HttpHeaders</span><span class="o">();</span>
+</span><span class='line'><span class="n">HttpEntity</span> <span class="n">entity</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">HttpEntity</span><span class="o">(</span><span class="n">headers</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">ResponseEntity</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Map</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">String</span><span class="o">,</span> <span class="n">PoloniexInstrument</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">response</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="n">response</span> <span class="o">=</span> <span class="n">restTemplate</span><span class="o">.</span><span class="na">exchange</span><span class="o">(</span><span class="n">rpcEnd</span><span class="o">,</span> <span class="n">GET</span><span class="o">,</span> <span class="n">entity</span><span class="o">,</span>
+</span><span class='line'>        <span class="k">new</span> <span class="n">ParameterizedTypeReference</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">Map</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">String</span><span class="o">,</span> <span class="n">PoloniexInstrument</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;&amp;</span><span class="n">gt</span><span class="o">;(){});</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// parsing retrieved data </span>
+</span><span class='line'><span class="n">Map</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="n">String</span><span class="o">,</span> <span class="n">PoloniexInstrument</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span> <span class="n">output</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getBody</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">for</span> <span class="o">(</span><span class="n">MarketAsset</span> <span class="n">asset</span> <span class="o">:</span> <span class="n">assets</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">PoloniexInstrument</span> <span class="n">pi</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">asset</span><span class="o">.</span><span class="na">getSymbol</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">ret</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nf">MarketData</span><span class="o">(</span><span class="n">asset</span><span class="o">,</span> <span class="k">new</span> <span class="nf">Date</span><span class="o">(),</span> <span class="n">Double</span><span class="o">.</span><span class="na">parseDouble</span><span class="o">(</span><span class="n">pi</span><span class="o">.</span><span class="na">getLast</span><span class="o">())));</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>The full example can be seen here: <a href="https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/service/PoloniexService.java">PoloniexService.java</a></p>
 
 <p>Now after we got the updated info from the real world exchange let&rsquo;s push it into the Ethereum contract:</p>
 
-<p>{% codeblock Code example lang:java <a href="https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/scheduler/Scheduler.java">https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/scheduler/Scheduler.java</a> %}</p>
-
-<p>// Accessing Ethereum managed been
-Ethereum ethereum = ethereumBean.getEthereum();</p>
-
-<p>CallTransaction.Function function = CallTransaction.Function.fromSignature(&ldquo;update&rdquo;,
-        &ldquo;bytes32[]&rdquo;, &ldquo;uint[]&rdquo;, &ldquo;uint[]&rdquo;);</p>
-
-<p>byte[] accountAddr = userKey.getAddress();</p>
-
-<p>BigInteger nonce = ethereum.getRepository().getNonce(accountAddr);
-log.info(&ldquo;======= Nonce: &rdquo; + nonce);
-long t = System.currentTimeMillis();
-String[] symbols = new String[lastData.size()];
-int[] prices = new int[lastData.size()];
-long[] timestamps = new long[lastData.size()];</p>
-
-<p>for (int i = 0; i &lt; lastData.size(); i++) {
-    symbols[i] = lastData.get(i).getAsset().getSymbol();
-    prices[i] = (int) (lastData.get(i).getLastPrice() * 1_000_000);
-    timestamps[i] = Utils.toUnixTime(lastData.get(i).getTime().getTime());
-}</p>
-
-<p>Transaction tx = CallTransaction.createCallTransaction(
-        nonce.longValue(),
-        70_000_000_000L, // => gas price
-        1_000_000,       // => gas limit
-        feedAccount,     // => the contract address we actually updating
-        1,               // => value,  can be zero
-        function,        // => abi definition of the call
-        symbols, prices, timestamps // => params to update: for each: symbol~(price, timestamp)
-);</p>
-
-<p>tx.sign(userKey.getPrivKeyBytes());</p>
-
-<p>log.info(&ldquo;=> Sending: &rdquo; + tx);
-ethereum.submitTransaction(tx);</p>
-
-<p>{% endcodeblock %}</p>
+<p><figure class='code'><figcaption><span>Code example <a href="https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/scheduler/Scheduler.java">https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/scheduler/Scheduler.java</a> </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// Accessing Ethereum managed been</span>
+</span><span class='line'><span class="n">Ethereum</span> <span class="n">ethereum</span> <span class="o">=</span> <span class="n">ethereumBean</span><span class="o">.</span><span class="na">getEthereum</span><span class="o">();&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">CallTransaction</span><span class="o">.</span><span class="na">Function</span> <span class="n">function</span> <span class="o">=</span> <span class="n">CallTransaction</span><span class="o">.</span><span class="na">Function</span><span class="o">.</span><span class="na">fromSignature</span><span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">update</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;,</span>
+</span><span class='line'>        <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">bytes32</span><span class="o">[]&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">uint</span><span class="o">[]&amp;</span><span class="n">rdquo</span><span class="o">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">uint</span><span class="o">[]&amp;</span><span class="n">rdquo</span><span class="o">;);&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">accountAddr</span> <span class="o">=</span> <span class="n">userKey</span><span class="o">.</span><span class="na">getAddress</span><span class="o">();&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">BigInteger</span> <span class="n">nonce</span> <span class="o">=</span> <span class="n">ethereum</span><span class="o">.</span><span class="na">getRepository</span><span class="o">().</span><span class="na">getNonce</span><span class="o">(</span><span class="n">accountAddr</span><span class="o">);</span>
+</span><span class='line'><span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;=======</span> <span class="nl">Nonce:</span> <span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;</span> <span class="o">+</span> <span class="n">nonce</span><span class="o">);</span>
+</span><span class='line'><span class="kt">long</span> <span class="n">t</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+</span><span class='line'><span class="n">String</span><span class="o">[]</span> <span class="n">symbols</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">lastData</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+</span><span class='line'><span class="kt">int</span><span class="o">[]</span> <span class="n">prices</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">lastData</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+</span><span class='line'><span class="kt">long</span><span class="o">[]</span> <span class="n">timestamps</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">long</span><span class="o">[</span><span class="n">lastData</span><span class="o">.</span><span class="na">size</span><span class="o">()];&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span> <span class="n">lastData</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">symbols</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">lastData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">getAsset</span><span class="o">().</span><span class="na">getSymbol</span><span class="o">();</span>
+</span><span class='line'>    <span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="n">lastData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">getLastPrice</span><span class="o">()</span> <span class="o">*</span> <span class="mi">1_000_000</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">timestamps</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">Utils</span><span class="o">.</span><span class="na">toUnixTime</span><span class="o">(</span><span class="n">lastData</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">).</span><span class="na">getTime</span><span class="o">().</span><span class="na">getTime</span><span class="o">());</span>
+</span><span class='line'><span class="o">}&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Transaction</span> <span class="n">tx</span> <span class="o">=</span> <span class="n">CallTransaction</span><span class="o">.</span><span class="na">createCallTransaction</span><span class="o">(</span>
+</span><span class='line'>        <span class="n">nonce</span><span class="o">.</span><span class="na">longValue</span><span class="o">(),</span>
+</span><span class='line'>        <span class="mi">70_000_000_000L</span><span class="o">,</span> <span class="c1">// =&gt; gas price</span>
+</span><span class='line'>        <span class="mi">1_000_000</span><span class="o">,</span>       <span class="c1">// =&gt; gas limit</span>
+</span><span class='line'>        <span class="n">feedAccount</span><span class="o">,</span>     <span class="c1">// =&gt; the contract address we actually updating</span>
+</span><span class='line'>        <span class="mi">1</span><span class="o">,</span>               <span class="c1">// =&gt; value,  can be zero</span>
+</span><span class='line'>        <span class="n">function</span><span class="o">,</span>        <span class="c1">// =&gt; abi definition of the call</span>
+</span><span class='line'>        <span class="n">symbols</span><span class="o">,</span> <span class="n">prices</span><span class="o">,</span> <span class="n">timestamps</span> <span class="c1">// =&gt; params to update: for each: symbol~(price, timestamp)</span>
+</span><span class='line'><span class="o">);&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">tx</span><span class="o">.</span><span class="na">sign</span><span class="o">(</span><span class="n">userKey</span><span class="o">.</span><span class="na">getPrivKeyBytes</span><span class="o">());&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;=&gt;</span> <span class="nl">Sending:</span> <span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;</span> <span class="o">+</span> <span class="n">tx</span><span class="o">);</span>
+</span><span class='line'><span class="n">ethereum</span><span class="o">.</span><span class="na">submitTransaction</span><span class="o">(</span><span class="n">tx</span><span class="o">);&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>The full example can be seen here: <a href="https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/java/com/ethercamp/feedreporter/scheduler/Scheduler.java">Scheduler.java</a></p>
 
@@ -115,19 +183,29 @@ ethereum.submitTransaction(tx);</p>
 for the account which will fund the ongoing transactions,
 here is how you should put it down in  <a href="https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/resources/pricefeed.conf">pricefeed.conf</a></p>
 
-<p>{% codeblock Code example lang:java <a href="https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/resources/pricefeed.conf">https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/resources/pricefeed.conf</a> %}</p>
-
-<p>user.account.privateKey = &ldquo;&hellip;&rdquo;</p>
-
-<p>{% endcodeblock %}</p>
+<p><figure class='code'><figcaption><span>Code example <a href="https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/resources/pricefeed.conf">https://github.com/ether-camp/feed.reporter.ether.camp/blob/master/src/main/resources/pricefeed.conf</a> </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">user</span><span class="o">.</span><span class="na">account</span><span class="o">.</span><span class="na">privateKey</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;&amp;</span><span class="n">hellip</span><span class="o">;&amp;</span><span class="n">rdquo</span><span class="o">;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>Now it&rsquo;s good time to try and clone/run the full repository:</p>
 
-<p>{% codeblock Code example lang:zsh %}
-git clone <a href="https://github.com/ether-camp/feed.reporter.ether.camp">https://github.com/ether-camp/feed.reporter.ether.camp</a>
-cd feed.reporter.ether.camp
-./gradlew bootRun
-{% endcodeblock %}</p>
+<p><figure class='code'><figcaption><span>Code example </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git clone &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;https://github.com/ether-camp/feed.reporter.ether.camp&quot;</span>&gt;https://github.com/ether-camp/feed.reporter.ether.camp&lt;/a&gt;
+</span><span class='line'><span class="nb">cd </span>feed.reporter.ether.camp
+</span><span class='line'>./gradlew bootRun
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>To really enjoy this example I am chalenging you to add info
 from more stock exchanges about price list that you care about

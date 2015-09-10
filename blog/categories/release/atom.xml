@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-09-10T06:18:15-04:00</updated>
+  <updated>2015-09-10T06:18:50-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -18,7 +18,7 @@
     <link href="http://ethereumj.io/blog/2015/07/29/release-1-0-0-RC1/"/>
     <updated>2015-07-29T17:03:57-04:00</updated>
     <id>http://ethereumj.io/blog/2015/07/29/release-1-0-0-RC1</id>
-    <content type="html"><![CDATA[<p>{% img right /images/posts/release-ilustration-1.gif Release 1.0.0-RC1 %}</p>
+    <content type="html"><![CDATA[<p><img class="right" src="/images/posts/release-ilustration-1.gif" title="Release 1.0.0-RC1" ></p>
 
 <p>That version is first of the RC series for Frontier network.</p>
 
@@ -30,35 +30,61 @@
 <p>To get started and include a java library into your project all you need is
 to <!--more--> use your favorite build system, here is Maven and Gradlle snippet:</p>
 
-<p>{% codeblock Maven Snippet lang:xml <a href="https://gist.github.com/romanman/659e9e5b6b44b73b5755">https://gist.github.com/romanman/659e9e5b6b44b73b5755</a> %}<br/>
-   <repositories>
-     <repository>
-       <id>oss.jfrog.org</id>
-       <name>Repository from Bintray</name>
-       <url><a href="http://dl.bintray.com/ethereum/maven">http://dl.bintray.com/ethereum/maven</a></url>
-     </repository>
-   </repositories></p>
-
-<p>   <dependency>
-     <groupId>org.ethereum</groupId>
-     <artifactId>ethereumj-core</artifactId>
-     <version>1.0.0-RC1</version>
-     <type>zip</type>
-   </dependency>
-{% endcodeblock %}</p>
+<p><figure class='code'><figcaption><span>Maven Snippet <a href="https://gist.github.com/romanman/659e9e5b6b44b73b5755">https://gist.github.com/romanman/659e9e5b6b44b73b5755</a> </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;br/&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;repositories&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;repository&gt;</span>
+</span><span class='line'>       <span class="nt">&lt;id&gt;</span>oss.jfrog.org<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>       <span class="nt">&lt;name&gt;</span>Repository from Bintray<span class="nt">&lt;/name&gt;</span>
+</span><span class='line'>       <span class="nt">&lt;url&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://dl.bintray.com/ethereum/maven&quot;</span><span class="nt">&gt;</span>http://dl.bintray.com/ethereum/maven<span class="nt">&lt;/a&gt;&lt;/url&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;/repository&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;/repositories&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>   <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;groupId&gt;</span>org.ethereum<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;artifactId&gt;</span>ethereumj-core<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;version&gt;</span>1.0.0-RC1<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>     <span class="nt">&lt;type&gt;</span>zip<span class="nt">&lt;/type&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;/dependency&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>or</p>
 
-<p>{% codeblock Gradle Snippet lang:groovy <a href="https://gist.github.com/romanman/cc82a7a698f800040e10">https://gist.github.com/romanman/cc82a7a698f800040e10</a> %}</p>
-
-<p>   repositories {
-     maven {
-      url &ldquo;<a href="http://dl.bintray.com/ethereum/maven">http://dl.bintray.com/ethereum/maven</a>&rdquo;
-     }
-    }</p>
-
-<p>   compile (&ldquo;org.ethereum:ethereumj-core:1.0.0-RC1&rdquo;)
-{% endcodeblock %}</p>
+<p><figure class='code'><figcaption><span>Gradle Snippet <a href="https://gist.github.com/romanman/cc82a7a698f800040e10">https://gist.github.com/romanman/cc82a7a698f800040e10</a> </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="o">&lt;</span><span class="s">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="s">&lt;p&gt;   repositories {</span>
+</span><span class='line'><span class="s">     maven {</span>
+</span><span class='line'><span class="s">      url &amp;ldquo;&lt;a href=&quot;http://dl.bintray.com/</span><span class="n">ethereum</span><span class="s">/maven&quot;&gt;http://dl.bintray.com/</span><span class="n">ethereum</span><span class="s">/maven&lt;/</span><span class="n">a</span><span class="o">&gt;&amp;</span><span class="n">rdquo</span><span class="o">;</span>
+</span><span class='line'>     <span class="o">}</span>
+</span><span class='line'>    <span class="o">}&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="n">compile</span> <span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">org</span><span class="o">.</span><span class="na">ethereum</span><span class="o">:</span><span class="n">ethereumj</span><span class="o">-</span><span class="nl">core:</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">RC1</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;)</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p> Also we have very simple starter example - just do:
  <code>git clone https://github.com/ether-camp/ethereumj.starter</code>
