@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sample | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/sample/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-09-10T05:51:50-04:00</updated>
+  <updated>2015-09-10T05:54:48-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -26,7 +26,8 @@
 
 
 <p>Let&rsquo;s write a simple example of server bot to pump real price spot data into a special contract:
-<a href="https://github.com/ether-camp/contracts/blob/master/PriceFeed.sol">https://github.com/ether-camp/contracts/blob/master/PriceFeed.sol</a></p>
+[PriceFeed.sol]
+(<a href="https://github.com/ether-camp/contracts/blob/master/PriceFeed.sol">https://github.com/ether-camp/contracts/blob/master/PriceFeed.sol</a>)</p>
 
 <p>The full example for the feed reporter can be seen here (todo: link), we will just go over central code points :</p>
 
