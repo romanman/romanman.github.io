@@ -116,7 +116,7 @@ user.account.privateKey = "..."
  
 Now it's good time to try and clone/run the full repository: 
 
-{% codeblock Code example lang:shell %}
+{% codeblock Code example lang:zsh %}
 git clone https://github.com/ether-camp/feed.reporter.ether.camp
 cd feed.reporter.ether.camp
 ./gradlew bootRun
