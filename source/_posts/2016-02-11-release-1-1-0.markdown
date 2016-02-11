@@ -85,21 +85,21 @@ See how `PendingStateSample` uses that feature.
 Adding as maven artifact to your project: 
 
 {% codeblock Maven Snippet lang:xml https://gist.github.com/romanman/659e9e5b6b44b73b5755 %}  
-   <repositories>
+<repositories>
  	<repository>
    	<id>oss.jfrog.org</id>
    	<name>Repository from Bintray</name>
    	<url>http://dl.bintray.com/ethereum/maven</url>
  	</repository>
-   </repositories>
+</repositories>
  
  
-   <dependency>
+<dependency>
  	<groupId>org.ethereum</groupId>
  	<artifactId>ethereumj-core</artifactId>
  	<version>1.1.0</version>
  	<type>zip</type>
-   </dependency>
+</dependency>
 {% endcodeblock %}   
 
 or gradle: 
@@ -111,16 +111,18 @@ or gradle:
        }
    }
 
-   compile ("org.ethereum:ethereumj-core:1.0.0-RC1")
+   compile ("org.ethereum:ethereumj-core:1.1.0")
 {% endcodeblock %}   
 
 As a starting point for your own project take a look at https://github.com/ether-camp/ethereumj.starter
 
 Running from command line:
 
-> git clone https://github.com/ethereum/ethereumj
-> cd ethereumj
-> gradlew run [-PmainClass=<sample class>]
+{% codeblock command line lang:bash https://gist.github.com/romanman/cc82a7a698f800040e10 %}
+ git clone https://github.com/ethereum/ethereumj
+ cd ethereumj
+ gradlew run [-PmainClass=<sample class>]
+{% endcodeblock %}   
 
 
 Importing project to IntelliJ IDEA: 
