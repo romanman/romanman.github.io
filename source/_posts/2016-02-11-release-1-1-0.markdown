@@ -32,3 +32,119 @@ option is starting the miner programmatically by invoking `Ethereum.getBlockMine
 To monitor miner events you may want to implement and add `MinerListener`
 
 The `PrivateMinerSample` demonstrates creation of a simple 2 peer private network with a miner. 
+
+
+##### Eth61/62 support
+
+This release remains in line with the whole Ethereum network where 95% of peers moved to the latest Eth62 subprotocol. The most significant improvement of the Eth62 protocol is more flexible block exchange messages which improves the sync speed. 
+
+##### PendingState 
+
+PendingState is when you can see the state change immediately after transaction submit instead of waiting for a block where your transaction is included. 
+For example if you send the value transfer transaction the PendingState will immediately reflect balance changes of sender and receiver (including mining fees) or indicates that transaction will not be accepted. This transaction is stored as a pending transaction until a new block is arrived. If the block contains that transaction it is removed from the PendingState, else the transaction is recalculated based on the latest block and you may see the updated state. 
+
+Try running `PendingStateSample` to see how it works on practice. 
+
+##### Contract invocations becomes easier 
+
+We have added utility classes to make the contract call transactions construction much easier. You may do this by either supplying a Solidity contract ABI or manually constructing each function by passing its name and input/output parameter types. You may pass functions arguments as a regular Java objects which are flexibly converted to Solidity types. The same way return values are parsed and represented as corresponding Java types. 
+The same way you may call constant function that is function invocation without propagating transaction to the network and without any changes to the contract state. So if you need to get some value from a contract you just do a constant call - that costs nothing, executed immediately and return you a value. To be completely precise you may call any function (not necessarily effectively constant) and get correct result but the contract state remains the same as before the call. 
+
+You may want to take a look at `PriceFeedSample` for introduction.
+
+##### Finer and more flexible config
+
+There are much more options now on how to configure your EthereumJ instance. 
+For reference on all existing options, their description and defaults you may refer to the default config `ethereumj.conf` (you may find it in either the library jar or in the source tree `ethereum-core/src/main/resources`) 
+To override needed options you may use one of the following ways: 
+put your options to the <working dir>/config/ethereumj.conf file
+put `user.conf` to the root of your classpath (as a resource) 
+put your options to any file and supply it via `-Dethereumj.conf.file=<your config>`
+programmatically by using SystemProperties.CONF.override*()
+programmatically using by overriding Spring `SystemProperties` bean 
+Note that don’t need to put all the options to your custom config, just those you want to override. 
+
+##### Running several nodes in a single JVM
+
+We removed the majority of statics in the EthereumJ code and substituted it with per Spring AppContext instances. That allows to create several separate instances of EthereumJ within a single JVM. So you can configure and start your small private network in a single JVM just from your main() method. 
+
+To see how that can be configured please refer to the `PrivateMinerSample`
+
+##### Whisper upgrade
+
+Whisper protocol has been upgraded to version 3 so if your private network supports Whisper you can use EthereumJ implementation together with the latest C++ Whisper capable nodes. 
+
+##### Gas price calculator
+
+Pretty tiny but quite convenient feature which just gives you a reasonable gas price for your transaction. This value is just a statistics of the latest N transaction gas prices. 
+
+See how `PendingStateSample` uses that feature. 
+
+##### Running EthereumJ
+
+Adding as maven artifact to your project: 
+
+{% codeblock Maven Snippet lang:xml https://gist.github.com/romanman/659e9e5b6b44b73b5755 %}  
+   <repositories>
+ 	<repository>
+   	<id>oss.jfrog.org</id>
+   	<name>Repository from Bintray</name>
+   	<url>http://dl.bintray.com/ethereum/maven</url>
+ 	</repository>
+   </repositories>
+ 
+ 
+   <dependency>
+ 	<groupId>org.ethereum</groupId>
+ 	<artifactId>ethereumj-core</artifactId>
+ 	<version>1.1.0</version>
+ 	<type>zip</type>
+   </dependency>
+{% endcodeblock %}   
+
+or gradle: 
+
+{% codeblock Gradle Snippet lang:groovy https://gist.github.com/romanman/cc82a7a698f800040e10 %}
+   repositories {
+       maven {
+  	url "http://dl.bintray.com/ethereum/maven"
+       }
+   }
+
+   compile ("org.ethereum:ethereumj-core:1.0.0-RC1")
+{% endcodeblock %}   
+
+As a starting point for your own project take a look at https://github.com/ether-camp/ethereumj.starter
+
+Running from command line:
+
+> git clone https://github.com/ethereum/ethereumj
+> cd ethereumj
+> gradlew run [-PmainClass=<sample class>]
+
+
+Importing project to IntelliJ IDEA: 
+
+> git clone https://github.com/ethereum/ethereumj
+> cd ethereumj
+> gradlew build
+
+  IDEA: 
+File -> New -> Project from existing sources…
+Select ethereumj/build.gradle
+Dialog “Import Project from gradle”: press “OK”
+After building run either `org.ethereum.Start`, one of `org.ethereum.samples.*` or create your own main. 
+
+##### Configuring EthereumJ
+
+For reference on all existing options, their description and defaults you may refer to the default config `ethereumj.conf` (you may find it in either the library jar or in the source tree `ethereum-core/src/main/resources`) 
+To override needed options you may use one of the following ways: 
+put your options to the <working dir>/config/ethereumj.conf file
+put `user.conf` to the root of your classpath (as a resource) 
+put your options to any file and supply it via `-Dethereumj.conf.file=<your config>`
+programmatically by using SystemProperties.CONF.override*()
+programmatically using by overriding Spring `SystemProperties` bean 
+Note that don’t need to put all the options to your custom config, just those you want to override. 
+
+
+
