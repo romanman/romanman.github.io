@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-02-11T12:29:38-05:00</updated>
+  <updated>2016-02-11T12:39:38-05:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -45,6 +45,145 @@ option is starting the miner programmatically by invoking <code>Ethereum.getBloc
 To monitor miner events you may want to implement and add <code>MinerListener</code></p>
 
 <p>The <code>PrivateMinerSample</code> demonstrates creation of a simple 2 peer private network with a miner.</p>
+
+<h5>Eth61/62 support</h5>
+
+<p>This release remains in line with the whole Ethereum network where 95% of peers moved to the latest Eth62 subprotocol. The most significant improvement of the Eth62 protocol is more flexible block exchange messages which improves the sync speed.</p>
+
+<h5>PendingState</h5>
+
+<p>PendingState is when you can see the state change immediately after transaction submit instead of waiting for a block where your transaction is included.
+For example if you send the value transfer transaction the PendingState will immediately reflect balance changes of sender and receiver (including mining fees) or indicates that transaction will not be accepted. This transaction is stored as a pending transaction until a new block is arrived. If the block contains that transaction it is removed from the PendingState, else the transaction is recalculated based on the latest block and you may see the updated state.</p>
+
+<p>Try running <code>PendingStateSample</code> to see how it works on practice.</p>
+
+<h5>Contract invocations becomes easier</h5>
+
+<p>We have added utility classes to make the contract call transactions construction much easier. You may do this by either supplying a Solidity contract ABI or manually constructing each function by passing its name and input/output parameter types. You may pass functions arguments as a regular Java objects which are flexibly converted to Solidity types. The same way return values are parsed and represented as corresponding Java types.
+The same way you may call constant function that is function invocation without propagating transaction to the network and without any changes to the contract state. So if you need to get some value from a contract you just do a constant call - that costs nothing, executed immediately and return you a value. To be completely precise you may call any function (not necessarily effectively constant) and get correct result but the contract state remains the same as before the call.</p>
+
+<p>You may want to take a look at <code>PriceFeedSample</code> for introduction.</p>
+
+<h5>Finer and more flexible config</h5>
+
+<p>There are much more options now on how to configure your EthereumJ instance.
+For reference on all existing options, their description and defaults you may refer to the default config <code>ethereumj.conf</code> (you may find it in either the library jar or in the source tree <code>ethereum-core/src/main/resources</code>)
+To override needed options you may use one of the following ways:
+put your options to the <working dir>/config/ethereumj.conf file
+put <code>user.conf</code> to the root of your classpath (as a resource)
+put your options to any file and supply it via <code>-Dethereumj.conf.file=&lt;your config&gt;</code>
+programmatically by using SystemProperties.CONF.override*()
+programmatically using by overriding Spring <code>SystemProperties</code> bean
+Note that don’t need to put all the options to your custom config, just those you want to override.</p>
+
+<h5>Running several nodes in a single JVM</h5>
+
+<p>We removed the majority of statics in the EthereumJ code and substituted it with per Spring AppContext instances. That allows to create several separate instances of EthereumJ within a single JVM. So you can configure and start your small private network in a single JVM just from your main() method.</p>
+
+<p>To see how that can be configured please refer to the <code>PrivateMinerSample</code></p>
+
+<h5>Whisper upgrade</h5>
+
+<p>Whisper protocol has been upgraded to version 3 so if your private network supports Whisper you can use EthereumJ implementation together with the latest C++ Whisper capable nodes.</p>
+
+<h5>Gas price calculator</h5>
+
+<p>Pretty tiny but quite convenient feature which just gives you a reasonable gas price for your transaction. This value is just a statistics of the latest N transaction gas prices.</p>
+
+<p>See how <code>PendingStateSample</code> uses that feature.</p>
+
+<h5>Running EthereumJ</h5>
+
+<p>Adding as maven artifact to your project:</p>
+
+<figure class='code'><figcaption><span>Maven Snippet</span><a href='https://gist.github.com/romanman/659e9e5b6b44b73b5755'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'>
+</span><span class='line'>   <span class="nt">&lt;repositories&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;repository&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;id&gt;</span>oss.jfrog.org<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;name&gt;</span>Repository from Bintray<span class="nt">&lt;/name&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;url&gt;</span>http://dl.bintray.com/ethereum/maven<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/repository&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;/repositories&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>   <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.ethereum<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>ethereumj-core<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>1.1.0<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;type&gt;</span>zip<span class="nt">&lt;/type&gt;</span>
+</span><span class='line'>   <span class="nt">&lt;/dependency&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>or gradle:</p>
+
+<figure class='code'><figcaption><span>Gradle Snippet</span><a href='https://gist.github.com/romanman/cc82a7a698f800040e10'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'>   <span class="n">repositories</span> <span class="o">{</span>
+</span><span class='line'>       <span class="n">maven</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">url</span> <span class="s2">&quot;http://dl.bintray.com/ethereum/maven&quot;</span>
+</span><span class='line'>       <span class="o">}</span>
+</span><span class='line'>   <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="n">compile</span> <span class="o">(</span><span class="s2">&quot;org.ethereum:ethereumj-core:1.0.0-RC1&quot;</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>As a starting point for your own project take a look at <a href="https://github.com/ether-camp/ethereumj.starter">https://github.com/ether-camp/ethereumj.starter</a></p>
+
+<p>Running from command line:</p>
+
+<blockquote><p>git clone <a href="https://github.com/ethereum/ethereumj">https://github.com/ethereum/ethereumj</a>
+cd ethereumj
+gradlew run [-PmainClass=<sample class>]</p></blockquote>
+
+<p>Importing project to IntelliJ IDEA:</p>
+
+<blockquote><p>git clone <a href="https://github.com/ethereum/ethereumj">https://github.com/ethereum/ethereumj</a>
+cd ethereumj
+gradlew build</p></blockquote>
+
+<p>  IDEA:
+File -> New -> Project from existing sources…
+Select ethereumj/build.gradle
+Dialog “Import Project from gradle”: press “OK”
+After building run either <code>org.ethereum.Start</code>, one of <code>org.ethereum.samples.*</code> or create your own main.</p>
+
+<h5>Configuring EthereumJ</h5>
+
+<p>For reference on all existing options, their description and defaults you may refer to the default config <code>ethereumj.conf</code> (you may find it in either the library jar or in the source tree <code>ethereum-core/src/main/resources</code>)
+To override needed options you may use one of the following ways:
+put your options to the <working dir>/config/ethereumj.conf file
+put <code>user.conf</code> to the root of your classpath (as a resource)
+put your options to any file and supply it via <code>-Dethereumj.conf.file=&lt;your config&gt;</code>
+programmatically by using SystemProperties.CONF.override*()
+programmatically using by overriding Spring <code>SystemProperties</code> bean
+Note that don’t need to put all the options to your custom config, just those you want to override.</p>
 ]]></content>
   </entry>
   
