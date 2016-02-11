@@ -34,7 +34,7 @@ To monitor miner events you may want to implement and add `MinerListener`
 The `PrivateMinerSample` demonstrates creation of a simple 2 peer private network with a miner. 
 
 
-##### Eth61/62 support
+##### Eth protocol 61/62 support
 
 This release remains in line with the whole Ethereum network where 95% of peers moved to the latest Eth62 subprotocol. The most significant improvement of the Eth62 protocol is more flexible block exchange messages which improves the sync speed. 
 
