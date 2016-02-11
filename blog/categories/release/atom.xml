@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-02-11T12:44:12-05:00</updated>
+  <updated>2016-02-11T12:49:16-05:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -96,7 +96,7 @@ Note that don’t need to put all the options to your custom config, just those 
 
 <p>Adding as maven artifact to your project:</p>
 
-<p><figure class='code'><figcaption><span>Maven Snippet <a href="https://gist.github.com/romanman/659e9e5b6b44b73b5755">https://gist.github.com/romanman/659e9e5b6b44b73b5755</a> </span></figcaption>
+<p><figure class='code'><figcaption><span>Maven Snippet <a href="https://gist.github.com/romanman/5f20d68d294ec1d049b5">https://gist.github.com/romanman/5f20d68d294ec1d049b5</a> </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -131,7 +131,7 @@ Note that don’t need to put all the options to your custom config, just those 
 
 <p>or gradle:</p>
 
-<p><figure class='code'><figcaption><span>Gradle Snippet <a href="https://gist.github.com/romanman/cc82a7a698f800040e10">https://gist.github.com/romanman/cc82a7a698f800040e10</a> </span></figcaption>
+<p><figure class='code'><figcaption><span>Gradle Snippet <a href="https://gist.github.com/romanman/55964ce71acdd9b51d8c">https://gist.github.com/romanman/55964ce71acdd9b51d8c</a> </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -152,7 +152,7 @@ Note that don’t need to put all the options to your custom config, just those 
 
 <p>Running from command line:</p>
 
-<p><figure class='code'><figcaption><span>command line <a href="https://gist.github.com/romanman/cc82a7a698f800040e10">https://gist.github.com/romanman/cc82a7a698f800040e10</a> </span></figcaption>
+<p><figure class='code'><figcaption><span>command line <a href="https://gist.github.com/romanman/0bd6df410689af1a86b4">https://gist.github.com/romanman/0bd6df410689af1a86b4</a> </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -163,9 +163,14 @@ Note that don’t need to put all the options to your custom config, just those 
 
 <p>Importing project to IntelliJ IDEA:</p>
 
-<blockquote><p>git clone <a href="https://github.com/ethereum/ethereumj">https://github.com/ethereum/ethereumj</a>
-cd ethereumj
-gradlew build</p></blockquote>
+<p><figure class='code'><figcaption><span>command line <a href="https://gist.github.com/romanman/ab27a4a0d879ded73aa3">https://gist.github.com/romanman/ab27a4a0d879ded73aa3</a> </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> git clone &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;https://github.com/ethereum/ethereumj&quot;</span>&gt;https://github.com/ethereum/ethereumj&lt;/a&gt;
+</span><span class='line'> <span class="nb">cd </span>ethereumj
+</span><span class='line'> gradlew build
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>  IDEA:
 File -> New -> Project from existing sources…
