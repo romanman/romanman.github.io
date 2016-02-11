@@ -84,7 +84,7 @@ See how `PendingStateSample` uses that feature.
 
 Adding as maven artifact to your project: 
 
-{% codeblock Maven Snippet lang:xml https://gist.github.com/romanman/659e9e5b6b44b73b5755 %}  
+{% codeblock Maven Snippet lang:xml https://gist.github.com/romanman/5f20d68d294ec1d049b5 %}  
 <repositories>
  	<repository>
    	<id>oss.jfrog.org</id>
@@ -104,7 +104,7 @@ Adding as maven artifact to your project:
 
 or gradle: 
 
-{% codeblock Gradle Snippet lang:groovy https://gist.github.com/romanman/cc82a7a698f800040e10 %}
+{% codeblock Gradle Snippet lang:groovy https://gist.github.com/romanman/55964ce71acdd9b51d8c %}
    repositories {
        maven {
   	url "http://dl.bintray.com/ethereum/maven"
@@ -118,7 +118,7 @@ As a starting point for your own project take a look at https://github.com/ether
 
 Running from command line:
 
-{% codeblock command line lang:bash https://gist.github.com/romanman/cc82a7a698f800040e10 %}
+{% codeblock command line lang:bash https://gist.github.com/romanman/0bd6df410689af1a86b4 %}
  git clone https://github.com/ethereum/ethereumj
  cd ethereumj
  gradlew run [-PmainClass=<sample class>]
@@ -127,9 +127,11 @@ Running from command line:
 
 Importing project to IntelliJ IDEA: 
 
-> git clone https://github.com/ethereum/ethereumj
-> cd ethereumj
-> gradlew build
+{% codeblock command line lang:bash https://gist.github.com/romanman/ab27a4a0d879ded73aa3 %}
+ git clone https://github.com/ethereum/ethereumj
+ cd ethereumj
+ gradlew build
+{% endcodeblock %}   
 
   IDEA: 
 File -> New -> Project from existing sources…
