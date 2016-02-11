@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-02-11T13:31:31-05:00</updated>
+  <updated>2016-02-11T13:33:04-05:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -68,13 +68,18 @@ The same way you may call constant function that is function invocation without 
 
 <p>There are much more options now on how to configure your EthereumJ instance.
 For reference on all existing options, their description and defaults you may refer to the default config <code>ethereumj.conf</code> (you may find it in either the library jar or in the source tree <code>ethereum-core/src/main/resources</code>)
-To override needed options you may use one of the following ways:
-* put your options to the <working dir>/config/ethereumj.conf file
-* put <code>user.conf</code> to the root of your classpath (as a resource)
-* put your options to any file and supply it via <code>-Dethereumj.conf.file=&lt;your config&gt;</code>
-* programmatically by using SystemProperties.CONF.override*()
-* programmatically using by overriding Spring <code>SystemProperties</code> bean
-Note that don’t need to put all the options to your custom config, just those you want to override.</p>
+To override needed options you may use one of the following ways:</p>
+
+<ul>
+<li>put your options to the <working dir>/config/ethereumj.conf file</li>
+<li>put <code>user.conf</code> to the root of your classpath (as a resource)</li>
+<li>put your options to any file and supply it via <code>-Dethereumj.conf.file=&lt;your config&gt;</code></li>
+<li>programmatically by using SystemProperties.CONF.override*()</li>
+<li>programmatically using by overriding Spring <code>SystemProperties</code> bean</li>
+</ul>
+
+
+<p>Note that don’t need to put all the options to your custom config, just those you want to override.</p>
 
 <h5>Running several nodes in a single JVM</h5>
 
