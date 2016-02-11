@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-02-11T12:39:38-05:00</updated>
+  <updated>2016-02-11T12:44:12-05:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -113,20 +113,20 @@ Note that don’t need to put all the options to your custom config, just those 
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
 </pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;br/&gt;</span>
-</span><span class='line'>   <span class="nt">&lt;repositories&gt;</span>
+</span><span class='line'><span class="nt">&lt;repositories&gt;</span>
 </span><span class='line'>    <span class="nt">&lt;repository&gt;</span>
 </span><span class='line'>    <span class="nt">&lt;id&gt;</span>oss.jfrog.org<span class="nt">&lt;/id&gt;</span>
 </span><span class='line'>    <span class="nt">&lt;name&gt;</span>Repository from Bintray<span class="nt">&lt;/name&gt;</span>
 </span><span class='line'>    <span class="nt">&lt;url&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://dl.bintray.com/ethereum/maven&quot;</span><span class="nt">&gt;</span>http://dl.bintray.com/ethereum/maven<span class="nt">&lt;/a&gt;&lt;/url&gt;</span>
 </span><span class='line'>    <span class="nt">&lt;/repository&gt;</span>
-</span><span class='line'>   <span class="nt">&lt;/repositories&gt;&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;/repositories&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>   <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;&lt;dependency&gt;</span>
 </span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>org.ethereum<span class="nt">&lt;/groupId&gt;</span>
 </span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>ethereumj-core<span class="nt">&lt;/artifactId&gt;</span>
 </span><span class='line'>    <span class="nt">&lt;version&gt;</span>1.1.0<span class="nt">&lt;/version&gt;</span>
 </span><span class='line'>    <span class="nt">&lt;type&gt;</span>zip<span class="nt">&lt;/type&gt;</span>
-</span><span class='line'>   <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'><span class="nt">&lt;/dependency&gt;</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
 <p>or gradle:</p>
@@ -145,16 +145,21 @@ Note that don’t need to put all the options to your custom config, just those 
 </span><span class='line'>       <span class="o">}</span>
 </span><span class='line'>   <span class="o">}&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="n">compile</span> <span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">org</span><span class="o">.</span><span class="na">ethereum</span><span class="o">:</span><span class="n">ethereumj</span><span class="o">-</span><span class="nl">core:</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">RC1</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;)</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="n">compile</span> <span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">org</span><span class="o">.</span><span class="na">ethereum</span><span class="o">:</span><span class="n">ethereumj</span><span class="o">-</span><span class="nl">core:</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">0</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;)</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
 <p>As a starting point for your own project take a look at <a href="https://github.com/ether-camp/ethereumj.starter">https://github.com/ether-camp/ethereumj.starter</a></p>
 
 <p>Running from command line:</p>
 
-<blockquote><p>git clone <a href="https://github.com/ethereum/ethereumj">https://github.com/ethereum/ethereumj</a>
-cd ethereumj
-gradlew run [-PmainClass=<sample class>]</p></blockquote>
+<p><figure class='code'><figcaption><span>command line <a href="https://gist.github.com/romanman/cc82a7a698f800040e10">https://gist.github.com/romanman/cc82a7a698f800040e10</a> </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> git clone &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;https://github.com/ethereum/ethereumj&quot;</span>&gt;https://github.com/ethereum/ethereumj&lt;/a&gt;
+</span><span class='line'> <span class="nb">cd </span>ethereumj
+</span><span class='line'> gradlew run <span class="o">[</span>-PmainClass<span class="o">=</span>&lt;sample class&gt;<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>Importing project to IntelliJ IDEA:</p>
 
