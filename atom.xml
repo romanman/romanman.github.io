@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2015-09-10T06:25:10-04:00</updated>
+  <updated>2016-02-11T12:29:38-05:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Release: 1.1.0 pre homestead release]]></title>
+    <link href="http://ethereumj.io/blog/2016/02/11/release-1-1-0/"/>
+    <updated>2016-02-11T14:03:57-05:00</updated>
+    <id>http://ethereumj.io/blog/2016/02/11/release-1-1-0</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://ethereumj.io/images/posts/release-ilustration-1.gif" title="Release 1.0.0-RC1" ></p>
+
+<p>That version is pre homestead version</p>
+
+<p> Ethereum(J) is the library that can be embedded in any Java/Scala project
+ and to provide full support for Ethereum protocol and sub services.a</p>
+
+<h5>Pure Java Miner</h5>
+
+<p>We support mining now! It is currently implemented in pure Java and can
+be used in private and test networks. You may even mine on the live Ethereum
+network however it is not economically feasible of course.</p>
+
+<p>The miner can run in two modes ‘cache-only’ and ‘full-dataset’. For the same
+difficulty the first one requires much more time to calculate a block nonce but
+takes only 16Mb of RAM while the latter takes 1Gb but runs much faster. The
+first one can be used for testing with lowered difficulty.</p>
+
+<!--more-->
+
+
+<p>The mining can be started by ‘mine.start’ config option which makes the miner started
+either immediately on startup or when the blockchain is synced with the network. Another
+option is starting the miner programmatically by invoking <code>Ethereum.getBlockMiner().startMining()</code>.
+To monitor miner events you may want to implement and add <code>MinerListener</code></p>
+
+<p>The <code>PrivateMinerSample</code> demonstrates creation of a simple 2 peer private network with a miner.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Friendly Ether Bot]]></title>
