@@ -1,0 +1,34 @@
+---
+layout: post
+title: "Release: 1.1.0 pre homestead release"
+date: 2016-02-11 11:03:57 -0800
+comments: true
+categories: release
+---
+
+{% img right /images/posts/release-ilustration-1.gif Release 1.0.0-RC1 %}
+
+That version is pre homestead version 
+
+ Ethereum(J) is the library that can be embedded in any Java/Scala project
+ and to provide full support for Ethereum protocol and sub services.a
+ 
+
+##### Pure Java Miner 
+
+We support mining now! It is currently implemented in pure Java and can 
+be used in private and test networks. You may even mine on the live Ethereum
+network however it is not economically feasible of course. 
+
+The miner can run in two modes ‘cache-only’ and ‘full-dataset’. For the same 
+difficulty the first one requires much more time to calculate a block nonce but 
+takes only 16Mb of RAM while the latter takes 1Gb but runs much faster. The 
+first one can be used for testing with lowered difficulty. 
+<!--more-->
+
+The mining can be started by ‘mine.start’ config option which makes the miner started 
+either immediately on startup or when the blockchain is synced with the network. Another
+option is starting the miner programmatically by invoking `Ethereum.getBlockMiner().startMining()`. 
+To monitor miner events you may want to implement and add `MinerListener`
+
+The `PrivateMinerSample` demonstrates creation of a simple 2 peer private network with a miner. 
