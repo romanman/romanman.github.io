@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-02-11T13:35:36-05:00</updated>
+  <updated>2016-02-11T13:39:42-05:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -46,7 +46,7 @@ To monitor miner events you may want to implement and add <code>MinerListener</c
 
 <p>The <code>PrivateMinerSample</code> demonstrates creation of a simple 2 peer private network with a miner.</p>
 
-<h5>Eth61/62 support</h5>
+<h5>Eth protocol 61/62 support</h5>
 
 <p>This release remains in line with the whole Ethereum network where 95% of peers moved to the latest Eth62 subprotocol. The most significant improvement of the Eth62 protocol is more flexible block exchange messages which improves the sync speed.</p>
 
