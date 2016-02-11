@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-02-11T13:14:27-05:00</updated>
+  <updated>2016-02-11T13:21:50-05:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -192,10 +192,10 @@ After building run either <code>org.ethereum.Start</code>, one of <code>org.ethe
 
 <p>For reference on all existing options, their description and defaults you may refer to the default config <code>ethereumj.conf</code> (you may find it in either the library jar or in the source tree <code>ethereum-core/src/main/resources</code>)
 To override needed options you may use one of the following ways:
-put your options to the <working dir>/config/ethereumj.conf file
+put your options to the <code>&lt;working dir&gt;/config/ethereumj.conf</code> file
 put <code>user.conf</code> to the root of your classpath (as a resource)
 put your options to any file and supply it via <code>-Dethereumj.conf.file=&lt;your config&gt;</code>
-programmatically by using SystemProperties.CONF.override*()
+programmatically by using <code>SystemProperties.CONF.override*()</code>
 programmatically using by overriding Spring <code>SystemProperties</code> bean
 Note that don’t need to put all the options to your custom config, just those you want to override.</p>
 ]]></content>
