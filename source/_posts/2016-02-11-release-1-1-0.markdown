@@ -57,11 +57,13 @@ You may want to take a look at `PriceFeedSample` for introduction.
 There are much more options now on how to configure your EthereumJ instance. 
 For reference on all existing options, their description and defaults you may refer to the default config `ethereumj.conf` (you may find it in either the library jar or in the source tree `ethereum-core/src/main/resources`) 
 To override needed options you may use one of the following ways: 
+
 * put your options to the <working dir>/config/ethereumj.conf file
 * put `user.conf` to the root of your classpath (as a resource) 
 * put your options to any file and supply it via `-Dethereumj.conf.file=<your config>`
 * programmatically by using SystemProperties.CONF.override*()
 * programmatically using by overriding Spring `SystemProperties` bean 
+
 Note that don’t need to put all the options to your custom config, just those you want to override. 
 
 ##### Running several nodes in a single JVM
