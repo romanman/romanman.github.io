@@ -95,10 +95,10 @@ Adding as maven artifact to your project:
  
  
 <dependency>
- 	<groupId>org.ethereum</groupId>
- 	<artifactId>ethereumj-core</artifactId>
- 	<version>1.1.0</version>
- 	<type>zip</type>
+  <groupId>org.ethereum</groupId>
+  <artifactId>ethereumj-core</artifactId>
+  <version>1.1.0-RELEASE</version>
+  <type>pom</type>
 </dependency>
 {% endcodeblock %}   
 
@@ -111,7 +111,7 @@ or gradle:
        }
    }
 
-   compile ("org.ethereum:ethereumj-core:1.1.0")
+   compile ("org.ethereum:ethereumj-core:1.1.0-RELEASE")
 {% endcodeblock %}   
 
 As a starting point for your own project take a look at https://github.com/ether-camp/ethereumj.starter
