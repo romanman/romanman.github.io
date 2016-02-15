@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-02-11T13:49:14-05:00</updated>
+  <updated>2016-02-14T21:27:10-05:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -18,7 +18,7 @@
     <link href="http://ethereumj.io/blog/2016/02/11/release-1-1-0/"/>
     <updated>2016-02-11T14:03:57-05:00</updated>
     <id>http://ethereumj.io/blog/2016/02/11/release-1-1-0</id>
-    <content type="html"><![CDATA[<p><img class="right" src="/images/posts/release-ilustration-1.gif" title="Release 1.0.0-RC1" ></p>
+    <content type="html"><![CDATA[<p>{% img right /images/posts/release-ilustration-1.gif Release 1.0.0-RC1 %}</p>
 
 <p>That version is pre homestead version</p>
 
@@ -44,9 +44,13 @@ either immediately on startup or when the blockchain is synced with the network.
 option is starting the miner programmatically by invoking <code>Ethereum.getBlockMiner().startMining()</code>.
 To monitor miner events you may want to implement and add <code>MinerListener</code></p>
 
-<p>The <code>PrivateMinerSample</code> demonstrates creation of a simple 2 peer private network with a miner.</p>
+<p>The <code>PrivateMinerSample</code> demonstrates creation of a simple 2 peer private network with a miner.
+```</p>
 
-<h5>Eth protocol 61/62 support</h5>
+<blockquote><p>gradlew run -PmainClass=org.ethereum.samples.PrivateMinerSample
+```</p>
+
+<h5>Eth protocol 61/62 support</h5></blockquote>
 
 <p>This release remains in line with the whole Ethereum network where 95% of peers moved to the latest Eth62 subprotocol. The most significant improvement of the Eth62 protocol is more flexible block exchange messages which improves the sync speed.</p>
 
@@ -55,14 +59,22 @@ To monitor miner events you may want to implement and add <code>MinerListener</c
 <p>PendingState is when you can see the state change immediately after transaction submit instead of waiting for a block where your transaction is included.
 For example if you send the value transfer transaction the PendingState will immediately reflect balance changes of sender and receiver (including mining fees) or indicates that transaction will not be accepted. This transaction is stored as a pending transaction until a new block is arrived. If the block contains that transaction it is removed from the PendingState, else the transaction is recalculated based on the latest block and you may see the updated state.</p>
 
-<p>Try running <code>PendingStateSample</code> to see how it works on practice.</p>
+<p>Try running <code>PendingStateSample</code> to see how it works on practice.
+```</p>
+
+<blockquote><p>gradlew run -PmainClass=org.ethereum.samples.PendingStateSample
+```</p></blockquote>
 
 <h5>Contract invocations becomes easier</h5>
 
 <p>We have added utility classes to make the contract call transactions construction much easier. You may do this by either supplying a Solidity contract ABI or manually constructing each function by passing its name and input/output parameter types. You may pass functions arguments as a regular Java objects which are flexibly converted to Solidity types. The same way return values are parsed and represented as corresponding Java types.
 The same way you may call constant function that is function invocation without propagating transaction to the network and without any changes to the contract state. So if you need to get some value from a contract you just do a constant call - that costs nothing, executed immediately and return you a value. To be completely precise you may call any function (not necessarily effectively constant) and get correct result but the contract state remains the same as before the call.</p>
 
-<p>You may want to take a look at <code>PriceFeedSample</code> for introduction.</p>
+<p>You may want to take a look at <code>PriceFeedSample</code> for introduction.
+```</p>
+
+<blockquote><p>gradlew run -PmainClass=org.ethereum.samples.PriceFeedSample
+```</p></blockquote>
 
 <h5>Finer and more flexible config</h5>
 
@@ -71,10 +83,10 @@ For reference on all existing options, their description and defaults you may re
 To override needed options you may use one of the following ways:</p>
 
 <ul>
-<li>put your options to the <working dir>/config/ethereumj.conf file</li>
+<li>put your options to the <code>&lt;working dir&gt;/config/ethereumj.conf file</code></li>
 <li>put <code>user.conf</code> to the root of your classpath (as a resource)</li>
 <li>put your options to any file and supply it via <code>-Dethereumj.conf.file=&lt;your config&gt;</code></li>
-<li>programmatically by using SystemProperties.CONFIG.override*()</li>
+<li>programmatically by using <code>SystemProperties.CONFIG.override*()</code></li>
 <li>programmatically using by overriding Spring <code>SystemProperties</code> bean</li>
 </ul>
 
@@ -85,7 +97,11 @@ To override needed options you may use one of the following ways:</p>
 
 <p>We removed the majority of statics in the EthereumJ code and substituted it with per Spring AppContext instances. That allows to create several separate instances of EthereumJ within a single JVM. So you can configure and start your small private network in a single JVM just from your main() method.</p>
 
-<p>To see how that can be configured please refer to the <code>PrivateMinerSample</code></p>
+<p>To see how that can be configured please refer to the <code>PrivateMinerSample</code>
+```</p>
+
+<blockquote><p>gradlew run -PmainClass=org.ethereum.samples.PrivateMinerSample
+```</p></blockquote>
 
 <h5>Whisper upgrade</h5>
 
@@ -95,93 +111,68 @@ To override needed options you may use one of the following ways:</p>
 
 <p>Pretty tiny but quite convenient feature which just gives you a reasonable gas price for your transaction. This value is just a statistics of the latest N transaction gas prices.</p>
 
-<p>See how <code>PendingStateSample</code> uses that feature.</p>
+<p>See how <code>PendingStateSample</code> uses that feature.
+```</p>
+
+<blockquote><p>gradlew run -PmainClass=org.ethereum.samples.PendingStateSample
+```</p></blockquote>
 
 <h5>Running EthereumJ</h5>
 
-<p>Adding as maven artifact to your project:</p>
+<h6>Adding as maven artifact to your project:</h6>
 
-<p><figure class='code'><figcaption><span>Maven Snippet <a href="https://gist.github.com/romanman/5f20d68d294ec1d049b5">https://gist.github.com/romanman/5f20d68d294ec1d049b5</a> </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;br/&gt;</span>
-</span><span class='line'><span class="nt">&lt;repositories&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;repository&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;id&gt;</span>oss.jfrog.org<span class="nt">&lt;/id&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;name&gt;</span>Repository from Bintray<span class="nt">&lt;/name&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;url&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://dl.bintray.com/ethereum/maven&quot;</span><span class="nt">&gt;</span>http://dl.bintray.com/ethereum/maven<span class="nt">&lt;/a&gt;&lt;/url&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/repository&gt;</span>
-</span><span class='line'><span class="nt">&lt;/repositories&gt;&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;&lt;dependency&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.ethereum<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>ethereumj-core<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;version&gt;</span>1.1.0-RELEASE<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
-</span><span class='line'><span class="nt">&lt;/dependency&gt;</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock Maven Snippet lang:xml <a href="https://gist.github.com/romanman/5f20d68d294ec1d049b5">https://gist.github.com/romanman/5f20d68d294ec1d049b5</a> %}<br/>
+<repositories>
+    <repository>
+    <id>oss.jfrog.org</id>
+    <name>Repository from Bintray</name>
+    <url><a href="http://dl.bintray.com/ethereum/maven">http://dl.bintray.com/ethereum/maven</a></url>
+    </repository>
+</repositories></p>
+
+<p><dependency>
+  <groupId>org.ethereum</groupId>
+  <artifactId>ethereumj-core</artifactId>
+  <version>1.1.0-RELEASE</version>
+  <type>pom</type>
+</dependency>
+{% endcodeblock %}</p>
 
 <p>or gradle:</p>
 
-<p><figure class='code'><figcaption><span>Gradle Snippet <a href="https://gist.github.com/romanman/55964ce71acdd9b51d8c">https://gist.github.com/romanman/55964ce71acdd9b51d8c</a> </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='groovy'><span class='line'>   <span class="n">repositories</span> <span class="o">{</span>
-</span><span class='line'>       <span class="n">maven</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">url</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="o">;&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;http://dl.bintray.com/ethereum/maven&quot;</span><span class="o">&gt;</span><span class="nl">http:</span><span class="c1">//dl.bintray.com/ethereum/maven&lt;/a&gt;&amp;rdquo;</span>
-</span><span class='line'>       <span class="o">}</span>
-</span><span class='line'>   <span class="o">}&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="n">compile</span> <span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">org</span><span class="o">.</span><span class="na">ethereum</span><span class="o">:</span><span class="n">ethereumj</span><span class="o">-</span><span class="nl">core:</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">RELEASE</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;)</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock Gradle Snippet lang:groovy <a href="https://gist.github.com/romanman/55964ce71acdd9b51d8c">https://gist.github.com/romanman/55964ce71acdd9b51d8c</a> %}
+   repositories {
+       maven {
+    url &ldquo;<a href="http://dl.bintray.com/ethereum/maven">http://dl.bintray.com/ethereum/maven</a>&rdquo;
+       }
+   }</p>
+
+<p>   compile (&ldquo;org.ethereum:ethereumj-core:1.1.0-RELEASE&rdquo;)
+{% endcodeblock %}</p>
 
 <p>As a starting point for your own project take a look at <a href="https://github.com/ether-camp/ethereumj.starter">https://github.com/ether-camp/ethereumj.starter</a></p>
 
-<p>Running from command line:</p>
+<h6>Running from command line:</h6>
 
-<p><figure class='code'><figcaption><span>command line <a href="https://gist.github.com/romanman/0bd6df410689af1a86b4">https://gist.github.com/romanman/0bd6df410689af1a86b4</a> </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'> git clone &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;https://github.com/ethereum/ethereumj&quot;</span>&gt;https://github.com/ethereum/ethereumj&lt;/a&gt;
-</span><span class='line'> <span class="nb">cd </span>ethereumj
-</span><span class='line'> gradlew run <span class="o">[</span>-PmainClass<span class="o">=</span>&lt;sample class&gt;<span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock command line lang:bash <a href="https://gist.github.com/romanman/0bd6df410689af1a86b4">https://gist.github.com/romanman/0bd6df410689af1a86b4</a> %}
+ git clone <a href="https://github.com/ethereum/ethereumj">https://github.com/ethereum/ethereumj</a>
+ cd ethereumj
+ gradlew run [-PmainClass=<sample class>]
+{% endcodeblock %}</p>
 
-<p>Importing project to IntelliJ IDEA:</p>
+<h6>Importing project to IntelliJ IDEA:</h6>
 
-<p><figure class='code'><figcaption><span>command line <a href="https://gist.github.com/romanman/ab27a4a0d879ded73aa3">https://gist.github.com/romanman/ab27a4a0d879ded73aa3</a> </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'> git clone &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;https://github.com/ethereum/ethereumj&quot;</span>&gt;https://github.com/ethereum/ethereumj&lt;/a&gt;
-</span><span class='line'> <span class="nb">cd </span>ethereumj
-</span><span class='line'> gradlew build
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock command line lang:bash <a href="https://gist.github.com/romanman/ab27a4a0d879ded73aa3">https://gist.github.com/romanman/ab27a4a0d879ded73aa3</a> %}
+ git clone <a href="https://github.com/ethereum/ethereumj">https://github.com/ethereum/ethereumj</a>
+ cd ethereumj
+ gradlew build
+{% endcodeblock %}</p>
 
 <p>  IDEA:
-File -> New -> Project from existing sources…
-Select ethereumj/build.gradle
-Dialog “Import Project from gradle”: press “OK”
-After building run either <code>org.ethereum.Start</code>, one of <code>org.ethereum.samples.*</code> or create your own main.</p>
+* File -> New -> Project from existing sources…
+* Select <code>ethereumj/build.gradle</code>
+* Dialog “Import Project from gradle”: press “OK”
+* After building run either <code>org.ethereum.Start</code>, one of <code>org.ethereum.samples.*</code> or create your own main.</p>
 
 <h5>Configuring EthereumJ</h5>
 
@@ -206,7 +197,7 @@ To override needed options you may use one of the following ways:</p>
     <link href="http://ethereumj.io/blog/2015/07/29/release-1-0-0-RC1/"/>
     <updated>2015-07-29T17:03:57-04:00</updated>
     <id>http://ethereumj.io/blog/2015/07/29/release-1-0-0-RC1</id>
-    <content type="html"><![CDATA[<p><img class="right" src="/images/posts/release-ilustration-1.gif" title="Release 1.0.0-RC1" ></p>
+    <content type="html"><![CDATA[<p>{% img right /images/posts/release-ilustration-1.gif Release 1.0.0-RC1 %}</p>
 
 <p>That version is first of the RC series for Frontier network.</p>
 
@@ -218,61 +209,35 @@ To override needed options you may use one of the following ways:</p>
 <p>To get started and include a java library into your project all you need is
 to <!--more--> use your favorite build system, here is Maven and Gradlle snippet:</p>
 
-<p><figure class='code'><figcaption><span>Maven Snippet <a href="https://gist.github.com/romanman/659e9e5b6b44b73b5755">https://gist.github.com/romanman/659e9e5b6b44b73b5755</a> </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;br/&gt;</span>
-</span><span class='line'>   <span class="nt">&lt;repositories&gt;</span>
-</span><span class='line'>     <span class="nt">&lt;repository&gt;</span>
-</span><span class='line'>       <span class="nt">&lt;id&gt;</span>oss.jfrog.org<span class="nt">&lt;/id&gt;</span>
-</span><span class='line'>       <span class="nt">&lt;name&gt;</span>Repository from Bintray<span class="nt">&lt;/name&gt;</span>
-</span><span class='line'>       <span class="nt">&lt;url&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://dl.bintray.com/ethereum/maven&quot;</span><span class="nt">&gt;</span>http://dl.bintray.com/ethereum/maven<span class="nt">&lt;/a&gt;&lt;/url&gt;</span>
-</span><span class='line'>     <span class="nt">&lt;/repository&gt;</span>
-</span><span class='line'>   <span class="nt">&lt;/repositories&gt;&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span>   <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>     <span class="nt">&lt;groupId&gt;</span>org.ethereum<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>     <span class="nt">&lt;artifactId&gt;</span>ethereumj-core<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>     <span class="nt">&lt;version&gt;</span>1.0.0-RC1<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>     <span class="nt">&lt;type&gt;</span>zip<span class="nt">&lt;/type&gt;</span>
-</span><span class='line'>   <span class="nt">&lt;/dependency&gt;</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock Maven Snippet lang:xml <a href="https://gist.github.com/romanman/659e9e5b6b44b73b5755">https://gist.github.com/romanman/659e9e5b6b44b73b5755</a> %}<br/>
+   <repositories>
+     <repository>
+       <id>oss.jfrog.org</id>
+       <name>Repository from Bintray</name>
+       <url><a href="http://dl.bintray.com/ethereum/maven">http://dl.bintray.com/ethereum/maven</a></url>
+     </repository>
+   </repositories></p>
+
+<p>   <dependency>
+     <groupId>org.ethereum</groupId>
+     <artifactId>ethereumj-core</artifactId>
+     <version>1.0.0-RC1</version>
+     <type>zip</type>
+   </dependency>
+{% endcodeblock %}</p>
 
 <p>or</p>
 
-<p><figure class='code'><figcaption><span>Gradle Snippet <a href="https://gist.github.com/romanman/cc82a7a698f800040e10">https://gist.github.com/romanman/cc82a7a698f800040e10</a> </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="o">&lt;</span><span class="s">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="s">&lt;p&gt;   repositories {</span>
-</span><span class='line'><span class="s">     maven {</span>
-</span><span class='line'><span class="s">      url &amp;ldquo;&lt;a href=&quot;http://dl.bintray.com/</span><span class="n">ethereum</span><span class="s">/maven&quot;&gt;http://dl.bintray.com/</span><span class="n">ethereum</span><span class="s">/maven&lt;/</span><span class="n">a</span><span class="o">&gt;&amp;</span><span class="n">rdquo</span><span class="o">;</span>
-</span><span class='line'>     <span class="o">}</span>
-</span><span class='line'>    <span class="o">}&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>   <span class="n">compile</span> <span class="o">(&amp;</span><span class="n">ldquo</span><span class="o">;</span><span class="n">org</span><span class="o">.</span><span class="na">ethereum</span><span class="o">:</span><span class="n">ethereumj</span><span class="o">-</span><span class="nl">core:</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">RC1</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="o">;)</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock Gradle Snippet lang:groovy <a href="https://gist.github.com/romanman/cc82a7a698f800040e10">https://gist.github.com/romanman/cc82a7a698f800040e10</a> %}</p>
+
+<p>   repositories {
+     maven {
+      url &ldquo;<a href="http://dl.bintray.com/ethereum/maven">http://dl.bintray.com/ethereum/maven</a>&rdquo;
+     }
+    }</p>
+
+<p>   compile (&ldquo;org.ethereum:ethereumj-core:1.0.0-RC1&rdquo;)
+{% endcodeblock %}</p>
 
 <p> Also we have very simple starter example - just do:
  <code>git clone https://github.com/ether-camp/ethereumj.starter</code>

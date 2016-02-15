@@ -4,7 +4,7 @@
   <title><![CDATA[Category: architecture | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/architecture/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-02-11T13:49:14-05:00</updated>
+  <updated>2016-02-14T21:27:10-05:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -18,7 +18,7 @@
     <link href="http://ethereumj.io/blog/2015/07/05/Ethereum-Trie/"/>
     <updated>2015-07-05T17:03:57-04:00</updated>
     <id>http://ethereumj.io/blog/2015/07/05/Ethereum-Trie</id>
-    <content type="html"><![CDATA[<p><img class="center" src="/images/posts/trie-ilustration-1.jpg" title="Trie Headline" ></p>
+    <content type="html"><![CDATA[<p>{% img center /images/posts/trie-ilustration-1.jpg Trie Headline %}</p>
 
 <p>The Ethereum data structure which is used to calculate the state of all the current balances, all the contract code and even the storage which is occupied by a particular contract, is still difficult for some developers on the project. I actually found myself having a hard time trying to understand it. This is why I will try to make a clear and visual explanation of the simple concepts and ideas that stand behind this important structure.</p>
 
@@ -54,7 +54,7 @@
 
 <p>Now let’s see how we encode the key value <code>[“do” : “verb”]</code> and <code>[“dog” : “puppy”]</code> into a data structure: (Diagram - 1)</p>
 
-<p><img class="center" src="/images/posts/trie-post-diagram-1.png" title="Diagram-1" ></p>
+<p>{% img center /images/posts/trie-post-diagram-1.png Diagram-1 %}</p>
 
 <p>As we can see each node on the digaram has 17 elements which are representing slots for <code>[ 0..f ]</code> digits of encoding, and one more slot  - the last one, for the value (if it exist).</p>
 
@@ -75,13 +75,13 @@ the retrieve/insert of a value is about to be <code>O(log(n))</code> which is no
 
 <p>Starting with the last diagram, let’s insert another key/value: [“doggiestan” : “aeswome_place”]. As we can see the key – “doggiestan” starts with “dog” (looks familiar?) and goes on with more characters. So in that case we are not going to encode the suffix “giestan” as a bunch of nodes but as a single key/value node: (Diagram - 2)</p>
 
-<p><img class="center" src="/images/posts/trie-post-diagram-2.png" title="Diagram-2" ></p>
+<p>{% img center /images/posts/trie-post-diagram-2.png Diagram-2 %}</p>
 
 <p><strong>3. How to encode the finger print? :  </strong></p>
 
 <p>The fingerprint will be the sha3(root_node) function. One will probably ask: “Why it is unique?” or “Why does every change in the trie affect the root node?”  To answer that let’s closely observe the next diagram:</p>
 
-<p><img class="center" src="/images/posts/trie-post-diagram-3.png" title="Diagram-3" ></p>
+<p>{% img center /images/posts/trie-post-diagram-3.png Diagram-3 %}</p>
 
 <p>In previous diagrams we used arrows to point out a node reference by another node, but in the data world, no arrows exist. So how is the reference actually implemented? Simply by saving the hash of the next node, in our case using <code>sha3()</code> function. That way, the most important goal of reflecting a change in data of each node, is achieved. Each change to a node will be reflected in the hash of that node, hence reflecting in the parent, and also his parent, and so on up to the root_node. That’s why <code>sha3(root_node)</code> is the absolute fingerprint of the full structure.</p>
 
@@ -91,74 +91,40 @@ the retrieve/insert of a value is about to be <code>O(log(n))</code> which is no
 
 <p>That is the runnig example for our test suite and can be used as start point for further study.</p>
 
-<p><figure class='code'><figcaption><span>Code example <a href="https://github.com/ethereum/ethereumj/blob/develop/ethereumj-core/src/test/java/org/ethereum/trie/TrieTest.java#L917">https://github.com/ethereum/ethereumj/blob/develop/ethereumj-core/src/test/java/org/ethereum/trie/TrieTest.java#L917</a> </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="nd">@Test</span> <span class="c1">// update the trie with blog key/val</span>
-</span><span class='line'>          <span class="c1">// each time dump the entire trie</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSample_1</span><span class="o">()</span> <span class="o">{&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="n">TrieImpl</span> <span class="n">trie</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">TrieImpl</span><span class="o">(</span><span class="n">mockDb</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">trie</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="s">&quot;dog&quot;</span><span class="o">,</span> <span class="s">&quot;puppy&quot;</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">String</span> <span class="n">dmp</span> <span class="o">=</span> <span class="n">trie</span><span class="o">.</span><span class="na">getTrieDump</span><span class="o">();</span>
-</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dmp</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-</span><span class='line'>    <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span>
-</span><span class='line'>      <span class="s">&quot;ed6e08740e4a267eca9d4740f71f573e9aabbcc739b16a2fa6c1baed5ec21278&quot;</span><span class="o">,</span>
-</span><span class='line'>      <span class="n">Hex</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">trie</span><span class="o">.</span><span class="na">getRootHash</span><span class="o">()));</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">trie</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="s">&quot;do&quot;</span><span class="o">,</span> <span class="s">&quot;verb&quot;</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">dmp</span> <span class="o">=</span> <span class="n">trie</span><span class="o">.</span><span class="na">getTrieDump</span><span class="o">();</span>
-</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dmp</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-</span><span class='line'>    <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span>
-</span><span class='line'>      <span class="s">&quot;779db3986dd4f38416bfde49750ef7b13c6ecb3e2221620bcad9267e94604d36&quot;</span><span class="o">,</span>
-</span><span class='line'>      <span class="n">Hex</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">trie</span><span class="o">.</span><span class="na">getRootHash</span><span class="o">()));</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">trie</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="s">&quot;doggiestan&quot;</span><span class="o">,</span> <span class="s">&quot;aeswome_place&quot;</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">dmp</span> <span class="o">=</span> <span class="n">trie</span><span class="o">.</span><span class="na">getTrieDump</span><span class="o">();</span>
-</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dmp</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-</span><span class='line'>    <span class="n">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">(</span>
-</span><span class='line'>      <span class="s">&quot;8bd5544747b4c44d1274aa99a6293065fe319b3230e800203317e4c75a770099&quot;</span><span class="o">,</span>
-</span><span class='line'>      <span class="n">Hex</span><span class="o">.</span><span class="na">toHexString</span><span class="o">(</span><span class="n">trie</span><span class="o">.</span><span class="na">getRootHash</span><span class="o">()));</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure></p>
+<p>{% codeblock Code example lang:java <a href="https://github.com/ethereum/ethereumj/blob/develop/ethereumj-core/src/test/java/org/ethereum/trie/TrieTest.java#L917">https://github.com/ethereum/ethereumj/blob/develop/ethereumj-core/src/test/java/org/ethereum/trie/TrieTest.java#L917</a> %}
+    @Test // update the trie with blog key/val
+          // each time dump the entire trie
+    public void testSample_1() {</p>
+
+<pre><code>    TrieImpl trie = new TrieImpl(mockDb);
+
+    trie.update("dog", "puppy");
+    String dmp = trie.getTrieDump();
+    System.out.println(dmp);
+    System.out.println();
+    Assert.assertEquals(
+      "ed6e08740e4a267eca9d4740f71f573e9aabbcc739b16a2fa6c1baed5ec21278", 
+      Hex.toHexString(trie.getRootHash()));
+
+    trie.update("do", "verb");
+    dmp = trie.getTrieDump();
+    System.out.println(dmp);
+    System.out.println();
+    Assert.assertEquals(
+      "779db3986dd4f38416bfde49750ef7b13c6ecb3e2221620bcad9267e94604d36", 
+      Hex.toHexString(trie.getRootHash()));
+
+    trie.update("doggiestan", "aeswome_place");
+    dmp = trie.getTrieDump();
+    System.out.println(dmp);
+    System.out.println();
+    Assert.assertEquals(
+      "8bd5544747b4c44d1274aa99a6293065fe319b3230e800203317e4c75a770099", 
+      Hex.toHexString(trie.getRootHash()));
+}
+</code></pre>
+
+<p>{% endcodeblock %}</p>
 
 <p>Any questions or comments are welcome.</p>
 
