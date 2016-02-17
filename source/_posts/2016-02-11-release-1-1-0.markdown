@@ -33,7 +33,7 @@ To monitor miner events you may want to implement and add `MinerListener`
 
 The `PrivateMinerSample` demonstrates creation of a simple 2 peer private network with a miner. 
 ```
-> gradlew run -PmainClass=org.ethereum.samples.PrivateMinerSample
+> ./gradlew run -PmainClass=org.ethereum.samples.PrivateMinerSample
 ```
 ##### Eth protocol 61/62 support
 
@@ -46,7 +46,7 @@ For example if you send the value transfer transaction the PendingState will imm
 
 Try running `PendingStateSample` to see how it works on practice. 
 ```
-> gradlew run -PmainClass=org.ethereum.samples.PendingStateSample
+> ./gradlew run -PmainClass=org.ethereum.samples.PendingStateSample
 ```
 
 
@@ -57,7 +57,7 @@ The same way you may call constant function that is function invocation without 
 
 You may want to take a look at `PriceFeedSample` for introduction.
 ```
-> gradlew run -PmainClass=org.ethereum.samples.PriceFeedSample
+> ./gradlew run -PmainClass=org.ethereum.samples.PriceFeedSample
 ```
 
 ##### Finer and more flexible config
@@ -80,7 +80,7 @@ We removed the majority of statics in the EthereumJ code and substituted it with
 
 To see how that can be configured please refer to the `PrivateMinerSample`
 ```
-> gradlew run -PmainClass=org.ethereum.samples.PrivateMinerSample
+> ./gradlew run -PmainClass=org.ethereum.samples.PrivateMinerSample
 ```
 
 ##### Whisper upgrade
@@ -93,7 +93,7 @@ Pretty tiny but quite convenient feature which just gives you a reasonable gas p
 
 See how `PendingStateSample` uses that feature. 
 ```
-> gradlew run -PmainClass=org.ethereum.samples.PendingStateSample
+> ./gradlew run -PmainClass=org.ethereum.samples.PendingStateSample
 ```
 
 ##### Running EthereumJ
@@ -137,7 +137,7 @@ As a starting point for your own project take a look at https://github.com/ether
 {% codeblock command line lang:bash https://gist.github.com/romanman/0bd6df410689af1a86b4 %}
  git clone https://github.com/ethereum/ethereumj
  cd ethereumj
- gradlew run [-PmainClass=<sample class>]
+ ./gradlew run [-PmainClass=<sample class>]
 {% endcodeblock %}   
 
 
@@ -146,7 +146,7 @@ As a starting point for your own project take a look at https://github.com/ether
 {% codeblock command line lang:bash https://gist.github.com/romanman/ab27a4a0d879ded73aa3 %}
  git clone https://github.com/ethereum/ethereumj
  cd ethereumj
- gradlew build
+ ./gradlew build
 {% endcodeblock %}   
 
   IDEA:
