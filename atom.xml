@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-02-18T10:48:10-05:00</updated>
+  <updated>2016-02-18T10:58:04-05:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -46,6 +46,10 @@ To monitor miner events you may want to implement and add <code>MinerListener</c
 
 <p>The <code>PrivateMinerSample</code> demonstrates creation of a simple 2 peer private network with a miner.</p>
 
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> ./gradlew run -PmainClass=org.ethereum.samples.PrivateMinerSample</span></code></pre></td></tr></table></div></figure>
+
+
 <h5>Eth protocol 61/62 support</h5>
 
 <p>This release remains in line with the whole Ethereum network where 95% of peers moved to the latest Eth62 subprotocol. The most significant improvement of the Eth62 protocol is more flexible block exchange messages which improves the sync speed.</p>
@@ -57,12 +61,20 @@ For example if you send the value transfer transaction the PendingState will imm
 
 <p>Try running <code>PendingStateSample</code> to see how it works on practice.</p>
 
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> ./gradlew run -PmainClass=org.ethereum.samples.PendingStateSample</span></code></pre></td></tr></table></div></figure>
+
+
 <h5>Contract invocations becomes easier</h5>
 
 <p>We have added utility classes to make the contract call transactions construction much easier. You may do this by either supplying a Solidity contract ABI or manually constructing each function by passing its name and input/output parameter types. You may pass functions arguments as a regular Java objects which are flexibly converted to Solidity types. The same way return values are parsed and represented as corresponding Java types.
 The same way you may call constant function that is function invocation without propagating transaction to the network and without any changes to the contract state. So if you need to get some value from a contract you just do a constant call - that costs nothing, executed immediately and return you a value. To be completely precise you may call any function (not necessarily effectively constant) and get correct result but the contract state remains the same as before the call.</p>
 
 <p>You may want to take a look at <code>PriceFeedSample</code> for introduction.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> ./gradlew run -PmainClass=org.ethereum.samples.PriceFeedSample</span></code></pre></td></tr></table></div></figure>
+
 
 <h5>Finer and more flexible config</h5>
 
@@ -71,10 +83,10 @@ For reference on all existing options, their description and defaults you may re
 To override needed options you may use one of the following ways:</p>
 
 <ul>
-<li>put your options to the <working dir>/config/ethereumj.conf file</li>
+<li>put your options to the <code>&lt;working dir&gt;/config/ethereumj.conf file</code></li>
 <li>put <code>user.conf</code> to the root of your classpath (as a resource)</li>
 <li>put your options to any file and supply it via <code>-Dethereumj.conf.file=&lt;your config&gt;</code></li>
-<li>programmatically by using SystemProperties.CONFIG.override*()</li>
+<li>programmatically by using <code>SystemProperties.CONFIG.override*()</code></li>
 <li>programmatically using by overriding Spring <code>SystemProperties</code> bean</li>
 </ul>
 
@@ -87,6 +99,10 @@ To override needed options you may use one of the following ways:</p>
 
 <p>To see how that can be configured please refer to the <code>PrivateMinerSample</code></p>
 
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> ./gradlew run -PmainClass=org.ethereum.samples.PrivateMinerSample</span></code></pre></td></tr></table></div></figure>
+
+
 <h5>Whisper upgrade</h5>
 
 <p>Whisper protocol has been upgraded to version 3 so if your private network supports Whisper you can use EthereumJ implementation together with the latest C++ Whisper capable nodes.</p>
@@ -97,9 +113,13 @@ To override needed options you may use one of the following ways:</p>
 
 <p>See how <code>PendingStateSample</code> uses that feature.</p>
 
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> ./gradlew run -PmainClass=org.ethereum.samples.PendingStateSample</span></code></pre></td></tr></table></div></figure>
+
+
 <h5>Running EthereumJ</h5>
 
-<p>Adding as maven artifact to your project:</p>
+<h6>Adding as maven artifact to your project:</h6>
 
 <figure class='code'><figcaption><span>Maven Snippet</span><a href='https://gist.github.com/romanman/5f20d68d294ec1d049b5'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -161,37 +181,37 @@ To override needed options you may use one of the following ways:</p>
 
 <p>As a starting point for your own project take a look at <a href="https://github.com/ether-camp/ethereumj.starter">https://github.com/ether-camp/ethereumj.starter</a></p>
 
-<p>Running from command line:</p>
+<h6>Running from command line:</h6>
 
 <figure class='code'><figcaption><span>command line</span><a href='https://gist.github.com/romanman/0bd6df410689af1a86b4'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'> git clone https://github.com/ethereum/ethereumj
 </span><span class='line'> <span class="nb">cd </span>ethereumj
-</span><span class='line'> gradlew run <span class="o">[</span>-PmainClass<span class="o">=</span>&lt;sample class&gt;<span class="o">]</span>
+</span><span class='line'> ./gradlew run <span class="o">[</span>-PmainClass<span class="o">=</span>&lt;sample class&gt;<span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p></p>
 
-<p>Importing project to IntelliJ IDEA:</p>
+<h6>Importing project to IntelliJ IDEA:</h6>
 
 <figure class='code'><figcaption><span>command line</span><a href='https://gist.github.com/romanman/ab27a4a0d879ded73aa3'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'> git clone https://github.com/ethereum/ethereumj
 </span><span class='line'> <span class="nb">cd </span>ethereumj
-</span><span class='line'> gradlew build
+</span><span class='line'> ./gradlew build
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p></p>
 
 <p>  IDEA:
-File -> New -> Project from existing sources…
-Select ethereumj/build.gradle
-Dialog “Import Project from gradle”: press “OK”
-After building run either <code>org.ethereum.Start</code>, one of <code>org.ethereum.samples.*</code> or create your own main.</p>
+* File -> New -> Project from existing sources…
+* Select <code>ethereumj/build.gradle</code>
+* Dialog “Import Project from gradle”: press “OK”
+* After building run either <code>org.ethereum.Start</code>, one of <code>org.ethereum.samples.*</code> or create your own main.</p>
 
 <h5>Configuring EthereumJ</h5>
 
