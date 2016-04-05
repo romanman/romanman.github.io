@@ -8,6 +8,8 @@ categories: release
 
 {% img right /images/posts/release-ilustration-1.gif Release 1.2.0 %}
 
+by Anton Nashatyrev
+
 Ethereum(J) is the library that can be embedded in any Java/Scala project
  and to provide full support for Ethereum protocol and sub services
 
@@ -21,9 +23,9 @@ Using Solidity contracts is now pretty easy from Java as we embedded `solc` comp
 
 For usage sample please refer to a simple JUnit test: [CompilerTest](https://github.com/ethereum/ethereumj/blob/develop/ethereumj-core/src/test/java/org/ethereum/solidity/CompilerTest.java)
 
-##### Handly helper classes to create/invoke/test contracts on a local standalone blockchain 
+##### Handy helper classes to create/invoke/test contracts on a local standalone blockchain 
 
-As a next step after embedding the Solidity compiler we added some nady and easy to use helper classes. Now creating and testing a Solidity contract in Java without connecting to any Ethereum network became incredibly easy.
+As a next step after embedding the Solidity compiler we added some handy and easy to use helper classes. Now creating and testing a Solidity contract in Java without connecting to any Ethereum network became incredibly easy.
 ```
     StandaloneBlockchain bc = new StandaloneBlockchain();
     SolidityContract contract = bc.submitNewContract("contract A { uint a; ... }");
