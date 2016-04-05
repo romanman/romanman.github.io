@@ -8,10 +8,12 @@ categories: release
 
 {% img right /images/posts/release-ilustration-1.gif Release 1.2.0 %}
 
-by Anton Nashatyrev
+> by Anton Nashatyrev
 
 Ethereum(J) is the library that can be embedded in any Java/Scala project
  and to provide full support for Ethereum protocol and sub services
+ 
+<!--more--> 
 
 ##### Homestead compatibility
 
