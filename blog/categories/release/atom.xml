@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-04-05T18:10:40-04:00</updated>
+  <updated>2016-04-05T18:13:42-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -20,10 +20,15 @@
     <id>http://ethereumj.io/blog/2016/04/05/release-1-dot-2-0-homestead-final-release</id>
     <content type="html"><![CDATA[<p><img class="right" src="/images/posts/release-ilustration-1.gif" title="Release 1.2.0" ></p>
 
-<p>by Anton Nashatyrev</p>
+<blockquote><p>by Anton Nashatyrev</p></blockquote>
 
 <p>Ethereum(J) is the library that can be embedded in any Java/Scala project
  and to provide full support for Ethereum protocol and sub services</p>
+
+<!--more-->
+
+
+<p></p>
 
 <h5>Homestead compatibility</h5>
 
