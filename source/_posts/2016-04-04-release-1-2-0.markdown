@@ -1,9 +1,0 @@
----
-layout: post
-title: "Release: 1.2.0  homestead final release"
-date: 2016-04-04 11:03:57 -0800
-comments: true
-categories: release
----
-
-{% img right /images/posts/release-ilustration-1.gif Release 1.2.0 %}
