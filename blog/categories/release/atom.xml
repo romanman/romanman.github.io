@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-02-18T10:58:04-05:00</updated>
+  <updated>2016-04-05T17:47:26-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Release: 1.2.0  homestead final release]]></title>
+    <link href="http://ethereumj.io/blog/2016/04/04/release-1-2-0/"/>
+    <updated>2016-04-04T15:03:57-04:00</updated>
+    <id>http://ethereumj.io/blog/2016/04/04/release-1-2-0</id>
+    <content type="html"><![CDATA[<p><img class="right" src="/images/posts/release-ilustration-1.gif" title="Release 1.2.0" ></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Release: 1.1.0 pre homestead release]]></title>
