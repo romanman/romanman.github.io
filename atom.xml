@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-04-05T17:54:41-04:00</updated>
+  <updated>2016-04-05T17:57:59-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Release: 1.2.0  Homestead Final Release]]></title>
     <link href="http://ethereumj.io/blog/2016/04/05/release-1-dot-2-0-homestead-final-release/"/>
-    <updated>2016-04-05T17:54:26-04:00</updated>
+    <updated>2016-04-05T17:57:40-04:00</updated>
     <id>http://ethereumj.io/blog/2016/04/05/release-1-dot-2-0-homestead-final-release</id>
     <content type="html"><![CDATA[
 ]]></content>
