@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-04-05T17:57:59-04:00</updated>
+  <updated>2016-04-05T18:06:57-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -18,7 +18,160 @@
     <link href="http://ethereumj.io/blog/2016/04/05/release-1-dot-2-0-homestead-final-release/"/>
     <updated>2016-04-05T17:57:40-04:00</updated>
     <id>http://ethereumj.io/blog/2016/04/05/release-1-dot-2-0-homestead-final-release</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p><img class="right" src="http://ethereumj.io/images/posts/release-ilustration-1.gif" title="Release 1.2.0" ></p>
+
+<p>Ethereum(J) is the library that can be embedded in any Java/Scala project
+ and to provide full support for Ethereum protocol and sub services</p>
+
+<h5>Homestead compatibility</h5>
+
+<p>Starting from the earlier 1.2.0 Release Candidate EthereumJ is 100% Homestead compatible</p>
+
+<h5>Solidity compiler is now embedded into EthereumJ</h5>
+
+<p>Using Solidity contracts is now pretty easy from Java as we embedded <code>solc</code> compiler (thanks to our collegues from <a href="https://github.com/ethereum/solidity">Ethereum-cpp</a> team) into EthereumJ for all supported platforms (Windows, Linux, Mac OS X).</p>
+
+<p>For usage sample please refer to a simple JUnit test: <a href="https://github.com/ethereum/ethereumj/blob/develop/ethereumj-core/src/test/java/org/ethereum/solidity/CompilerTest.java">CompilerTest</a></p>
+
+<h5>Handly helper classes to create/invoke/test contracts on a local standalone blockchain</h5>
+
+<p>As a next step after embedding the Solidity compiler we added some nady and easy to use helper classes. Now creating and testing a Solidity contract in Java without connecting to any Ethereum network became incredibly easy.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>StandaloneBlockchain bc = new StandaloneBlockchain();
+</span><span class='line'>SolidityContract contract = bc.submitNewContract("contract A { uint a; ... }");
+</span><span class='line'>contract.callFunction("funcName", "arg1", 2, new byte[] {1,2,3}, "arg4");
+</span><span class='line'>bc.createBlock()
+</span><span class='line'>System.out.println("Result: " + contract.callConstFunction("getResultFunc"));</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You may cover any complex Solidity contract with Java unit tests and debug the EVM execution in any complex case.</p>
+
+<p>For more details take a look at the small <a href="https://github.com/ethereum/ethereumj/blob/develop/ethereumj-core/src/main/java/org/ethereum/samples/StandaloneBlockchainSample.java">sample</a> and <a href="https://github.com/ethereum/ethereumj/tree/develop/ethereumj-core/src/main/java/org/ethereum/util/blockchain">helper classes</a> docs</p>
+
+<h5>Performance and memory footprint optimization</h5>
+
+<p>We further optimized performance and now first 1M blocks can be imported in less than 1 hour (depending on the hardware). Memory footprint had been also reduced and the node could now be started with <code>-Xmx256M</code> (with some config changes).</p>
+
+<h5>More stable node run</h5>
+
+<p>We have fixed amount of bugs, refactored blockchain sync process and made it more reliable, upgraded Windows <code>LevelDB</code> version to <code>1.18</code> (which fixed periodical DB crash)</p>
+
+<h5>Running EthereumJ</h5>
+
+<h6>Adding as maven artifact to your project:</h6>
+
+<figure class='code'><figcaption><span>Maven Snippet</span><a href='https://gist.github.com/romanman/5f20d68d294ec1d049b5'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'>
+</span><span class='line'><span class="nt">&lt;repositories&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;repository&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;id&gt;</span>oss.jfrog.org<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;name&gt;</span>Repository from Bintray<span class="nt">&lt;/name&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;url&gt;</span>http://dl.bintray.com/ethereum/maven<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/repository&gt;</span>
+</span><span class='line'><span class="nt">&lt;/repositories&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;groupId&gt;</span>org.ethereum<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;artifactId&gt;</span>ethereumj-core<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;version&gt;</span>1.2.0-RELEASE<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+</span><span class='line'><span class="nt">&lt;/dependency&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>or gradle:</p>
+
+<figure class='code'><figcaption><span>Gradle Snippet</span><a href='https://gist.github.com/romanman/55964ce71acdd9b51d8c'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'>   <span class="n">repositories</span> <span class="o">{</span>
+</span><span class='line'>       <span class="n">maven</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">url</span> <span class="s2">&quot;http://dl.bintray.com/ethereum/maven&quot;</span>
+</span><span class='line'>       <span class="o">}</span>
+</span><span class='line'>   <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="n">compile</span> <span class="o">(</span><span class="s2">&quot;org.ethereum:ethereumj-core:1.2.0-RELEASE&quot;</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>As a starting point for your own project take a look at <a href="https://github.com/ether-camp/ethereumj.starter">https://github.com/ether-camp/ethereumj.starter</a></p>
+
+<h6>Running from command line:</h6>
+
+<figure class='code'><figcaption><span>command line</span><a href='https://gist.github.com/romanman/0bd6df410689af1a86b4'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> git clone https://github.com/ethereum/ethereumj
+</span><span class='line'> <span class="nb">cd </span>ethereumj
+</span><span class='line'> gradlew run <span class="o">[</span>-PmainClass<span class="o">=</span>&lt;sample class&gt;<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h6>Importing project to IntelliJ IDEA:</h6>
+
+<figure class='code'><figcaption><span>command line</span><a href='https://gist.github.com/romanman/ab27a4a0d879ded73aa3'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> git clone https://github.com/ethereum/ethereumj
+</span><span class='line'> <span class="nb">cd </span>ethereumj
+</span><span class='line'> gradlew build
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>  IDEA:
+* File -> New -> Project from existing sources…
+* Select <code>ethereumj/build.gradle</code>
+* Dialog “Import Project from gradle”: press “OK”
+* After building run either <code>org.ethereum.Start</code>, one of <code>org.ethereum.samples.*</code> or create your own main.</p>
+
+<h5>Configuring EthereumJ</h5>
+
+<p>For reference on all existing options, their description and defaults you may refer to the default config <code>ethereumj.conf</code> (you may find it in either the library jar or in the source tree <code>ethereum-core/src/main/resources</code>)
+To override needed options you may use one of the following ways:</p>
+
+<ul>
+<li>put your options to the <code>&lt;working dir&gt;/config/ethereumj.conf</code> file</li>
+<li>put <code>user.conf</code> to the root of your classpath (as a resource)</li>
+<li>put your options to any file and supply it via <code>-Dethereumj.conf.file=&lt;your config&gt;</code></li>
+<li>programmatically by using <code>SystemProperties.CONFIG.override*()</code></li>
+<li>programmatically using by overriding Spring <code>SystemProperties</code> bean</li>
+</ul>
+
+
+<p>Note that don’t need to put all the options to your custom config, just those you want to override.</p>
 ]]></content>
   </entry>
   
