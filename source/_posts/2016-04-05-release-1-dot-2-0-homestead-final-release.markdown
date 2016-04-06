@@ -30,7 +30,12 @@ For usage sample please refer to a simple JUnit test: [CompilerTest](https://git
 As a next step after embedding the Solidity compiler we added some handy and easy to use helper classes. Now creating and testing a Solidity contract in Java without connecting to any Ethereum network became incredibly easy.
 ```
     StandaloneBlockchain bc = new StandaloneBlockchain();
-    SolidityContract contract = bc.submitNewContract("contract A { uint a; ... }");
+    
+    SolidityContract contract = 
+         bc.submitNewContract(
+           "contract A { uint a; ... }"
+           );
+         
     contract.callFunction("funcName", "arg1", 2, new byte[] {1,2,3}, "arg4");
     bc.createBlock()
     System.out.println("Result: " + contract.callConstFunction("getResultFunc"));
