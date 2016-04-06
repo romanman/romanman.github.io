@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-04-06T10:32:36-04:00</updated>
+  <updated>2016-04-06T10:36:26-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -44,7 +44,7 @@
 
 <p>As a next step after embedding the Solidity compiler we added some handy and easy to use helper classes. Now creating and testing a Solidity contract in Java without connecting to any Ethereum network became incredibly easy.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>Easy Contract Test Snippet</span><a href='https://gist.github.com/romanman/3488bc5a106f915e734ed10ea29dd75a'>link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -54,16 +54,27 @@
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>StandaloneBlockchain bc = new StandaloneBlockchain();
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>
 </span><span class='line'>
-</span><span class='line'>SolidityContract contract = 
-</span><span class='line'>     bc.submitNewContract(
-</span><span class='line'>       "contract A { uint a; ... }"
-</span><span class='line'>       );
-</span><span class='line'>     
-</span><span class='line'>contract.callFunction("funcName", "arg1", 2, new byte[] {1,2,3}, "arg4");
-</span><span class='line'>bc.createBlock()
-</span><span class='line'>System.out.println("Result: " + contract.callConstFunction("getResultFunc"));</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>    <span class="n">StandaloneBlockchain</span> <span class="n">bc</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">StandaloneBlockchain</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">SolidityContract</span> <span class="n">contract</span> <span class="o">=</span>
+</span><span class='line'>         <span class="n">bc</span><span class="o">.</span><span class="na">submitNewContract</span><span class="o">(</span>
+</span><span class='line'>           <span class="s">&quot;contract A { uint a; ... }&quot;</span>
+</span><span class='line'>           <span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">contract</span><span class="o">.</span><span class="na">callFunction</span><span class="o">(</span><span class="s">&quot;funcName&quot;</span><span class="o">,</span> <span class="s">&quot;arg1&quot;</span><span class="o">,</span>
+</span><span class='line'>                       <span class="mi">2</span><span class="o">,</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[]</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span><span class="mi">2</span><span class="o">,</span><span class="mi">3</span><span class="o">},</span> <span class="s">&quot;arg4&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">bc</span><span class="o">.</span><span class="na">createBlock</span><span class="o">()</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Result: &quot;</span> <span class="o">+</span>
+</span><span class='line'>         <span class="n">contract</span><span class="o">.</span><span class="na">callConstFunction</span><span class="o">(</span><span class="s">&quot;getResultFunc&quot;</span><span class="o">));</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>You may cover any complex Solidity contract with Java unit tests and debug the EVM execution in any complex case.</p>
