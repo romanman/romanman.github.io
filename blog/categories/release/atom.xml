@@ -4,7 +4,7 @@
   <title><![CDATA[Category: release | Ethereum J]]></title>
   <link href="http://ethereumj.io/blog/categories/release/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-04-06T10:15:37-04:00</updated>
+  <updated>2016-04-06T10:32:36-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -43,13 +43,20 @@
 <h5>Handy helper classes to create/invoke/test contracts on a local standalone blockchain</h5>
 
 <p>As a next step after embedding the Solidity compiler we added some handy and easy to use helper classes. Now creating and testing a Solidity contract in Java without connecting to any Ethereum network became incredibly easy.
-<code>
-    StandaloneBlockchain bc = new StandaloneBlockchain();
-    SolidityContract contract = bc.submitNewContract("contract A { uint a; ... }");
-    contract.callFunction("funcName", "arg1", 2, new byte[] {1,2,3}, "arg4");
-    bc.createBlock()
-    System.out.println("Result: " + contract.callConstFunction("getResultFunc"));
-</code>
+```
+    StandaloneBlockchain bc = new StandaloneBlockchain();</p>
+
+<pre><code>SolidityContract contract = 
+     bc.submitNewContract(
+       "contract A { uint a; ... }"
+       );
+
+contract.callFunction("funcName", "arg1", 2, new byte[] {1,2,3}, "arg4");
+bc.createBlock()
+System.out.println("Result: " + contract.callConstFunction("getResultFunc"));
+</code></pre>
+
+<p>```
 You may cover any complex Solidity contract with Java unit tests and debug the EVM execution in any complex case.</p>
 
 <p>For more details take a look at the small <a href="https://github.com/ethereum/ethereumj/blob/develop/ethereumj-core/src/main/java/org/ethereum/samples/StandaloneBlockchainSample.java">sample</a> and <a href="https://github.com/ethereum/ethereumj/tree/develop/ethereumj-core/src/main/java/org/ethereum/util/blockchain">helper classes</a> docs</p>

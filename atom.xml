@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-04-06T10:15:37-04:00</updated>
+  <updated>2016-04-06T10:32:36-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -49,8 +49,18 @@
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>StandaloneBlockchain bc = new StandaloneBlockchain();
-</span><span class='line'>SolidityContract contract = bc.submitNewContract("contract A { uint a; ... }");
+</span><span class='line'>
+</span><span class='line'>SolidityContract contract = 
+</span><span class='line'>     bc.submitNewContract(
+</span><span class='line'>       "contract A { uint a; ... }"
+</span><span class='line'>       );
+</span><span class='line'>     
 </span><span class='line'>contract.callFunction("funcName", "arg1", 2, new byte[] {1,2,3}, "arg4");
 </span><span class='line'>bc.createBlock()
 </span><span class='line'>System.out.println("Result: " + contract.callConstFunction("getResultFunc"));</span></code></pre></td></tr></table></div></figure>
