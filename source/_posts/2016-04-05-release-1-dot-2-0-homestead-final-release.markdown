@@ -28,7 +28,9 @@ For usage sample please refer to a simple JUnit test: [CompilerTest](https://git
 ##### Handy helper classes to create/invoke/test contracts on a local standalone blockchain 
 
 As a next step after embedding the Solidity compiler we added some handy and easy to use helper classes. Now creating and testing a Solidity contract in Java without connecting to any Ethereum network became incredibly easy.
-```
+
+{% codeblock Easy Contract Test Snippet lang:java https://gist.github.com/romanman/3488bc5a106f915e734ed10ea29dd75a %}  
+
     StandaloneBlockchain bc = new StandaloneBlockchain();
     
     SolidityContract contract = 
@@ -36,10 +38,14 @@ As a next step after embedding the Solidity compiler we added some handy and eas
            "contract A { uint a; ... }"
            );
          
-    contract.callFunction("funcName", "arg1", 2, new byte[] {1,2,3}, "arg4");
+    contract.callFunction("funcName", "arg1", 
+                       2, new byte[] {1,2,3}, "arg4");
     bc.createBlock()
-    System.out.println("Result: " + contract.callConstFunction("getResultFunc"));
-```
+    
+    System.out.println("Result: " + 
+         contract.callConstFunction("getResultFunc"));
+{% endcodeblock %}
+
 You may cover any complex Solidity contract with Java unit tests and debug the EVM execution in any complex case.
 
 For more details take a look at the small [sample](https://github.com/ethereum/ethereumj/blob/develop/ethereumj-core/src/main/java/org/ethereum/samples/StandaloneBlockchainSample.java) and [helper classes](https://github.com/ethereum/ethereumj/tree/develop/ethereumj-core/src/main/java/org/ethereum/util/blockchain) docs
