@@ -4,7 +4,7 @@
   <title><![CDATA[Ethereum J]]></title>
   <link href="http://ethereumj.io/atom.xml" rel="self"/>
   <link href="http://ethereumj.io/"/>
-  <updated>2016-04-06T10:36:26-04:00</updated>
+  <updated>2016-04-06T10:39:06-04:00</updated>
   <id>http://ethereumj.io/</id>
   <author>
     <name><![CDATA[Roman Mandeleil]]></name>
@@ -58,9 +58,7 @@
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-<span class='line-number'>15</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'>
-</span><span class='line'>
 </span><span class='line'>    <span class="n">StandaloneBlockchain</span> <span class="n">bc</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">StandaloneBlockchain</span><span class="o">();</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="n">SolidityContract</span> <span class="n">contract</span> <span class="o">=</span>
